@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using ProjectRPG.Game;
+using ProjectRPG.Heroes;
+
+Player player = new Player();
+player.ChooseHero();
+

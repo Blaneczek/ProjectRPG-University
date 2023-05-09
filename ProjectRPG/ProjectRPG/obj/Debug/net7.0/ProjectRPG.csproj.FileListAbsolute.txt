@@ -1,0 +1,15 @@
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\bin\Debug\net7.0\ProjectRPG.exe
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\bin\Debug\net7.0\ProjectRPG.deps.json
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\bin\Debug\net7.0\ProjectRPG.runtimeconfig.json
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\bin\Debug\net7.0\ProjectRPG.dll
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\bin\Debug\net7.0\ProjectRPG.pdb
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.csproj.AssemblyReference.cache
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.AssemblyInfoInputs.cache
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.AssemblyInfo.cs
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.csproj.CoreCompileInputs.cache
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.dll
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\refint\ProjectRPG.dll
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.pdb
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ProjectRPG.genruntimeconfig.cache
+C:\Users\dawid\OneDrive\Pulpit\studia-wsb\C#\Projekt-C-hash\Project-C-hash\ProjectRPG\ProjectRPG\obj\Debug\net7.0\ref\ProjectRPG.dll
