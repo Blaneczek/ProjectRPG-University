@@ -5,13 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectRPG.Equipment.Weapons;
 using ProjectRPG.Equipment.Armors;
+using ProjectRPG.Monsters;
 using static System.Reflection.Metadata.BlobBuilder;
+using System.Diagnostics.Tracing;
+using System.Threading;
 
 namespace ProjectRPG.Heroes
 {
-    public class Hero<WeaponType, ArmorType> where WeaponType : Weapon where ArmorType : Armor
+    public abstract class Hero<WeaponType, ArmorType> where WeaponType : Weapon where ArmorType : Armor
     {
         #region FieldsAndProperties
+        public delegate double AttackDelegate(Monster monster);
+        public event AttackDelegate OnNormalHit;
+        public event AttackDelegate OnSpecialHit;
         public string Name { get; set; }
         public double Level { get; set; }
         public double MaxHP { get; set; }
@@ -26,16 +32,19 @@ namespace ProjectRPG.Heroes
         public double Strength { get; set; }
         public double Agility { get; set; }
         public double Intelligence { get; set; }
+        public double tempDefence { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
+        HPPotion PotionHP { get; set; }
+        MPPotion PotionMP { get; set; }
         //public Boots Boots { get; set; }
         //public Helmet Helmet { get; set; }
         //public Necklace Necklace { get; set; }
         public struct HPPotion
         {
             public string Name { get; set; }
-            public double HealPower {get; set;}
-            public double Amount { get; set;}
+            public double HealPower { get; set; }
+            public double Amount { get; set; }
             public HPPotion(string name, double healPower, double amount)
             {
                 Name = name;
@@ -58,11 +67,6 @@ namespace ProjectRPG.Heroes
         #endregion
 
         #region Constructors
-        public Hero()
-        {
-
-        }
-
         public Hero(string name, WeaponType weapon, ArmorType armor)
         {
             Name = name;
@@ -74,11 +78,39 @@ namespace ProjectRPG.Heroes
             //Boots = boots;
             //Helmet = helmet;
             //Necklace = necklace;
+            PotionHP = new("Lesser HP potion", 20, 5);
+            PotionMP = new("Lesser MP potion", 20, 5);
         }
         #endregion
 
         #region Methods
+        public double NormalAttack(Monster monster)
+        {
+            return OnNormalHit.Invoke(monster);
+        }
+        public double SpecialAttack(Monster monster)
+        {
+            return OnSpecialHit.Invoke(monster);
+        }
+        public void AvoidAttack()
+        {
+            tempDefence = Defence;
+            Defence = 100;
+        }
+        public void UseHPPotion()
+        {
+            CurrentHP += MaxHP * (PotionHP.HealPower * 0.01);
+            if (CurrentHP > MaxHP)
+            {
+                CurrentHP = MaxHP;
+            }
+        }
+        public void UseMPPotion()
+        {
 
+        }
+        public abstract double NormalHitMonster(Monster monster);
+        public abstract double SpecialHitMonster(Monster monster);
 
         #endregion
     }

@@ -27,8 +27,6 @@ namespace ProjectRPG.Game
                 HeavyArmor armor1 = new HeavyArmor("Zbroja", "Legendarny", "Kozak majonez", 20, 20);
                 PlayerHero = new Warrior(userName, sword1, armor1);
             }
-
-            Console.WriteLine(PlayerHero.Attack);
         }
     }
 }

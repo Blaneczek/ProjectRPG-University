@@ -1,6 +1,9 @@
 ﻿using ProjectRPG.Game;
-using ProjectRPG.Heroes;
 
-Player player = new Player();
-player.ChooseHero();
+
+Game game = new Game();
+
+game.StartGame();
+
+
 

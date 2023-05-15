@@ -1,5 +1,6 @@
 ﻿using ProjectRPG.Equipment.Armors;
 using ProjectRPG.Equipment.Weapons;
+using ProjectRPG.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,40 @@ namespace ProjectRPG.Heroes
             MaxHP = 100 + Strength * 10;
             CurrentHP = MaxHP;
             MaxMP = 100 + Intelligence * 10;
+            CurrentMP = MaxMP;
             BaseAttack = 10 * (Strength * 0.2);
             Attack = BaseAttack + Weapon.Damage;
             BaseDodgeRate = 10 * Agility * 2;
+            OnNormalHit += NormalHitMonster;
+            OnSpecialHit += SpecialHitMonster;
         }
+
+        public override double NormalHitMonster(Monster monster)
+        {
+            double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01));
+            monster.CurrentHP -= DamageDealt;
+
+            if (monster.CurrentHP < 0)
+            {
+                monster.CurrentHP = 0;
+            } 
+
+            return DamageDealt;
+        }
+
+        public override double SpecialHitMonster(Monster monster)
+        {
+            double DamageDealt = Math.Round((Attack - (Attack * (Defence * 0.01))) * (1 + Strength * 0.01) * 2);
+            monster.CurrentHP -= DamageDealt;
+            CurrentMP -= 60;
+
+            if (monster.CurrentHP < 0)
+            {
+                monster.CurrentHP = 0;
+            }
+
+            return DamageDealt;
+        }
+    
     }
 }
