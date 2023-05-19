@@ -25,7 +25,7 @@ namespace ProjectRPG.Game
             {
                 Sword sword1 = new Sword("Miecz", "Legendarny", "Kozak majonez", 100);
                 HeavyArmor armor1 = new HeavyArmor("Zbroja", "Legendarny", "Kozak majonez", 20, 20);
-                PlayerHero = new Warrior(userName, sword1, armor1);
+                PlayerHero = new Warrior(userName, sword1, armor1, "ddddd");
             }
         }
     }

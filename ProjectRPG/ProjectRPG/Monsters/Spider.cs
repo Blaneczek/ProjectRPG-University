@@ -21,8 +21,13 @@ namespace ProjectRPG.Monsters
         public override double SpecialHitHero(Hero<Weapon, Armor> hero)
         {
             double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01))) * 2);
+            if (hero.AbsoluteDefence)
+            {
+                DamageDealt = 0;
+                Console.WriteLine(hero.AbsoluteDefenceDesc);
+                return DamageDealt;
+            }
             double AdditionalDamage = DamageDealt / 10;
-            Console.WriteLine("Zostales otruty");
             hero.CurrentHP -= DamageDealt;
 
             if (hero.CurrentHP < 0)

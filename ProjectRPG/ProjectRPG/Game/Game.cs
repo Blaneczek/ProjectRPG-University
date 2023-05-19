@@ -13,7 +13,7 @@ namespace ProjectRPG.Game
         {
             Fight fight = new Fight();
             Player player = new Player();
-            Spider spider = new Spider("pajak", 1, 500, 50, 30, "Trucizna zadala");
+            Spider spider = new Spider("Spider", 1, 500, 50, 30, "Poison bite");
             player.ChooseHero();
             Console.Clear();
             fight.StartFight(player, spider);

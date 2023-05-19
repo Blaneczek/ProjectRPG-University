@@ -32,11 +32,14 @@ namespace ProjectRPG.Heroes
         public double Strength { get; set; }
         public double Agility { get; set; }
         public double Intelligence { get; set; }
-        public double tempDefence { get; set; }
+        public bool AbsoluteDefence { get; set; }
+        public string AbsoluteDefenceDesc { get; set; }
+        public int AmountOfHPPotions { get; set; }
+        public int AmountOfMPPotions { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
-        HPPotion PotionHP { get; set; }
-        MPPotion PotionMP { get; set; }
+        public HPPotion PotionHP { get; set; }
+        public MPPotion PotionMP { get; set; }
         //public Boots Boots { get; set; }
         //public Helmet Helmet { get; set; }
         //public Necklace Necklace { get; set; }
@@ -44,8 +47,8 @@ namespace ProjectRPG.Heroes
         {
             public string Name { get; set; }
             public double HealPower { get; set; }
-            public double Amount { get; set; }
-            public HPPotion(string name, double healPower, double amount)
+            public int Amount { get; set; }
+            public HPPotion(string name, double healPower, int amount)
             {
                 Name = name;
                 HealPower = healPower;
@@ -56,8 +59,8 @@ namespace ProjectRPG.Heroes
         {
             public string Name { get; set; }
             public double ManaPower { get; set; }
-            public double Amount { get; set; }
-            public MPPotion(string name, double manaPower, double amount)
+            public int Amount { get; set; }
+            public MPPotion(string name, double manaPower, int amount)
             {
                 Name = name;
                 ManaPower = manaPower;
@@ -80,6 +83,9 @@ namespace ProjectRPG.Heroes
             //Necklace = necklace;
             PotionHP = new("Lesser HP potion", 20, 5);
             PotionMP = new("Lesser MP potion", 20, 5);
+            AmountOfHPPotions = PotionHP.Amount;
+            AmountOfMPPotions = PotionMP.Amount;
+            AbsoluteDefence = false;
         }
         #endregion
 
@@ -94,8 +100,7 @@ namespace ProjectRPG.Heroes
         }
         public void AvoidAttack()
         {
-            tempDefence = Defence;
-            Defence = 100;
+            AbsoluteDefence = true;
         }
         public void UseHPPotion()
         {
@@ -104,10 +109,17 @@ namespace ProjectRPG.Heroes
             {
                 CurrentHP = MaxHP;
             }
+            AmountOfHPPotions--;        
         }
+
         public void UseMPPotion()
         {
-
+            CurrentMP += MaxMP * (PotionMP.ManaPower * 0.01);
+            if (CurrentMP > MaxMP)
+            {
+                CurrentMP = MaxMP;
+            }
+            AmountOfMPPotions--;
         }
         public abstract double NormalHitMonster(Monster monster);
         public abstract double SpecialHitMonster(Monster monster);

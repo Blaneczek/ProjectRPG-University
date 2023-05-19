@@ -11,7 +11,7 @@ namespace ProjectRPG.Heroes
 {
     public class Warrior : Hero<Weapon, Armor>
     {
-        public Warrior(string name, Weapon weapon, Armor armor) : base(name, weapon, armor)
+        public Warrior(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
         {
             Strength = 10;
             Agility = 6;
@@ -23,6 +23,7 @@ namespace ProjectRPG.Heroes
             BaseAttack = 10 * (Strength * 0.2);
             Attack = BaseAttack + Weapon.Damage;
             BaseDodgeRate = 10 * Agility * 2;
+            AbsoluteDefenceDesc = absoluteDefenceDesc;
             OnNormalHit += NormalHitMonster;
             OnSpecialHit += SpecialHitMonster;
         }

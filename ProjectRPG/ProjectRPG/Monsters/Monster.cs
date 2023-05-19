@@ -52,6 +52,13 @@ namespace ProjectRPG.Monsters
         public double NormalHitHero(Hero<Weapon, Armor> hero)
         {
             double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01))));
+            if (hero.AbsoluteDefence == true)
+            {
+                DamageDealt = 0;
+                Console.WriteLine(hero.AbsoluteDefenceDesc);
+                return DamageDealt;
+            }
+            
             hero.CurrentHP -= DamageDealt;
             if (hero.CurrentHP < 0)
             {
