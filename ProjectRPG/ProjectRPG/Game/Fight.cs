@@ -165,7 +165,20 @@ namespace ProjectRPG.Game
             {
                 Console.WriteLine("You have been poisoned!!!");
             }
-            Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");       
+            if (player.PlayerHero.Dodged)
+            {
+                Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
+                player.PlayerHero.Dodged = false;
+            }
+            else if (player.PlayerHero.AbsoluteDefence)
+            {
+                Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
+            }
+            else
+            {
+                Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage"); 
+            }
+                  
         }
         public void StartFight(Player player, Monster monster)
         {

@@ -22,7 +22,7 @@ namespace ProjectRPG.Heroes
             CurrentMP = MaxMP;
             BaseAttack = 10 * (Strength * 0.2);
             Attack = BaseAttack + Weapon.Damage;
-            BaseDodgeRate = 10 * Agility * 2;
+            DodgeRate = 10 + Agility + armor.DodgeRate;
             AbsoluteDefenceDesc = absoluteDefenceDesc;
             OnNormalHit += NormalHitMonster;
             OnSpecialHit += SpecialHitMonster;

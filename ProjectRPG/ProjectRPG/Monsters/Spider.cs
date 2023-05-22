@@ -24,15 +24,25 @@ namespace ProjectRPG.Monsters
             if (hero.AbsoluteDefence)
             {
                 DamageDealt = 0;
-                Console.WriteLine(hero.AbsoluteDefenceDesc);
                 return DamageDealt;
             }
             double AdditionalDamage = DamageDealt / 10;
-            hero.CurrentHP -= DamageDealt;
 
-            if (hero.CurrentHP < 0)
+            Random rnd = new Random();
+            int losuj = rnd.Next(1, 101);
+            if (losuj >= 1 && losuj <= hero.DodgeRate)
             {
-                hero.CurrentHP = 0;
+                DamageDealt = 0;
+                hero.Dodged = true;
+                return DamageDealt;
+            }
+            else if (losuj > hero.DodgeRate)
+            {
+                hero.CurrentHP -= DamageDealt;
+                if (hero.CurrentHP < 0)
+                {
+                    hero.CurrentHP = 0;
+                }
             }
             return AdditionalDamage;
         }

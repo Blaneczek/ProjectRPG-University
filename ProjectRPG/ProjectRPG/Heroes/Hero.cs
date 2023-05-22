@@ -28,7 +28,7 @@ namespace ProjectRPG.Heroes
         public double Attack { get; set; }
         public double BaseDefence { get; set; }
         public double Defence { get; set; }
-        public double BaseDodgeRate { get; set; }
+        public double DodgeRate { get; set; }
         public double Strength { get; set; }
         public double Agility { get; set; }
         public double Intelligence { get; set; }
@@ -36,6 +36,7 @@ namespace ProjectRPG.Heroes
         public string AbsoluteDefenceDesc { get; set; }
         public int AmountOfHPPotions { get; set; }
         public int AmountOfMPPotions { get; set; }
+        public bool Dodged { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
         public HPPotion PotionHP { get; set; }
@@ -86,6 +87,7 @@ namespace ProjectRPG.Heroes
             AmountOfHPPotions = PotionHP.Amount;
             AmountOfMPPotions = PotionMP.Amount;
             AbsoluteDefence = false;
+            Dodged = false;
         }
         #endregion
 
