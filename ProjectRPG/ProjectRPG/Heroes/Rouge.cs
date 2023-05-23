@@ -11,8 +11,11 @@ namespace ProjectRPG.Heroes
 {
     public class Rogue : Hero<Weapon, Armor>
     {
-        public Rogue(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
+        public Rogue(string name) : base(name)
         {
+            Weapon = new Sword("Sword", "Common", "Taki se miecz", 20);
+            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
+            AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 6; 
             Agility = 10; 
             Intelligence = 4;
@@ -22,8 +25,7 @@ namespace ProjectRPG.Heroes
             CurrentMP = MaxMP;
             BaseAttack = 9 * (Agility * 0.2); 
             Attack = BaseAttack + Weapon.Damage;
-            DodgeRate = 15 + Agility + armor.DodgeRate;
-            AbsoluteDefenceDesc = absoluteDefenceDesc;
+            DodgeRate = 15 + Agility + Armor.DodgeRate;
             OnNormalHit += NormalHitMonster; 
             OnSpecialHit += SpecialHitMonster;  
         }

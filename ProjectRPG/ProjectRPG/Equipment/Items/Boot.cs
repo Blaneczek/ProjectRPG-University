@@ -20,5 +20,20 @@
             DodgeRateBonus = dodgeRateBonus;
         }
         #endregion
+
+        #region Methods
+        public void PrintInfo()
+        {
+            Console.WriteLine("======================= HELMET ===========================");
+            Console.WriteLine($"| NAME        :  {Name}                                  |");
+            Console.WriteLine($"| TYPE        :  {GetType().Name}                        |");
+            Console.WriteLine($"| RARITY      :  {Rarity}                                |");
+            Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
+            Console.WriteLine($"| AG BONUS    :  {AgilityBonus}                          |");
+            Console.WriteLine($"| DODGE BONUS :  {DodgeRateBonus}                        |");
+            Console.WriteLine("===========================================================");
+            Console.WriteLine();
+        }
+        #endregion
     }
 }

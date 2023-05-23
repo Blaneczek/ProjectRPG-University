@@ -26,7 +26,6 @@ namespace ProjectRPG.Monsters
                 DamageDealt = 0;
                 return DamageDealt;
             }
-            double AdditionalDamage = DamageDealt / 10;
 
             Random rnd = new Random();
             int losuj = rnd.Next(1, 101);
@@ -44,7 +43,7 @@ namespace ProjectRPG.Monsters
                     hero.CurrentHP = 0;
                 }
             }
-            return AdditionalDamage;
+            return DamageDealt;
         }
     }
 }

@@ -35,9 +35,7 @@ namespace ProjectRPG.Monsters
                 }
             }
 
-            double AdditionalDamage = DamageDealt * 0.2; // Dodatkowe obrażenia od ognia (20% zadanych obrażeń)
-
-            return AdditionalDamage;
+            return DamageDealt;
         }
     }
 }

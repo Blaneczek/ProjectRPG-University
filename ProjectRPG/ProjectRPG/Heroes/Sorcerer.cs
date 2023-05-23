@@ -11,8 +11,11 @@ namespace ProjectRPG.Heroes
 {
     public class Sorcerer : Hero<Weapon, Armor>
     {
-        public Sorcerer(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
+        public Sorcerer(string name) : base(name)
         {
+            Weapon = new Sword("Sword", "Common", "Taki se miecz", 20);
+            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
+            AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 4;
             Agility = 6;
             Intelligence = 10;
@@ -22,8 +25,7 @@ namespace ProjectRPG.Heroes
             CurrentMP = MaxMP;
             BaseAttack = 8 * (Intelligence * 0.2);
             Attack = BaseAttack + Weapon.Damage;
-            DodgeRate = 10 + Agility + armor.DodgeRate;
-            AbsoluteDefenceDesc = absoluteDefenceDesc;
+            DodgeRate = 10 + Agility + Armor.DodgeRate;
             OnNormalHit += NormalHitMonster;
             OnSpecialHit += SpecialHitMonster;
         }

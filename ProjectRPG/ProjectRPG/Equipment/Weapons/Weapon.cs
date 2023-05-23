@@ -16,7 +16,6 @@ namespace ProjectRPG.Equipment.Weapons
         #endregion
 
         #region Constructors
-        public Weapon() { }
         public Weapon(string name, string rarity, string description, double damage)
         {
             Name = name;
@@ -27,7 +26,17 @@ namespace ProjectRPG.Equipment.Weapons
         #endregion
 
         #region Methods
-
+        public void PrintInfo()
+        {
+            Console.WriteLine("======================== WEAPON ============================");
+            Console.WriteLine($"| NAME        :  {Name}                                   |");
+            Console.WriteLine($"| TYPE        :  {GetType().Name}                         |");
+            Console.WriteLine($"| RARITY      :  {Rarity}                                 |");
+            Console.WriteLine($"| DESCRIPTION :  {Description}                            |");
+            Console.WriteLine($"| DAMAGE      :  {Damage}                                 |");
+            Console.WriteLine("==========================================================");
+            Console.WriteLine();
+        }
         #endregion
     }
 }

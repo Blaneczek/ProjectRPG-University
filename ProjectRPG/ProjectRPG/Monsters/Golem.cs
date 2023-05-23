@@ -34,10 +34,7 @@ namespace ProjectRPG.Monsters
                     hero.CurrentHP = 0;
                 }
             }
-            // Stunowanie bohatera
-            hero.Stunned = true;
-            Console.WriteLine("You have been stunned by the Golem!");
-            return 0; 
+            return DamageDealt; 
         }
     }
 }

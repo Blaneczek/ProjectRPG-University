@@ -1,5 +1,6 @@
 ﻿using ProjectRPG.Equipment.Armors;
 using ProjectRPG.Equipment.Weapons;
+using ProjectRPG.Game;
 using ProjectRPG.Monsters;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,11 @@ namespace ProjectRPG.Heroes
 {
     public class Warrior : Hero<Weapon, Armor>
     {
-        public Warrior(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
+        public Warrior(string name) : base(name)
         {
+            Weapon = new Sword("Sword", "Common", "Taki se miecz", 20);
+            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
+            AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 10;
             Agility = 6;
             Intelligence = 4;
@@ -22,8 +26,8 @@ namespace ProjectRPG.Heroes
             CurrentMP = MaxMP;
             BaseAttack = 10 * (Strength * 0.2);
             Attack = BaseAttack + Weapon.Damage;
-            DodgeRate = 10 + Agility + armor.DodgeRate;
-            AbsoluteDefenceDesc = absoluteDefenceDesc;
+            Defence = BaseDefence + Armor.Defence;
+            DodgeRate = 10 + Agility + Armor.DodgeRate;
             OnNormalHit += NormalHitMonster;
             OnSpecialHit += SpecialHitMonster;
         }

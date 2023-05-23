@@ -1,0 +1,9 @@
+﻿1,Sword,Common,A basic sword,20
+2,Sword,Rare,A basic sword,40
+3,Sword,Legendary,A basic sword,80
+4,Staff,Common,A basic sword,20
+5,Staff,Rare,A basic sword,40
+6,Staff,Legendary,A basic sword,80
+7,Bow,Common,A powerful bow,20
+8,Bow,Rare,A powerful bow,40
+9,Bow,Legendary,A powerful bow,80

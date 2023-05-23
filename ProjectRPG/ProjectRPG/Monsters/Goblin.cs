@@ -34,7 +34,7 @@ namespace ProjectRPG.Monsters
                     hero.CurrentHP = 0;
                 }
             }
-            return 0; 
+            return DamageDealt; 
         }
     }
 }

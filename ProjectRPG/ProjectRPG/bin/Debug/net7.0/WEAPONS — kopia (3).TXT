@@ -1,0 +1,10 @@
+﻿Armor,Plate Armor,Common,Heavy armor with strong defense,50,10
+Armor,Leather Armor,Uncommon,Light armor with moderate defense,30,20
+Weapon,Sword,Common,A basic sword,20
+Weapon,Bow,Rare,A powerful bow,30
+Helmet,Steel Helmet,Common,A sturdy steel helmet,10,5
+Helmet,Leather Cap,Uncommon,A lightweight leather cap,5,2
+Necklace,Amulet of Wisdom,Uncommon,A mystical amulet that enhances intelligence,0,10
+Necklace,Necklace of Mana,Common,A necklace that increases mana capacity,0,20
+Boot,Steel Boots,Common,Durable steel boots,5,5
+Boot,Leather Boots,Uncommon,Lightweight leather boots,2,10

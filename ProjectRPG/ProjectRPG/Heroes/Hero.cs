@@ -9,6 +9,7 @@ using ProjectRPG.Monsters;
 using static System.Reflection.Metadata.BlobBuilder;
 using System.Diagnostics.Tracing;
 using System.Threading;
+using ProjectRPG.Game;
 
 namespace ProjectRPG.Heroes
 {
@@ -37,14 +38,14 @@ namespace ProjectRPG.Heroes
         public int AmountOfHPPotions { get; set; }
         public int AmountOfMPPotions { get; set; }
         public bool Dodged { get; set; }
-        public bool Stunned { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
+        public Inventory<Weapon, Armor> Inventory { get; set; }
         public HPPotion PotionHP { get; set; }
         public MPPotion PotionMP { get; set; }
-        //public Boots Boots { get; set; }
-        //public Helmet Helmet { get; set; }
-        //public Necklace Necklace { get; set; }
+        public Boot Boots { get; set; }
+        public Helmet Helmet { get; set; }
+        public Necklace Necklace { get; set; }
         public struct HPPotion
         {
             public string Name { get; set; }
@@ -72,23 +73,21 @@ namespace ProjectRPG.Heroes
         #endregion
 
         #region Constructors
-        public Hero(string name, WeaponType weapon, ArmorType armor)
+        public Hero(string name)
         {
             Name = name;
             Level = 1;
             BaseDefence = 20;
-            Weapon = weapon;
-            Armor = armor;
-            Defence = BaseDefence + Armor.Defence;
-            //Boots = boots;
-            //Helmet = helmet;
-            //Necklace = necklace;
+            Helmet = new Helmet("Helmet", "Common", "Taki se helm", 20, 2);
+            Necklace = new Necklace("Necklace", "Common", "Taki se naszyjnik", 20, 2);
+            Boots = new Boot("Boots", "Common", "Takie se buty", 2, 5);
             PotionHP = new("Lesser HP potion", 20, 5);
             PotionMP = new("Lesser MP potion", 20, 5);
             AmountOfHPPotions = PotionHP.Amount;
             AmountOfMPPotions = PotionMP.Amount;
             AbsoluteDefence = false;
             Dodged = false;
+            Inventory = new Inventory<Weapon, Armor>();
         }
         #endregion
 

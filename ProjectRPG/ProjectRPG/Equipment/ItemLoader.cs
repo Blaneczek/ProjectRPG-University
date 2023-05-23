@@ -8,142 +8,107 @@ namespace ProjectRPG
 {
     public class ItemLoader
     {
-        public List<Armor> Armors { get; private set; }
-        public List<Weapon> Weapons { get; private set; }
-        public List<Helmet> Helmets { get; private set; }
-        public List<Necklace> Necklaces { get; private set; }
-        public List<Boot> Boots { get; private set; }
+        public Dictionary<int, Armor> Armors { get; private set; }
+        public Dictionary<int, Weapon> Weapons { get; private set; }
+        public Dictionary<int, Helmet> Helmets { get; private set; }
+        public Dictionary<int, Necklace> Necklaces { get; private set; }
+        public Dictionary<int, Boot> Boots { get; private set; }
 
         public ItemLoader()
         {
-            Armors = new List<Armor>();
-            Weapons = new List<Weapon>();
-            Helmets = new List<Helmet>();
-            Necklaces = new List<Necklace>();
-            Boots = new List<Boot>();
+            Armors = new Dictionary<int, Armor>();
+            Weapons = new Dictionary<int, Weapon>();
+            Helmets = new Dictionary<int, Helmet>();
+            Necklaces = new Dictionary<int, Necklace>();
+            Boots = new Dictionary<int, Boot>();
         }
 
-        public void LoadItemsFromFile(string filePath)
+        public void LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
         {
-            string[] lines = File.ReadAllLines(filePath);
+            LoadWeapons(filePathWeaons);
+            LoadArmors(filePathArmors);
+            LoadHelmets(filePathHelmets);
+            LoadNecklaces(filePathNecklaces);
+            LoadBoots(filePathBoots);
+        }
 
-            foreach (string line in lines)
+        public void LoadWeapons(string filePath)
+        {
+            if (File.Exists(filePath))
             {
-                string[] values = line.Split(',');
-
-                if (values.Length < 3)
-                    continue;
-
-                string itemType = values[0];
-
-                switch (itemType)
+                string[] lines = File.ReadAllLines(filePath);
+            
+                foreach (string line in lines)
                 {
-                    case "Armor":
-                        if (values.Length >= 6)
-                        {
-                            string name = values[1];
-                            string rarity = values[2];
-                            string description = values[3];
-                            double defence = double.Parse(values[4]);
-                            double dodgeRate = double.Parse(values[5]);
+                    string[] values = line.Split(',');
+                    Weapon weapon = new Weapon(values[1], values[2], values[3], double.Parse(values[4]));
+                    Weapons.Add(int.Parse(values[0]), weapon);
+                }
+            }           
+        }
 
-                            Armor armor = new Armor(name, rarity, description, defence, dodgeRate);
-                            Armors.Add(armor);
-                        }
-                        break;
+        public void LoadArmors(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
 
-                    case "Weapon":
-                        if (values.Length >= 5)
-                        {
-                            string name = values[1];
-                            string rarity = values[2];
-                            string description = values[3];
-                            double damage = double.Parse(values[4]);
-
-                            Weapon weapon = new Weapon(name, rarity, description, damage);
-                            Weapons.Add(weapon);
-                        }
-                        break;
-
-                    case "Helmet":
-                        if (values.Length >= 6)
-                        {
-                            string name = values[1];
-                            string rarity = values[2];
-                            string description = values[3];
-                            double hpBonus = double.Parse(values[4]);
-                            double strengthBonus = double.Parse(values[5]);
-
-                            Helmet helmet = new Helmet(name, rarity, description, hpBonus, strengthBonus);
-                            Helmets.Add(helmet);
-                        }
-                        break;
-
-                    case "Necklace":
-                        if (values.Length >= 6)
-                        {
-                            string name = values[1];
-                            string rarity = values[2];
-                            string description = values[3];
-                            double manaBonus = double.Parse(values[4]);
-                            double intelligenceBonus = double.Parse(values[5]);
-
-                            Necklace necklace = new Necklace(name, rarity, description, manaBonus, intelligenceBonus);
-                            Necklaces.Add(necklace);
-                        }
-                        break;
-
-                    case "Boot":
-                        if (values.Length >= 6)
-                        {
-                            string name = values[1];
-                            string rarity = values[2];
-                            string description = values[3];
-                            double agilityBonus = double.Parse(values[4]);
-                            double dodgeRateBonus = double.Parse(values[5]);
-
-                            Boot boots = new Boot(name, rarity, description, agilityBonus, dodgeRateBonus);
-                            Boots.Add(boots);
-                        }
-                        break;
-
-                    default:
-                        break;
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+                    Armor armor = new Armor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                    Armors.Add(int.Parse(values[0]), armor);
+            
                 }
             }
         }
 
-        public void PrintItems()
+        public void LoadHelmets(string filePath)
         {
-            Console.WriteLine("Armors:");
-            foreach (Armor armor in Armors)
+            if (File.Exists(filePath))
             {
-                Console.WriteLine($"Name: {armor.Name}, Rarity: {armor.Rarity}, Description: {armor.Description}, Defence: {armor.Defence}, Dodge Rate: {armor.DodgeRate}");
-            }
+                string[] lines = File.ReadAllLines(filePath);
 
-            Console.WriteLine("\nWeapons:");
-            foreach (Weapon weapon in Weapons)
-            {
-                Console.WriteLine($"Name: {weapon.Name}, Rarity: {weapon.Rarity}, Description: {weapon.Description}, Damage: {weapon.Damage}");
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+                    Helmet helmet = new Helmet(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                    Helmets.Add(int.Parse(values[0]), helmet);
+                }
             }
+             
+        }
 
-            Console.WriteLine("\nHelmets:");
-            foreach (Helmet helmet in Helmets)
+        public void LoadNecklaces(string filePath)
+        {
+            if (File.Exists(filePath))
             {
-                Console.WriteLine($"Name: {helmet.Name}, Rarity: {helmet.Rarity}, Description: {helmet.Description}, HP Bonus: {helmet.HPBonus}, Strength Bonus: {helmet.StrengthBonus}");
-            }
+                string[] lines = File.ReadAllLines(filePath);
 
-            Console.WriteLine("\nNecklaces:");
-            foreach (Necklace necklace in Necklaces)
-            {
-                Console.WriteLine($"Name: {necklace.Name}, Rarity: {necklace.Rarity}, Description: {necklace.Description}, Mana Bonus: {necklace.MPBonus}, Intelligence Bonus: {necklace.IntelligenceBonus}");
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+                    Necklace necklace = new Necklace(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                    Necklaces.Add(int.Parse(values[0]), necklace);
+                }
             }
+               
+        }
 
-            Console.WriteLine("\nBoots:");
-            foreach (Boot boot in Boots)
+        public void LoadBoots(string filePath)
+        {
+            if (File.Exists(filePath))
             {
-                Console.WriteLine($"Name: {boot.Name}, Rarity: {boot.Rarity}, Description: {boot.Description}, Agility Bonus: {boot.AgilityBonus}, Dodge Rate Bonus: {boot.DodgeRateBonus}");
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+                    Boot boot = new Boot(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                    Boots.Add(int.Parse(values[0]), boot);
+                }
             }
+                
         }
     }
 }

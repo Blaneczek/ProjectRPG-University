@@ -20,5 +20,20 @@
             IntelligenceBonus = intelligenceBonus;
         }
         #endregion
+
+        #region Methods
+        public void PrintInfo()
+        {
+            Console.WriteLine("======================= HELMET ===========================");
+            Console.WriteLine($"| NAME        :  {Name}                                  |");
+            Console.WriteLine($"| TYPE        :  {GetType().Name}                        |");
+            Console.WriteLine($"| RARITY      :  {Rarity}                                |");
+            Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
+            Console.WriteLine($"| MP Bonus    :  {MPBonus}                               |");
+            Console.WriteLine($"| INT BONUS    : {IntelligenceBonus}                     |");
+            Console.WriteLine("===========================================================");
+            Console.WriteLine();
+        }
+        #endregion
     }
 }

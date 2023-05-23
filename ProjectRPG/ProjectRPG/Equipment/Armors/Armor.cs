@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjectRPG.Equipment.Armors
 {
@@ -17,7 +18,6 @@ namespace ProjectRPG.Equipment.Armors
         #endregion
 
         #region Constructors
-        public Armor() { }
         public Armor(string name, string rarity, string description, double defence, double dodgeRate)
         {
             Name = name;
@@ -29,7 +29,18 @@ namespace ProjectRPG.Equipment.Armors
         #endregion
 
         #region Methods
-
+        public void PrintInfo()
+        {
+            Console.WriteLine("======================== ARMOR ============================");
+            Console.WriteLine($"| NAME        :  {Name}                                  |");
+            Console.WriteLine($"| TYPE        :  {GetType().Name}                        |");
+            Console.WriteLine($"| RARITY      :  {Rarity}                                |");
+            Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
+            Console.WriteLine($"| DEFENCE     :  {Defence}                               |");
+            Console.WriteLine($"| DODGE RATE  :  {DodgeRate}                             |");
+            Console.WriteLine("===========================================================");
+            Console.WriteLine();
+        }
         #endregion
     }
 }

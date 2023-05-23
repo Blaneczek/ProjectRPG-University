@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 using ProjectRPG.Equipment.Weapons;
 using ProjectRPG.Equipment.Armors;
 using ProjectRPG.Heroes;
+using System.Numerics;
 
 namespace ProjectRPG.Game
 {
-    public class Player 
+    public class Player
     {
         public string PlayerClassName { get; set; }
-        public Hero<Weapon,Armor> PlayerHero { get; set; }
+        public Hero<Weapon, Armor> PlayerHero { get; set; }
         public Player() { }
 
         public void ChooseHero()
-        {   Console.WriteLine("Enter your Hero's name: ");
+        {   
+            Console.WriteLine("Enter your Hero's name: ");
             string userName = Console.ReadLine();
+
             Console.Clear();
             Console.WriteLine("Choose your Hero's class:");
             Console.WriteLine();
@@ -49,10 +52,8 @@ namespace ProjectRPG.Game
             string heroClass = Console.ReadLine();
             if (heroClass == "1")
             {
-                PlayerClassName = "WARRIOR";
-                Sword sword1 = new Sword("Miecz", "Legendarny", "Kozak majonez", 100);
-                HeavyArmor armor1 = new HeavyArmor("Zbroja", "Legendarny", "Kozak majonez", 20, 20);
-                PlayerHero = new Warrior(userName, sword1, armor1, "ddddd");
+                PlayerClassName = "WARRIOR";                
+                PlayerHero = new Warrior(userName);
             } 
             Console.Clear();
         }
@@ -68,60 +69,58 @@ namespace ProjectRPG.Game
             Console.WriteLine($"| DEFENCE   :  {PlayerHero.Defence}                                   |");
             Console.WriteLine($"| DODGE RATE:  {PlayerHero.DodgeRate}                                  |");
             Console.WriteLine("|--------------------------------------------------------|");
-            Console.WriteLine("|                      INVENTORY                         |");
+            Console.WriteLine("|                         EQ                             |");
             Console.WriteLine("| Choose an item to inspect:                             |");
-            Console.WriteLine("| 1.WEAPON   : nazwa                                     |");
-            Console.WriteLine("| 2.HELMET   : nazwa                                     |");
-            Console.WriteLine("| 3.NECKLACE : nazwa                                     |");
-            Console.WriteLine("| 4.ARMOR    : nazwa                                     |");           
-            Console.WriteLine("| 5.BOOTS    : nazwa                                     |");
+            Console.WriteLine($"| 1.WEAPON   : {PlayerHero.Weapon.Name}                                     |");
+            Console.WriteLine($"| 2.HELMET   : {PlayerHero.Helmet.Name}                                     |");
+            Console.WriteLine($"| 3.NECKLACE : {PlayerHero.Necklace.Name}                                     |");
+            Console.WriteLine($"| 4.ARMOR    : {PlayerHero.Armor.Name}                                     |");           
+            Console.WriteLine($"| 5.BOOTS    : {PlayerHero.Boots.Name}                                     |");
             Console.WriteLine("==========================================================");
-            Console.WriteLine();
+            Console.WriteLine("Open inventory: \"I\"                                    |");
             Console.WriteLine("PRESS \"X\" TO EXIT");
-            string chosenItem = Console.ReadLine();
-            if (chosenItem == "x")
+            string chosen = Console.ReadLine();
+            if (chosen == "x")
             {
                 Console.Clear();
                 return;
             }
-            else if (chosenItem == "1") 
+            else if (chosen == "i")
+            {
+                Console.Clear();
+                PlayerHero.Inventory.OpenInventory();
+            }
+            else if (chosen == "1") 
             {
                 Console.Clear();
                 ShowWeapon();
             }
-            else if (chosenItem == "2")
+            else if (chosen == "2")
             {
                 Console.Clear();
-                //ShowHelmet();
+                ShowHelmet();
             }
-            else if (chosenItem == "3")
+            else if (chosen == "3")
             {
                 Console.Clear();
-                //ShowNecklace();
+                ShowNecklace();
             }
-            else if (chosenItem == "4")
+            else if (chosen == "4")
             {
                 Console.Clear();
                 ShowArmor();
             }
-            else if (chosenItem == "5")
+            else if (chosen == "5")
             {
                 Console.Clear();
-               // ShowBoots();
+                ShowBoots();
             }
 
         }
 
         public void ShowWeapon()
         {
-            Console.WriteLine("======================== WEAPON ============================");
-            Console.WriteLine($"| NAME        :  {PlayerHero.Weapon.Name}                 |");
-            Console.WriteLine($"| TYPE        :  {PlayerHero.Weapon.GetType().Name}       |");
-            Console.WriteLine($"| RARITY      :  {PlayerHero.Weapon.Rarity}               |");
-            Console.WriteLine($"| DESCRIPTION :  {PlayerHero.Weapon.Description}          |");
-            Console.WriteLine($"| DAMAGE      :  {PlayerHero.Weapon.Damage}               |");
-            Console.WriteLine("==========================================================");
-            Console.WriteLine();
+            PlayerHero.Weapon.PrintInfo();
             Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
             string a = Console.ReadLine();
             if (a == "c")
@@ -138,15 +137,58 @@ namespace ProjectRPG.Game
 
         public void ShowArmor()
         {
-            Console.WriteLine("======================== WEAPON ============================");
-            Console.WriteLine($"| NAME        :  {PlayerHero.Armor.Name}                                             |");
-            Console.WriteLine($"| TYPE        :  {PlayerHero.Armor.GetType().Name}                                  |");
-            Console.WriteLine($"| RARITY      :  {PlayerHero.Armor.Rarity}                                           |");
-            Console.WriteLine($"| DESCRIPTION :  {PlayerHero.Armor.Description}                                               |");
-            Console.WriteLine($"| DEFENCE     :  {PlayerHero.Armor.Defence}                                               |");
-            Console.WriteLine($"| DODGE RATE  :  {PlayerHero.Armor.DodgeRate}                                               |");
-            Console.WriteLine("==========================================================");
-            Console.WriteLine();
+            PlayerHero.Armor.PrintInfo();
+            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
+            string a = Console.ReadLine();
+            if (a == "c")
+            {
+                Console.Clear();
+                ShowHero();
+            }
+            else if (a == "x")
+            {
+                Console.Clear();
+                return;
+            }
+        }
+
+        public void ShowHelmet()
+        {
+            PlayerHero.Helmet.PrintInfo();
+            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
+            string a = Console.ReadLine();
+            if (a == "c")
+            {
+                Console.Clear();
+                ShowHero();
+            }
+            else if (a == "x")
+            {
+                Console.Clear();
+                return;
+            }
+        }
+
+        public void ShowNecklace()
+        {
+            PlayerHero.Necklace.PrintInfo();
+            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
+            string a = Console.ReadLine();
+            if (a == "c")
+            {
+                Console.Clear();
+                ShowHero();
+            }
+            else if (a == "x")
+            {
+                Console.Clear();
+                return;
+            }
+        }
+
+        public void ShowBoots()
+        {
+            PlayerHero.Boots.PrintInfo();
             Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
             string a = Console.ReadLine();
             if (a == "c")

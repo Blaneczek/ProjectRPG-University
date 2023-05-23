@@ -144,63 +144,79 @@ namespace ProjectRPG.Game
             double DamageDealt = 0;
             Random rnd = new Random();
             int losuj = rnd.Next(1, 11);
-            if (losuj >= 1 && losuj <= 7)
+            if (losuj >= 1 && losuj <= 7) //Normal attack
             {
                 DamageDealt = monster.NormalAttack(player.PlayerHero);
-            }
-            else if (losuj >= 8)
-            {
-                AmountOfAdditionalDamage = monster.SpecialAttack(player.PlayerHero);
-                DamageDealt = AmountOfAdditionalDamage * 10;
-                if (player.PlayerHero.AbsoluteDefence == false)
+                Console.Clear();
+                PrintBattleMenu(player, monster);
+                if (player.PlayerHero.Dodged)
                 {
-                    AdditionalDamageTurns = 2;
+                    Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
+                    player.PlayerHero.Dodged = false;
                 }
-                SpecialAttack = true;
+                else if (player.PlayerHero.AbsoluteDefence)
+                {
+                    Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
+                }
+                else
+                {
+                    Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
+                }
             }
-
-            Console.Clear();
-            PrintBattleMenu(player, monster);
-            if (SpecialAttack)
+            else if (losuj >= 8) //SpecialAttack
             {
-                Console.WriteLine("You have been poisoned!!!");
-            }
-            if (player.PlayerHero.Dodged)
-            {
-                Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
-                player.PlayerHero.Dodged = false;
-            }
-            else if (player.PlayerHero.AbsoluteDefence)
-            {
-                Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
-            }
-            else
-            {
-                Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
-            }
-
-            // Jeśli bohater został zestunowany, potwór wykonuje kolejną turę
-            if (player.PlayerHero.Stunned)
-            {
-                Console.WriteLine($"{monster.Name} performs another turn!");
-                player.PlayerHero.Stunned = false;
-                PrintMonsterTurn(player, monster);
-            }
-            else
-            {
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
+                DamageDealt = monster.SpecialAttack(player.PlayerHero);
+                Console.Clear();
+                PrintBattleMenu(player, monster);
+                if (player.PlayerHero.Dodged)
+                {
+                    Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
+                    player.PlayerHero.Dodged = false;
+                }
+                else if (player.PlayerHero.AbsoluteDefence)
+                {
+                    Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
+                }
+                else
+                {
+                    Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
+                    Console.WriteLine(monster.SpecialAttackDesc);
+                    if (monster.GetType() == typeof(Spider))
+                    {
+                        AmountOfAdditionalDamage = DamageDealt / 10;
+                        if (player.PlayerHero.AbsoluteDefence == false)
+                        {
+                            AdditionalDamageTurns = 2;
+                        }
+                    }
+                    else if (monster.GetType() == typeof(Demon))
+                    {
+                        AmountOfAdditionalDamage = DamageDealt * 0.2;
+                        if (player.PlayerHero.AbsoluteDefence == false)
+                        {
+                            AdditionalDamageTurns = 2;
+                        }
+                    }
+                    else if (monster.GetType() == typeof(Golem))
+                    {
+                        Console.WriteLine($"{monster.Name} performs another turn!");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        PrintMonsterTurn(player, monster);
+                    }
+                }   
             }
         }
 
 
-public void StartFight(Player player, Monster monster)
+        public void StartFight(Player player, Monster monster)
         {
             DamageDealt = 0;
             AmountOfAdditionalDamage = 0;
             AdditionalDamageTurns = 0;
             
-            while (player.PlayerHero.CurrentHP > 0 || monster.CurrentHP > 0)
+            while (true)
             {
                 PrintHeroTurn(player, monster);
                 if (monster.CurrentHP <= 0) 
@@ -208,8 +224,8 @@ public void StartFight(Player player, Monster monster)
                     Console.WriteLine($"{monster.Name} defeated");
                     break;
                 }
-                Console.WriteLine("Press ENTER to continue");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
                 Console.Clear();
                 PrintMonsterTurn(player, monster);
                 if (player.PlayerHero.AbsoluteDefence == true)
@@ -221,8 +237,8 @@ public void StartFight(Player player, Monster monster)
                     Console.WriteLine("YOU DIED");
                     break;
                 }
-                Console.WriteLine("Press ENTER to continue");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
                 Console.Clear();
             }
         }
