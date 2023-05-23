@@ -112,5 +112,38 @@ namespace ProjectRPG
                 }
             }
         }
+
+        public void PrintItems()
+        {
+            Console.WriteLine("Armors:");
+            foreach (Armor armor in Armors)
+            {
+                Console.WriteLine($"Name: {armor.Name}, Rarity: {armor.Rarity}, Description: {armor.Description}, Defence: {armor.Defence}, Dodge Rate: {armor.DodgeRate}");
+            }
+
+            Console.WriteLine("\nWeapons:");
+            foreach (Weapon weapon in Weapons)
+            {
+                Console.WriteLine($"Name: {weapon.Name}, Rarity: {weapon.Rarity}, Description: {weapon.Description}, Damage: {weapon.Damage}");
+            }
+
+            Console.WriteLine("\nHelmets:");
+            foreach (Helmet helmet in Helmets)
+            {
+                Console.WriteLine($"Name: {helmet.Name}, Rarity: {helmet.Rarity}, Description: {helmet.Description}, HP Bonus: {helmet.HPBonus}, Strength Bonus: {helmet.StrengthBonus}");
+            }
+
+            Console.WriteLine("\nNecklaces:");
+            foreach (Necklace necklace in Necklaces)
+            {
+                Console.WriteLine($"Name: {necklace.Name}, Rarity: {necklace.Rarity}, Description: {necklace.Description}, Mana Bonus: {necklace.MPBonus}, Intelligence Bonus: {necklace.IntelligenceBonus}");
+            }
+
+            Console.WriteLine("\nBoots:");
+            foreach (Boot boot in Boots)
+            {
+                Console.WriteLine($"Name: {boot.Name}, Rarity: {boot.Rarity}, Description: {boot.Description}, Agility Bonus: {boot.AgilityBonus}, Dodge Rate Bonus: {boot.DodgeRateBonus}");
+            }
+        }
     }
 }
