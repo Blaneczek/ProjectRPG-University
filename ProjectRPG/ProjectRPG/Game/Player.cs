@@ -31,7 +31,7 @@ namespace ProjectRPG.Game
             Console.WriteLine(" |-------------------|                                ");
             Console.WriteLine();
             Console.WriteLine(" |=======  2  =======|        \"Arcane Sorcerer\"");
-            Console.WriteLine(" |        MAGE       | The Mage class is a master of  ");
+            Console.WriteLine(" |       MAGUS       | The Mage class is a master of  ");
             Console.WriteLine(" |-------------------| arcane arts, wielding powerful ");
             Console.WriteLine(" | Strength:     4   | spells to manipulate elements  ");
             Console.WriteLine(" | Agility:      6   | and unleash destruction upon   ");
@@ -39,7 +39,7 @@ namespace ProjectRPG.Game
             Console.WriteLine(" |-------------------|                                ");
             Console.WriteLine();
             Console.WriteLine(" |=======  3  =======|        \"Nimble Hunter\"");
-            Console.WriteLine(" |      WARRIOR      | The Rogue class is a cunning   ");
+            Console.WriteLine(" |       ROUGE       | The Rogue class is a cunning   ");
             Console.WriteLine(" |-------------------| and agile fighter who specializes ");
             Console.WriteLine(" | Strength:     6   | in stealth, precision strikes, ");
             Console.WriteLine(" | Agility:      10  | and evasive maneuvers.         ");

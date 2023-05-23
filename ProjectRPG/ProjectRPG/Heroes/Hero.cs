@@ -37,6 +37,7 @@ namespace ProjectRPG.Heroes
         public int AmountOfHPPotions { get; set; }
         public int AmountOfMPPotions { get; set; }
         public bool Dodged { get; set; }
+        public bool Stunned { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
         public HPPotion PotionHP { get; set; }

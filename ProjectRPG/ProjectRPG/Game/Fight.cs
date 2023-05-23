@@ -9,7 +9,7 @@ using ProjectRPG.Heroes;
 using ProjectRPG.Monsters;
 
 namespace ProjectRPG.Game
-{   
+{
     public class Fight
     {
         public double AmountOfAdditionalDamage { get; set; }
@@ -44,12 +44,12 @@ namespace ProjectRPG.Game
 
             if (!RepeatFunction && AdditionalDamageTurns > 0)
             {
-                player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;             
+                player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;
             }
 
             string choice = Console.ReadLine();
             if (choice == "1")
-            {              
+            {
                 DamageDealt = player.PlayerHero.NormalAttack(monster);
                 Console.Clear();
                 PrintBattleMenu(player, monster);
@@ -71,7 +71,7 @@ namespace ProjectRPG.Game
                     Console.ReadLine();
                     Console.Clear();
                     PrintHeroTurn(player, monster);
-                    
+
                 }
             }
             else if (choice == "3")
@@ -90,7 +90,7 @@ namespace ProjectRPG.Game
                     PrintBattleMenu(player, monster);
                     Console.WriteLine("You have used a HP potion");
                     Console.WriteLine(player.PlayerHero.CurrentHP);
-                }              
+                }
                 else
                 {
                     RepeatFunction = true;
@@ -159,9 +159,9 @@ namespace ProjectRPG.Game
                 SpecialAttack = true;
             }
 
-            Console.Clear();             
+            Console.Clear();
             PrintBattleMenu(player, monster);
-            if (SpecialAttack) 
+            if (SpecialAttack)
             {
                 Console.WriteLine("You have been poisoned!!!");
             }
@@ -176,17 +176,31 @@ namespace ProjectRPG.Game
             }
             else
             {
-                Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage"); 
+                Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
             }
-                  
+
+            // Jeśli bohater został zestunowany, potwór wykonuje kolejną turę
+            if (player.PlayerHero.Stunned)
+            {
+                Console.WriteLine($"{monster.Name} performs another turn!");
+                player.PlayerHero.Stunned = false;
+                PrintMonsterTurn(player, monster);
+            }
+            else
+            {
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
         }
-        public void StartFight(Player player, Monster monster)
+
+
+public void StartFight(Player player, Monster monster)
         {
             DamageDealt = 0;
             AmountOfAdditionalDamage = 0;
             AdditionalDamageTurns = 0;
             
-            while (player.PlayerHero.CurrentHP >= 0 || monster.CurrentHP >= 0)
+            while (player.PlayerHero.CurrentHP > 0 || monster.CurrentHP > 0)
             {
                 PrintHeroTurn(player, monster);
                 if (monster.CurrentHP <= 0) 
