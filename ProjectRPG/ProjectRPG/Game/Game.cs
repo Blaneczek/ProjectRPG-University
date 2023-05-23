@@ -14,6 +14,7 @@ namespace ProjectRPG.Game
             Fight fight = new Fight();
             Player player = new Player();
             Spider spider = new Spider("Spider", 1, 500, 50, 30, "Poison bite");
+            Goblin goblin = new Goblin("Goblin", 1, 100, 20, 10, "Cut");
             player.ChooseHero();
             player.ShowHero();
             Console.Clear();

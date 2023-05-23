@@ -9,43 +9,29 @@ using System.Threading.Tasks;
 
 namespace ProjectRPG.Heroes
 {
-    public class Warrior : Hero<Weapon, Armor>
+    public class Rogue : Hero<Weapon, Armor>
     {
-        public Warrior(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
+        public Rogue(string name, Weapon weapon, Armor armor, string absoluteDefenceDesc) : base(name, weapon, armor)
         {
-            Strength = 10;
-            Agility = 6;
+            Strength = 6; 
+            Agility = 10; 
             Intelligence = 4;
-            MaxHP = 100 + Strength * 10;
+            MaxHP = 90 + Strength * 9;
             CurrentHP = MaxHP;
-            MaxMP = 100 + Intelligence * 8;
+            MaxMP = 80 + Intelligence * 8;
             CurrentMP = MaxMP;
-            BaseAttack = 10 * (Strength * 0.2);
+            BaseAttack = 9 * (Agility * 0.2); 
             Attack = BaseAttack + Weapon.Damage;
-            DodgeRate = 10 + Agility + armor.DodgeRate;
+            DodgeRate = 15 + Agility + armor.DodgeRate;
             AbsoluteDefenceDesc = absoluteDefenceDesc;
-            OnNormalHit += NormalHitMonster;
-            OnSpecialHit += SpecialHitMonster;
+            OnNormalHit += NormalHitMonster; 
+            OnSpecialHit += SpecialHitMonster;  
         }
 
         public override double NormalHitMonster(Monster monster)
         {
-            double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01));
+            double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Agility * 0.01));
             monster.CurrentHP -= DamageDealt;
-
-            if (monster.CurrentHP < 0)
-            {
-                monster.CurrentHP = 0;
-            } 
-
-            return DamageDealt;
-        }
-
-        public override double SpecialHitMonster(Monster monster)
-        {
-            double DamageDealt = Math.Round((Attack - (Attack * (Defence * 0.01))) * (1 + Strength * 0.01) * 2);
-            monster.CurrentHP -= DamageDealt;
-            CurrentMP -= 60;
 
             if (monster.CurrentHP < 0)
             {
@@ -54,6 +40,20 @@ namespace ProjectRPG.Heroes
 
             return DamageDealt;
         }
-    
+
+        public override double SpecialHitMonster(Monster monster)
+        {
+            double DamageDealt = Math.Round((Attack - (Attack * (Defence * 0.01))) * (1 + Agility * 0.01) * 1.5);
+            monster.CurrentHP -= DamageDealt;
+            CurrentMP -= 40;
+
+            if (monster.CurrentHP < 0)
+            {
+                monster.CurrentHP = 0;
+            }
+
+            return DamageDealt;
+        }
+
     }
 }

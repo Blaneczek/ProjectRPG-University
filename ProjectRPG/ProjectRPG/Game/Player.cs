@@ -31,7 +31,7 @@ namespace ProjectRPG.Game
             Console.WriteLine(" |-------------------|                                ");
             Console.WriteLine();
             Console.WriteLine(" |=======  2  =======|        \"Arcane Sorcerer\"");
-            Console.WriteLine(" |       MAGUS       | The Mage class is a master of  ");
+            Console.WriteLine(" |      Sorcerer     | The Sorcerer class is a master of");
             Console.WriteLine(" |-------------------| arcane arts, wielding powerful ");
             Console.WriteLine(" | Strength:     4   | spells to manipulate elements  ");
             Console.WriteLine(" | Agility:      6   | and unleash destruction upon   ");
