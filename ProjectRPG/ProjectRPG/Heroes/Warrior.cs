@@ -12,9 +12,10 @@ namespace ProjectRPG.Heroes
 {
     public class Warrior : Hero<Weapon, Armor>
     {
+        public Inventory<Sword, HeavyArmor> Inventory { get; set; }
         public Warrior(string name) : base(name)
         {
-            Weapon = new Sword("Sword", "Common", "Taki se miecz", 20);
+            Weapon = new Sword("Sword", "Common", "Taki se miecz", 100);
             Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
             AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 10;
@@ -37,10 +38,7 @@ namespace ProjectRPG.Heroes
             double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01));
             monster.CurrentHP -= DamageDealt;
 
-            if (monster.CurrentHP < 0)
-            {
-                monster.CurrentHP = 0;
-            } 
+            monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
             return DamageDealt;
         }
@@ -51,10 +49,7 @@ namespace ProjectRPG.Heroes
             monster.CurrentHP -= DamageDealt;
             CurrentMP -= 60;
 
-            if (monster.CurrentHP < 0)
-            {
-                monster.CurrentHP = 0;
-            }
+            monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
             return DamageDealt;
         }

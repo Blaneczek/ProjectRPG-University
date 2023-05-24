@@ -16,7 +16,7 @@ namespace ProjectRPG.Monsters
 
         public override double SpecialHitHero(Hero<Weapon, Armor> hero)
         {
-            double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01))) + (hero.MaxHP * 0.05)); // + 5% Maxymalnego HP bohatera jako bonus dmg
+            double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01)) * 1.25) + (hero.MaxHP * 0.1)); // + 5% Maxymalnego HP bohatera jako bonus dmg
 
             Random rnd = new Random();
             int losuj = rnd.Next(1, 101);

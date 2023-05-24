@@ -8,6 +8,7 @@ using ProjectRPG.Equipment.Weapons;
 using ProjectRPG.Equipment.Armors;
 using ProjectRPG.Heroes;
 using System.Numerics;
+using ProjectRPG.Events;
 
 namespace ProjectRPG.Game
 {
@@ -52,9 +53,19 @@ namespace ProjectRPG.Game
             string heroClass = Console.ReadLine();
             if (heroClass == "1")
             {
-                PlayerClassName = "WARRIOR";                
+                PlayerClassName = "WARRIOR";
                 PlayerHero = new Warrior(userName);
-            } 
+            }
+            else if (heroClass == "2")
+            {
+                PlayerClassName = "SORCERER";
+                PlayerHero = new Sorcerer(userName);
+            }
+            else if (heroClass == "3")
+            {
+                PlayerClassName = "ROGUE";
+                PlayerHero = new Rogue(userName);
+            }
             Console.Clear();
         }
         public void ShowHero()

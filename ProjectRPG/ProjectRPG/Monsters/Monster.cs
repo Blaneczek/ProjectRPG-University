@@ -59,7 +59,7 @@ namespace ProjectRPG.Monsters
                 DamageDealt = 0;
                 return DamageDealt;
             }
-
+            
             Random rnd = new Random();
             int losuj = rnd.Next(1, 101);
             if (losuj >= 1 && losuj <= hero.DodgeRate)

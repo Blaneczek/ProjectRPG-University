@@ -189,14 +189,6 @@ namespace ProjectRPG.Game
                             AdditionalDamageTurns = 2;
                         }
                     }
-                    else if (monster.GetType() == typeof(Demon))
-                    {
-                        AmountOfAdditionalDamage = DamageDealt * 0.2;
-                        if (player.PlayerHero.AbsoluteDefence == false)
-                        {
-                            AdditionalDamageTurns = 2;
-                        }
-                    }
                     else if (monster.GetType() == typeof(Golem))
                     {
                         Console.WriteLine($"{monster.Name} performs another turn!");

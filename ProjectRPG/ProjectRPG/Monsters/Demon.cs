@@ -16,7 +16,7 @@ namespace ProjectRPG.Monsters
 
         public override double SpecialHitHero(Hero<Weapon, Armor> hero)
         {
-            double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01))));
+            double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01)) * 2) * 1.2);
 
             Random rnd = new Random();
             int losuj = rnd.Next(1, 101);
@@ -34,7 +34,6 @@ namespace ProjectRPG.Monsters
                     hero.CurrentHP = 0;
                 }
             }
-
             return DamageDealt;
         }
     }

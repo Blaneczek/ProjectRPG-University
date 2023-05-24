@@ -40,7 +40,7 @@ namespace ProjectRPG.Heroes
         public bool Dodged { get; set; }
         public WeaponType Weapon { get; set; }
         public ArmorType Armor { get; set; }
-        public Inventory<Weapon, Armor> Inventory { get; set; }
+        public Inventory<WeaponType, ArmorType> Inventory { get; set; }
         public HPPotion PotionHP { get; set; }
         public MPPotion PotionMP { get; set; }
         public Boot Boots { get; set; }
@@ -87,7 +87,7 @@ namespace ProjectRPG.Heroes
             AmountOfMPPotions = PotionMP.Amount;
             AbsoluteDefence = false;
             Dodged = false;
-            Inventory = new Inventory<Weapon, Armor>();
+            Inventory = new Inventory<WeaponType, ArmorType>();
         }
         #endregion
 
@@ -106,21 +106,19 @@ namespace ProjectRPG.Heroes
         }
         public void UseHPPotion()
         {
-            CurrentHP += MaxHP * (PotionHP.HealPower * 0.01);
-            if (CurrentHP > MaxHP)
-            {
-                CurrentHP = MaxHP;
-            }
+            double addedHP = MaxHP * (PotionHP.HealPower * 0.01);
+
+            CurrentHP = (CurrentHP + addedHP) > MaxHP ? CurrentHP = MaxHP : Math.Round(CurrentHP + addedHP);
+
             AmountOfHPPotions--;        
         }
 
         public void UseMPPotion()
         {
-            CurrentMP += MaxMP * (PotionMP.ManaPower * 0.01);
-            if (CurrentMP > MaxMP)
-            {
-                CurrentMP = MaxMP;
-            }
+            double addedMP = MaxMP * (PotionMP.ManaPower * 0.01);
+
+            CurrentMP = (CurrentMP + addedMP) > MaxHP ? CurrentMP = MaxMP : Math.Round(CurrentMP + addedMP);
+
             AmountOfMPPotions--;
         }
         public abstract double NormalHitMonster(Monster monster);
