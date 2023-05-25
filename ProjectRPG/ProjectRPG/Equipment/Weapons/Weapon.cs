@@ -26,7 +26,7 @@ namespace ProjectRPG.Equipment.Weapons
         #endregion
 
         #region Methods
-        public void PrintInfo()
+        public virtual void PrintInfo()
         {
             Console.WriteLine("======================== WEAPON ============================");
             Console.WriteLine($"| NAME        :  {Name}                                   |");
@@ -34,8 +34,6 @@ namespace ProjectRPG.Equipment.Weapons
             Console.WriteLine($"| RARITY      :  {Rarity}                                 |");
             Console.WriteLine($"| DESCRIPTION :  {Description}                            |");
             Console.WriteLine($"| DAMAGE      :  {Damage}                                 |");
-            Console.WriteLine("==========================================================");
-            Console.WriteLine();
         }
         #endregion
     }

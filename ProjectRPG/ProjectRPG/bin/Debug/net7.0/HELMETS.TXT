@@ -1,0 +1,3 @@
+﻿WarriorHelmet,Legendary,A legendary helmet,20,2
+SorcererHelmet,Legendary,A legendary helmet,20,2
+RougeHelmet,Legendary,A legendary helmet,20,2

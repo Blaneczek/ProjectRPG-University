@@ -18,7 +18,7 @@ namespace ProjectRPG.Monsters
         {
             double DamageDealt = Math.Round((Attack - (Attack * (hero.Defence * 0.01)) * 1.25) + (hero.Defence * 0.2));
 
-            Random rnd = new Random();
+            Random rnd = new();
             int losuj = rnd.Next(1, 101);
             if (losuj >= 1 && losuj <= hero.DodgeRate)
             {

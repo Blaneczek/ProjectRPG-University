@@ -13,8 +13,8 @@ namespace ProjectRPG.Heroes
     {
         public Rogue(string name) : base(name)
         {
-            Weapon = new Sword("Sword", "Common", "Taki se miecz", 20);
-            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
+            Weapon = new Dagger("Dagger", "Common", "Taki se miecz", 20, 1);
+            Armor = new MediumArmor("Medium", "Common", "Taki se armor", 40, 0, 1);
             AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 6; 
             Agility = 10; 

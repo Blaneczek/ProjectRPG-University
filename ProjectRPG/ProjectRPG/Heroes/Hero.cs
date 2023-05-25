@@ -34,12 +34,12 @@ namespace ProjectRPG.Heroes
         public double Agility { get; set; }
         public double Intelligence { get; set; }
         public bool AbsoluteDefence { get; set; }
-        public string AbsoluteDefenceDesc { get; set; }
+        public string? AbsoluteDefenceDesc { get; set; }
         public int AmountOfHPPotions { get; set; }
         public int AmountOfMPPotions { get; set; }
         public bool Dodged { get; set; }
-        public WeaponType Weapon { get; set; }
-        public ArmorType Armor { get; set; }
+        public WeaponType? Weapon { get; set; }
+        public ArmorType? Armor { get; set; }
         public Inventory<WeaponType, ArmorType> Inventory { get; set; }
         public HPPotion PotionHP { get; set; }
         public MPPotion PotionMP { get; set; }

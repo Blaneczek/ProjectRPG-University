@@ -8,19 +8,19 @@ namespace ProjectRPG
 {
     public class ItemLoader
     {
-        public Dictionary<int, Armor> Armors { get; private set; }
-        public Dictionary<int, Weapon> Weapons { get; private set; }
-        public Dictionary<int, Helmet> Helmets { get; private set; }
-        public Dictionary<int, Necklace> Necklaces { get; private set; }
-        public Dictionary<int, Boot> Boots { get; private set; }
+        public List<Armor> Armors { get; private set; }
+        public List<Weapon> Weapons { get; private set; }
+        public List<Helmet> Helmets { get; private set; }
+        public List<Necklace> Necklaces { get; private set; }
+        public List<Boot> Boots { get; private set; }
 
         public ItemLoader()
         {
-            Armors = new Dictionary<int, Armor>();
-            Weapons = new Dictionary<int, Weapon>();
-            Helmets = new Dictionary<int, Helmet>();
-            Necklaces = new Dictionary<int, Necklace>();
-            Boots = new Dictionary<int, Boot>();
+            Armors = new List<Armor>();
+            Weapons = new List<Weapon>();
+            Helmets = new List<Helmet>();
+            Necklaces = new List<Necklace>();
+            Boots = new List<Boot>();
         }
 
         public void LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
@@ -41,24 +41,51 @@ namespace ProjectRPG
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    Weapon weapon = new Weapon(values[1], values[2], values[3], double.Parse(values[4]));
-                    Weapons.Add(int.Parse(values[0]), weapon);
+                    if (values[0] == "SWORD")
+                    {
+                        Weapon weapon = new Sword(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                        Weapons.Add(weapon);
+                    }
+                    else if (values[0] == "STAFF")
+                    {
+                        Weapon weapon = new Staff(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                        Weapons.Add(weapon);
+                    }
+                    else if (values[0] == "DAGGER")
+                    {
+                        Weapon weapon = new Dagger(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
+                        Weapons.Add(weapon);
+                    }
+
                 }
             }           
         }
 
-        public void LoadArmors(string filePath)
+        public void LoadArmors(string filePathArmor)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePathArmor))
             {
-                string[] lines = File.ReadAllLines(filePath);
+                string[] lines = File.ReadAllLines(filePathArmor);
 
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    Armor armor = new Armor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
-                    Armors.Add(int.Parse(values[0]), armor);
-            
+                    if (values[0] == "HEAVY")
+                    {
+                        Armor armor= new HeavyArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
+                        Armors.Add(armor);
+                    }
+                    else if (values[0] == "MEDIUM")
+                    {
+                        Armor armor = new MediumArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
+                        Armors.Add(armor);
+                    }
+                    else if (values[0] == "LIGHT")
+                    {
+                        Armor armor = new LightArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
+                        Armors.Add(armor);
+                    }
+
                 }
             }
         }
@@ -72,8 +99,8 @@ namespace ProjectRPG
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    Helmet helmet = new Helmet(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
-                    Helmets.Add(int.Parse(values[0]), helmet);
+                    Helmet helmet = new Helmet(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
+                    Helmets.Add(helmet);
                 }
             }
              
@@ -88,8 +115,8 @@ namespace ProjectRPG
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    Necklace necklace = new Necklace(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
-                    Necklaces.Add(int.Parse(values[0]), necklace);
+                    Necklace necklace = new Necklace(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
+                    Necklaces.Add(necklace);
                 }
             }
                
@@ -104,8 +131,8 @@ namespace ProjectRPG
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    Boot boot = new Boot(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
-                    Boots.Add(int.Parse(values[0]), boot);
+                    Boot boot = new Boot(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
+                    Boots.Add(boot);
                 }
             }
                 

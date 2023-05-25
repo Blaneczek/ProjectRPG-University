@@ -7,17 +7,17 @@
         public string Rarity { get; set; }
         public string Description { get; set; }
         public double MPBonus { get; set; }
-        public double IntelligenceBonus { get; set; }
+        public double AdditionalBonus { get; set; }
         #endregion
 
         #region Constructors
-        public Necklace(string name, string rarity, string description, double mpBonus, double intelligenceBonus)
+        public Necklace(string name, string rarity, string description, double mpBonus, double additionalBonus)
         {
             Name = name;
             Rarity = rarity;
             Description = description;
             MPBonus = mpBonus;
-            IntelligenceBonus = intelligenceBonus;
+            AdditionalBonus = additionalBonus;
         }
         #endregion
 
@@ -30,7 +30,7 @@
             Console.WriteLine($"| RARITY      :  {Rarity}                                |");
             Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
             Console.WriteLine($"| MP Bonus    :  {MPBonus}                               |");
-            Console.WriteLine($"| INT BONUS    : {IntelligenceBonus}                     |");
+            Console.WriteLine($"| CORE BONUS  : {AdditionalBonus}                        |");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }

@@ -12,11 +12,10 @@ namespace ProjectRPG.Heroes
 {
     public class Warrior : Hero<Weapon, Armor>
     {
-        public Inventory<Sword, HeavyArmor> Inventory { get; set; }
         public Warrior(string name) : base(name)
         {
-            Weapon = new Sword("Sword", "Common", "Taki se miecz", 100);
-            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0);
+            Weapon = new Sword("Sword", "Common", "Taki se miecz", 100, 1);
+            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0, 1);
             AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             Strength = 10;
             Agility = 6;

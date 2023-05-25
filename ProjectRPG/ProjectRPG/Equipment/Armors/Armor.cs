@@ -29,7 +29,7 @@ namespace ProjectRPG.Equipment.Armors
         #endregion
 
         #region Methods
-        public void PrintInfo()
+        public virtual void PrintInfo()
         {
             Console.WriteLine("======================== ARMOR ============================");
             Console.WriteLine($"| NAME        :  {Name}                                  |");
@@ -38,8 +38,6 @@ namespace ProjectRPG.Equipment.Armors
             Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
             Console.WriteLine($"| DEFENCE     :  {Defence}                               |");
             Console.WriteLine($"| DODGE RATE  :  {DodgeRate}                             |");
-            Console.WriteLine("===========================================================");
-            Console.WriteLine();
         }
         #endregion
     }

@@ -7,17 +7,17 @@
         public string Rarity { get; set; }
         public string Description { get; set; }
         public double HPBonus { get; set; }
-        public double StrengthBonus { get; set; }
+        public double AdditionalBonus { get; set; }
         #endregion
 
         #region Constructors
-        public Helmet(string name, string rarity, string description, double hpBonus, double strengthBonus)
+        public Helmet(string name, string rarity, string description, double hpBonus, double additionalBonus)
         {
             Name = name;
             Rarity = rarity;
             Description = description;
             HPBonus = hpBonus;
-            StrengthBonus = strengthBonus;
+            AdditionalBonus = additionalBonus;
         }
         #endregion
 
@@ -30,7 +30,7 @@
             Console.WriteLine($"| RARITY      :  {Rarity}                                |");
             Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
             Console.WriteLine($"| HP Bonus    :  {HPBonus}                               |");
-            Console.WriteLine($"| ST BONUS    :  {StrengthBonus}                         |");
+            Console.WriteLine($"| CORE BONUS  :  {AdditionalBonus}                       |");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }
