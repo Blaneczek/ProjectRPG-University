@@ -24,19 +24,19 @@ namespace ProjectRPG.Monsters
         public double CurrentHP { get; set; }
         public double Attack { get; set; }
         public double Defence { get; set; }
-        public string SpecialAttackDesc;
+        public string SpecialAttackDesc { get; set; }
 
         #endregion
 
         #region Constructors
-        public Monster(string name, double level, double maxHP, double attack, double defence)
+        public Monster(string name, double level, double maxHP, double attack, double defence, string specialAttackDesc)
         {
             Name = name;
             MaxHP = maxHP * level;
             CurrentHP = maxHP;
             Attack = attack * level;
             Defence = (defence * level) * 0.5;
-
+            SpecialAttackDesc = specialAttackDesc;
             OnNormalHit += NormalHitHero;
         }
         #endregion

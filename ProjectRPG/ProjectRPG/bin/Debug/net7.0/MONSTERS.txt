@@ -1,0 +1,9 @@
+SPIDER;1;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;2;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;3;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;4;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;5;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;6;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;7;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;8;SpiderName;1;20;20;20;specialattackdesc
+SPIDER;9;SpiderName;1;20;20;20;specialattackdesc

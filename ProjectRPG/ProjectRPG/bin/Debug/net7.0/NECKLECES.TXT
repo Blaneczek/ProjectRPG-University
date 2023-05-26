@@ -1,3 +1,0 @@
-﻿WarriornNecklace,Legendary,A legendary necklace,20,2
-SorcererNecklace,Legendary,A legendary necklace,20,2
-RougeNecklace,Legendary,A legendary necklace,20,2

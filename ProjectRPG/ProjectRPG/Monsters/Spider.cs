@@ -12,9 +12,8 @@ namespace ProjectRPG.Monsters
 {
     public class Spider : Monster
     {
-        public Spider(string name, double level, double maxHP, double attack, double defence, string specialAttackDesc) : base(name, level, maxHP, attack, defence)
-        {
-            SpecialAttackDesc = specialAttackDesc;  
+        public Spider(string name, double level, double maxHP, double attack, double defence, string specialAttackDesc) : base(name, level, maxHP, attack, defence, specialAttackDesc)
+        { 
             OnSpecialHit += SpecialHitHero;
         }
 

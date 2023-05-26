@@ -12,11 +12,19 @@ namespace ProjectRPG.Game
 {
     public class Fight
     {
+        public Player Player { get; set; }
+        public Monster Monster { get; set; }
         public double AmountOfAdditionalDamage { get; set; }
         public double DamageDealt { get; set; }
         public double AdditionalDamageTurns { get; set; }
         public bool RepeatFunction { get; set; }
-        public void PrintBattleMenu(Player player, Monster monster)
+
+        public Fight(Player player, Monster monster) 
+        {
+            Player = player;
+            Monster = monster;
+        }
+        public void PrintBattleMenu()
         {
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                            COMBAT ENCOUNTER                               ");
@@ -24,44 +32,44 @@ namespace ProjectRPG.Game
             Console.WriteLine("                                ROUND X                                    ");
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                                  VS                                       ");
-            Console.WriteLine($"  {player.PlayerHero.Name} {player.PlayerHero.Level}                                                  {monster.Name} {monster.Level}");
-            Console.WriteLine($"  HP: {player.PlayerHero.CurrentHP}/{player.PlayerHero.MaxHP}                                            HP: {monster.CurrentHP}/{monster.MaxHP}");
-            Console.WriteLine($"  MP: {player.PlayerHero.CurrentMP}/{player.PlayerHero.MaxMP}");
+            Console.WriteLine($"  {Player.PlayerHero.Name} {Player.PlayerHero.Level}                                                  {Monster.Name} {Monster.Level}");
+            Console.WriteLine($"  HP: {Player.PlayerHero.CurrentHP}/{Player.PlayerHero.MaxHP}                                            HP: {Monster.CurrentHP}/{Monster.MaxHP}");
+            Console.WriteLine($"  MP: {Player.PlayerHero.CurrentMP}/{Player.PlayerHero.MaxMP}");
             Console.WriteLine("---------------------------------------------------------------------------");
         }
 
-        public void PrintHeroTurn(Player player, Monster monster)
+        public void PrintHeroTurn()
         {
-            PrintBattleMenu(player, monster);
+            PrintBattleMenu();
             Console.WriteLine("            YOUR TURN            ");
             Console.WriteLine("========== Battle Menu ==========");
             Console.WriteLine("| 1. Normal Attack              |");
             Console.WriteLine("| 2. Special Attack [Costs 60MP]|");
             Console.WriteLine("| 3. Defensive Ability          |");
-            Console.WriteLine($"| 4. Use Health Potion [{player.PlayerHero.AmountOfHPPotions}/5]    |");
-            Console.WriteLine($"| 5. Use Mana Potion   [{player.PlayerHero.AmountOfMPPotions}/5]    |");
+            Console.WriteLine($"| 4. Use Health Potion [{Player.PlayerHero.AmountOfHPPotions}/5]    |");
+            Console.WriteLine($"| 5. Use Mana Potion   [{Player.PlayerHero.AmountOfMPPotions}/5]    |");
             Console.WriteLine("=================================");
 
             if (!RepeatFunction && AdditionalDamageTurns > 0)
             {
-                player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;
+                Player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;
             }
 
             string choice = Console.ReadLine();
             if (choice == "1")
             {
-                DamageDealt = player.PlayerHero.NormalAttack(monster);
+                DamageDealt = Player.PlayerHero.NormalAttack(Monster);
                 Console.Clear();
-                PrintBattleMenu(player, monster);
+                PrintBattleMenu();
                 Console.WriteLine($"Normal attack dealt: {DamageDealt} damage");
             }
             else if (choice == "2")
             {
-                if (player.PlayerHero.CurrentMP >= 60)
+                if (Player.PlayerHero.CurrentMP >= 60)
                 {
-                    DamageDealt = player.PlayerHero.SpecialAttack(monster);
+                    DamageDealt = Player.PlayerHero.SpecialAttack(Monster);
                     Console.Clear();
-                    PrintBattleMenu(player, monster);
+                    PrintBattleMenu();
                     Console.WriteLine($"Special attack dealt: {DamageDealt} damage");
                 }
                 else
@@ -70,26 +78,26 @@ namespace ProjectRPG.Game
                     Console.WriteLine("Not enough MP! Press ENTER");
                     Console.ReadLine();
                     Console.Clear();
-                    PrintHeroTurn(player, monster);
+                    PrintHeroTurn();
 
                 }
             }
             else if (choice == "3")
             {
-                player.PlayerHero.AvoidAttack();
+                Player.PlayerHero.AvoidAttack();
                 Console.Clear();
-                PrintBattleMenu(player, monster);
+                PrintBattleMenu();
                 Console.WriteLine("You decided to protect yourself");
             }
             else if (choice == "4")
             {
-                if (player.PlayerHero.AmountOfHPPotions > 0)
+                if (Player.PlayerHero.AmountOfHPPotions > 0)
                 {
-                    player.PlayerHero.UseHPPotion();
+                    Player.PlayerHero.UseHPPotion();
                     Console.Clear();
-                    PrintBattleMenu(player, monster);
+                    PrintBattleMenu();
                     Console.WriteLine("You have used a HP potion");
-                    Console.WriteLine(player.PlayerHero.CurrentHP);
+                    Console.WriteLine(Player.PlayerHero.CurrentHP);
                 }
                 else
                 {
@@ -97,18 +105,18 @@ namespace ProjectRPG.Game
                     Console.WriteLine("You have run out of HP potions! Press ENTER");
                     Console.ReadLine();
                     Console.Clear();
-                    PrintHeroTurn(player, monster);
+                    PrintHeroTurn();
                 }
             }
             else if (choice == "5")
             {
-                if (player.PlayerHero.AmountOfMPPotions > 0)
+                if (Player.PlayerHero.AmountOfMPPotions > 0)
                 {
-                    player.PlayerHero.UseMPPotion();
+                    Player.PlayerHero.UseMPPotion();
                     Console.Clear();
-                    PrintBattleMenu(player, monster);
+                    PrintBattleMenu();
                     Console.WriteLine("You have used a MP potion");
-                    Console.WriteLine(player.PlayerHero.CurrentMP);
+                    Console.WriteLine(Player.PlayerHero.CurrentMP);
                 }
                 else
                 {
@@ -116,7 +124,7 @@ namespace ProjectRPG.Game
                     Console.WriteLine("You have run out of MP potions! Press ENTER");
                     Console.ReadLine();
                     Console.Clear();
-                    PrintHeroTurn(player, monster);
+                    PrintHeroTurn();
                 }
             }
             else
@@ -125,84 +133,83 @@ namespace ProjectRPG.Game
                 Console.WriteLine("WRONG BUTTON! Press ENTER");
                 Console.ReadLine();
                 Console.Clear();
-                PrintHeroTurn(player, monster);
+                PrintHeroTurn();
             }
 
             if (!RepeatFunction && AdditionalDamageTurns > 0)
             {
-                Console.WriteLine($"{monster.SpecialAttackDesc} dealt: {AmountOfAdditionalDamage} damage");
+                Console.WriteLine($"{Monster.SpecialAttackDesc} dealt: {AmountOfAdditionalDamage} damage");
                 AdditionalDamageTurns--;
             }
             RepeatFunction = false;
         }
 
-        public void PrintMonsterTurn(Player player, Monster monster)
+        public void PrintMonsterTurn()
         {
-            bool SpecialAttack = false;
-            PrintBattleMenu(player, monster);
+            PrintBattleMenu();
             Console.WriteLine("            ENEMY TURN            ");
             double DamageDealt = 0;
             Random rnd = new Random();
             int losuj = rnd.Next(1, 11);
             if (losuj >= 1 && losuj <= 7) //Normal attack
             {
-                DamageDealt = monster.NormalAttack(player.PlayerHero);
+                DamageDealt = Monster.NormalAttack(Player.PlayerHero);
                 Console.Clear();
-                PrintBattleMenu(player, monster);
-                if (player.PlayerHero.Dodged)
+                PrintBattleMenu();
+                if (Player.PlayerHero.Dodged)
                 {
                     Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
-                    player.PlayerHero.Dodged = false;
+                    Player.PlayerHero.Dodged = false;
                 }
-                else if (player.PlayerHero.AbsoluteDefence)
+                else if (Player.PlayerHero.AbsoluteDefence)
                 {
-                    Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
+                    Console.WriteLine(Player.PlayerHero.AbsoluteDefenceDesc);
                 }
                 else
                 {
-                    Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
+                    Console.WriteLine($"{Monster.Name} dealt {DamageDealt} damage");
                 }
             }
             else if (losuj >= 8) //SpecialAttack
             {
-                DamageDealt = monster.SpecialAttack(player.PlayerHero);
+                DamageDealt = Monster.SpecialAttack(Player.PlayerHero);
                 Console.Clear();
-                PrintBattleMenu(player, monster);
-                if (player.PlayerHero.Dodged)
+                PrintBattleMenu();
+                if (Player.PlayerHero.Dodged)
                 {
                     Console.WriteLine("You have dodged the opponent's attack and received 0 damage!");
-                    player.PlayerHero.Dodged = false;
+                    Player.PlayerHero.Dodged = false;
                 }
-                else if (player.PlayerHero.AbsoluteDefence)
+                else if (Player.PlayerHero.AbsoluteDefence)
                 {
-                    Console.WriteLine(player.PlayerHero.AbsoluteDefenceDesc);
+                    Console.WriteLine(Player.PlayerHero.AbsoluteDefenceDesc);
                 }
                 else
                 {
-                    Console.WriteLine($"{monster.Name} dealt {DamageDealt} damage");
-                    Console.WriteLine(monster.SpecialAttackDesc);
-                    if (monster.GetType() == typeof(Spider))
+                    Console.WriteLine($"{Monster.Name} dealt {DamageDealt} damage");
+                    Console.WriteLine(Monster.SpecialAttackDesc);
+                    if (Monster.GetType() == typeof(Spider))
                     {
                         AmountOfAdditionalDamage = DamageDealt / 10;
-                        if (player.PlayerHero.AbsoluteDefence == false)
+                        if (Player.PlayerHero.AbsoluteDefence == false)
                         {
                             AdditionalDamageTurns = 2;
                         }
                     }
-                    else if (monster.GetType() == typeof(Golem))
+                    else if (Monster.GetType() == typeof(Golem))
                     {
-                        Console.WriteLine($"{monster.Name} performs another turn!");
+                        Console.WriteLine($"{Monster.Name} performs another turn!");
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
-                        PrintMonsterTurn(player, monster);
+                        PrintMonsterTurn();
                     }
                 }   
             }
         }
 
 
-        public void StartFight(Player player, Monster monster)
+        public void StartFight()
         {
             DamageDealt = 0;
             AmountOfAdditionalDamage = 0;
@@ -210,21 +217,21 @@ namespace ProjectRPG.Game
             
             while (true)
             {
-                PrintHeroTurn(player, monster);
-                if (monster.CurrentHP <= 0) 
+                PrintHeroTurn();
+                if (Monster.CurrentHP <= 0) 
                 {
-                    Console.WriteLine($"{monster.Name} defeated");
+                    Console.WriteLine($"{Monster.Name} defeated");
                     break;
                 }
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
                 Console.Clear();
-                PrintMonsterTurn(player, monster);
-                if (player.PlayerHero.AbsoluteDefence == true)
+                PrintMonsterTurn();
+                if (Player.PlayerHero.AbsoluteDefence == true)
                 {
-                    player.PlayerHero.AbsoluteDefence = false;
+                    Player.PlayerHero.AbsoluteDefence = false;
                 }
-                if (player.PlayerHero.CurrentHP <= 0)
+                if (Player.PlayerHero.CurrentHP <= 0)
                 {
                     Console.WriteLine("YOU DIED");
                     break;

@@ -40,7 +40,7 @@ namespace ProjectRPG
             
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(',');
+                    string[] values = line.Split(';');
                     if (values[0] == "SWORD")
                     {
                         Weapon weapon = new Sword(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]));
@@ -69,7 +69,7 @@ namespace ProjectRPG
 
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(',');
+                    string[] values = line.Split(';');
                     if (values[0] == "HEAVY")
                     {
                         Armor armor= new HeavyArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
@@ -98,7 +98,7 @@ namespace ProjectRPG
 
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(',');
+                    string[] values = line.Split(';');
                     Helmet helmet = new Helmet(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
                     Helmets.Add(helmet);
                 }
@@ -114,7 +114,7 @@ namespace ProjectRPG
 
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(',');
+                    string[] values = line.Split(';');
                     Necklace necklace = new Necklace(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
                     Necklaces.Add(necklace);
                 }
@@ -130,7 +130,7 @@ namespace ProjectRPG
 
                 foreach (string line in lines)
                 {
-                    string[] values = line.Split(',');
+                    string[] values = line.Split(';');
                     Boot boot = new Boot(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
                     Boots.Add(boot);
                 }

@@ -8,9 +8,8 @@ namespace ProjectRPG.Monsters
     public class Demon : Monster
     {
         public Demon(string name, double level, double maxHP, double attack, double defence, string specialAttackDesc)
-            : base(name, level, maxHP, attack, defence)
+            : base(name, level, maxHP, attack, defence, specialAttackDesc)
         {
-            SpecialAttackDesc = specialAttackDesc;
             OnSpecialHit += SpecialHitHero;
         }
 

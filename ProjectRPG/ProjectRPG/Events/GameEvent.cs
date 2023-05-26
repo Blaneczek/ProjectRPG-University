@@ -12,17 +12,18 @@ namespace ProjectRPG.Events
     {
         public int IdEvent { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public List<string> Script { get; set; }
         public ItemType Reward { get; set; }
-        public Monster Monster { get; set; }
         public Fight Fight { get; set; }
-        public GameEvent(int idEvent, string name, string description, ItemType reward)
+        public GameEvent(int idEvent, string name, List<string> script, ItemType reward, Fight fight)
         {
             IdEvent = idEvent;
             Name = name;
-            Description = description;
+            Script = script;
             Reward = reward;
+            Fight = fight;
         }
 
+        public GameEvent() { }
     }
 }
