@@ -32,6 +32,7 @@ namespace ProjectRPG.Monsters
         public Monster(string name, double level, double maxHP, double attack, double defence, string specialAttackDesc)
         {
             Name = name;
+            Level = level;
             MaxHP = maxHP * level;
             CurrentHP = maxHP;
             Attack = attack * level;

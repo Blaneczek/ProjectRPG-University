@@ -29,9 +29,13 @@ namespace ProjectRPG.Heroes
         public double Attack { get; set; }
         public double BaseDefence { get; set; }
         public double Defence { get; set; }
+        public double BaseDodgeRate { get; set; }
         public double DodgeRate { get; set; }
+        public double BaseStrength { get; set; }
         public double Strength { get; set; }
+        public double BaseAgility { get; set; }
         public double Agility { get; set; }
+        public double BaseIntelligence { get; set; }  
         public double Intelligence { get; set; }
         public bool AbsoluteDefence { get; set; }
         public string AbsoluteDefenceDesc { get; set; }
@@ -81,8 +85,8 @@ namespace ProjectRPG.Heroes
             Helmet = new Helmet("Helmet", "Common", "Taki se helm", 20, 2);
             Necklace = new Necklace("Necklace", "Common", "Taki se naszyjnik", 20, 2);
             Boots = new Boot("Boots", "Common", "Takie se buty", 2, 5);
-            PotionHP = new("Lesser HP potion", 20, 5);
-            PotionMP = new("Lesser MP potion", 20, 5);
+            PotionHP = new("HP potion", 20, 5);
+            PotionMP = new("MP potion", 20, 5);
             AmountOfHPPotions = PotionHP.Amount;
             AmountOfMPPotions = PotionMP.Amount;
             AbsoluteDefence = false;
@@ -121,9 +125,39 @@ namespace ProjectRPG.Heroes
 
             AmountOfMPPotions--;
         }
+
+        public virtual void UpdateHero()
+        {
+            Console.WriteLine("         LEVEL UP!              ");
+            Console.WriteLine("Increase one of the statistics: ");
+            Console.WriteLine($"1. Strength     {Strength}     ");
+            Console.WriteLine($"2. Agility      {Agility}      ");
+            Console.WriteLine($"3. Intelligence {Intelligence} ");
+            ConsoleKeyInfo choice = Console.ReadKey();
+            if (choice.Key.ToString() == "D1" || choice.Key.ToString() == "NumPad1")
+            {
+                BaseStrength++;
+                Console.Clear();
+            }
+            else if (choice.Key.ToString() == "D2" || choice.Key.ToString() == "NumPad2")
+            {
+                BaseAgility++;
+                Console.Clear();
+            }
+            else if (choice.Key.ToString() == "D3" || choice.Key.ToString() == "NumPad3")
+            {
+                BaseIntelligence++;
+                Console.Clear();
+            }
+            else
+            {
+                Console.Clear();
+                UpdateHero();
+            }
+        }
+
         public abstract double NormalHitMonster(Monster monster);
         public abstract double SpecialHitMonster(Monster monster);
-
         #endregion
     }
 

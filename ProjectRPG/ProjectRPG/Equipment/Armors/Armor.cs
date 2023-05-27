@@ -15,16 +15,18 @@ namespace ProjectRPG.Equipment.Armors
         public string Description { get; set; }
         public double Defence { get; set; }
         public double DodgeRate { get; set; }
+        public double AdditionalBonus { get; set; }
         #endregion
 
         #region Constructors
-        public Armor(string name, string rarity, string description, double defence, double dodgeRate)
+        public Armor(string name, string rarity, string description, double defence, double dodgeRate, double additionalBonus)
         {
             Name = name;
             Rarity = rarity;
             Description = description;
             Defence = defence;
             DodgeRate = dodgeRate;
+            AdditionalBonus = additionalBonus;
         }
         #endregion
 

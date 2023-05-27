@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProjectRPG.Equipment.Armors
 {
-    internal class LightArmor : Armor
+    public class LightArmor : Armor
     {
-        public double IntelligenceBonus { get; set; }
-
-        public LightArmor(string name, string rarity, string description, double defence, double dodgeRate, double intelligenceBonus) : base(name, rarity, description, defence, dodgeRate)
+        public LightArmor(string name, string rarity, string description, double defence, double dodgeRate, double additionalBonus) : base(name, rarity, description, defence, dodgeRate, additionalBonus)
         {
-            IntelligenceBonus = intelligenceBonus;
+            AdditionalBonus = additionalBonus;
         }
 
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($" INT BONUS  :  {IntelligenceBonus}                        ");
+            Console.WriteLine($" INT BONUS  :  {AdditionalBonus}                        ");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }

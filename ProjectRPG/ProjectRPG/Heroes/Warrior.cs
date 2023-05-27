@@ -17,17 +17,20 @@ namespace ProjectRPG.Heroes
             Weapon = new Sword("Sword", "Common", "Taki se miecz", 100, 1);
             Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0, 1);
             AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
-            Strength = 10;
-            Agility = 6;
-            Intelligence = 4;
-            MaxHP = 100 + Strength * 10;
+            BaseStrength = 10;
+            BaseAgility = 6;
+            BaseIntelligence = 4;
+            Strength = BaseStrength + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
+            Agility = BaseAgility;
+            Intelligence = BaseIntelligence;
+            MaxHP = 100 + Strength * 10 + Helmet.HPBonus;
             CurrentHP = MaxHP;
-            MaxMP = 100 + Intelligence * 8;
+            MaxMP = 100 + Intelligence * 8 + Necklace.MPBonus;
             CurrentMP = MaxMP;
             BaseAttack = 10 * (Strength * 0.2);
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
-            DodgeRate = 10 + Agility + Armor.DodgeRate;
+            DodgeRate = 10 + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
             OnNormalHit += NormalHitMonster;
             OnSpecialHit += SpecialHitMonster;
         }
@@ -35,7 +38,6 @@ namespace ProjectRPG.Heroes
         public override double NormalHitMonster(Monster monster)
         {
             double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01));
-            monster.CurrentHP -= DamageDealt;
 
             monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
@@ -44,14 +46,29 @@ namespace ProjectRPG.Heroes
 
         public override double SpecialHitMonster(Monster monster)
         {
-            double DamageDealt = Math.Round((Attack - (Attack * (Defence * 0.01))) * (1 + Strength * 0.01) * 2);
-            monster.CurrentHP -= DamageDealt;
+            double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01) * 2);
             CurrentMP -= 60;
 
             monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
             return DamageDealt;
         }
-    
+
+        public override void UpdateHero()
+        {
+            base.UpdateHero();
+            Strength = BaseStrength + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
+            Agility = BaseAgility;
+            Intelligence = BaseIntelligence;
+            MaxHP = 100 + Strength * 10 + Helmet.HPBonus;
+            CurrentHP = MaxHP;
+            MaxMP = 100 + Intelligence * 8 + Necklace.MPBonus;
+            CurrentMP = MaxMP;
+            BaseAttack = 10 * (Strength * 0.2);
+            Attack = BaseAttack + Weapon.Damage;
+            Defence = BaseDefence + Armor.Defence;
+            DodgeRate = 10 + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
+        }
+
     }
 }

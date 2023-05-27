@@ -1,3 +1,3 @@
-﻿WarriorHelmet;Legendary;A legendary helmet;20;2
-SorcererHelmet;Legendary;A legendary helmet;20;2
-RougeHelmet;Legendary;A legendary helmet;20;2
+﻿Warlord's Visage;Legendary;A fearsome helmet crafted with the finest materials, exudes an aura of authority and intimidation.;20;2
+Aetherweave Crown;Legendary;A unique hat adorned with intricate symbols and shimmering gemstones, radiates an aura of arcane energy.;20;2
+Silentshade Veil;Legendary;A sleek and lightweight garment made from a special fabric that provides excellent concealment.;20;2

@@ -9,16 +9,14 @@ namespace ProjectRPG.Equipment.Weapons
     
     public class Sword : Weapon
     {
-        public double StrengthBonus { get; set; }
-        public Sword(string name, string rarity, string description, double damage, double strengthBonus) : base(name, rarity, description, damage)
+        public Sword(string name, string rarity, string description, double damage, double additionalBonus) : base(name, rarity, description, damage, additionalBonus)
         {
-            StrengthBonus = strengthBonus;
         }
 
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($" ST BONUS    :  {StrengthBonus}                           ");
+            Console.WriteLine($" ST BONUS    :  {AdditionalBonus}                          ");
             Console.WriteLine("============================================================");
             Console.WriteLine();
         }

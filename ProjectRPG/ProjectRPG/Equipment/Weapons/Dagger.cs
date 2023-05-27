@@ -8,16 +8,14 @@ namespace ProjectRPG.Equipment.Weapons
 {
     public class Dagger : Weapon
     {
-        public double AgilityBonus { get; set; }
-        public Dagger(string name, string rarity, string description, double damage, double agilityBonus) : base(name, rarity, description, damage)
+        public Dagger(string name, string rarity, string description, double damage, double additionalBonus) : base(name, rarity, description, damage, additionalBonus)
         {
-            AgilityBonus = agilityBonus;
         }
 
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($" AG BONUS    :  {AgilityBonus}                             ");
+            Console.WriteLine($" AG BONUS    :  {AdditionalBonus}                           ");
             Console.WriteLine("============================================================");
             Console.WriteLine();
         }

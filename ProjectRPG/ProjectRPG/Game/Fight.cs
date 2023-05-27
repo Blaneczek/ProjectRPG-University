@@ -32,7 +32,7 @@ namespace ProjectRPG.Game
             Console.WriteLine("                                ROUND X                                    ");
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                                  VS                                       ");
-            Console.WriteLine($"  {Player.PlayerHero.Name} {Player.PlayerHero.Level}                              {Monster.Name} {Monster.Level}");
+            Console.WriteLine($"  {Player.PlayerHero.Name} lvl {Player.PlayerHero.Level}                           {Monster.Name} lvl {Monster.Level}");
             Console.WriteLine($"  HP: {Player.PlayerHero.CurrentHP}/{Player.PlayerHero.MaxHP}                        HP: {Monster.CurrentHP}/{Monster.MaxHP}");
             Console.WriteLine($"  MP: {Player.PlayerHero.CurrentMP}/{Player.PlayerHero.MaxMP}");
             Console.WriteLine("---------------------------------------------------------------------------");
@@ -208,8 +208,7 @@ namespace ProjectRPG.Game
             }
         }
 
-
-        public void StartFight()
+        public bool StartFight()
         {
             DamageDealt = 0;
             AmountOfAdditionalDamage = 0;
@@ -220,8 +219,12 @@ namespace ProjectRPG.Game
                 PrintHeroTurn();
                 if (Monster.CurrentHP <= 0) 
                 {
-                    Console.WriteLine($"{Monster.Name} defeated");
-                    break;
+                    Console.WriteLine();
+                    Console.WriteLine($"{Monster.Name} DEFEATED!");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return true;
                 }
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
@@ -233,8 +236,12 @@ namespace ProjectRPG.Game
                 }
                 if (Player.PlayerHero.CurrentHP <= 0)
                 {
-                    Console.WriteLine("YOU DIED");
-                    break;
+                    Console.WriteLine();
+                    Console.WriteLine("YOU HAVE LOST!");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return false;
                 }
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();

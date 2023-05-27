@@ -1,6 +1,6 @@
-0;As Roderick ventures deeper into the foreboding forest, he senses an eerie presence lurking among the shadows. The air grows heavy with anticipation as he approaches the heart of darkness.
-0;#HERONAME#: Step by step, I enter the dark forest. Something tells me this won't be an easy task.
+0;As {Name} ventures deeper into the foreboding forest, he senses an eerie presence lurking among the shadows. The air grows heavy with anticipation as he approaches the heart of darkness.
+0;{Name}: Step by step, I enter the dark forest. Something tells me this won't be an easy task.
 0;Spider (Guardian): Who dares intrude upon the tranquility of this forest?
-0;#HERONAME#: I'm heading to the Demon King's castle to reclaim my Kingdom!
+0;{Name}: I'm heading to the Demon King's castle to reclaim my Kingdom!
 0;Spider (Guardian): The only way for you to leave this forest is to die - You are not getting out of here alive! Prepare yourself for battle!
 0;After defeating the Spider, the hero leaves the forbidden forest and reaches the village that was currently under attack by goblins.

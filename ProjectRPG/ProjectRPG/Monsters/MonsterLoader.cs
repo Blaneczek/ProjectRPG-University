@@ -26,22 +26,22 @@ namespace ProjectRPG.Monsters
                     string[] values = line.Split(';');
                     if (values[0] == "SPIDER")
                     {
-                        Monster monster = new Spider(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[6]);
+                        Monster monster = new Spider(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[7]);
                         Monsters.Add(int.Parse(values[1]), monster);
                     }
                     else if (values[0] == "GOLEM")
                     {
-                        Monster monster = new Golem(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[6]);
+                        Monster monster = new Golem(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[7]);
                         Monsters.Add(int.Parse(values[1]), monster);
                     }
                     else if (values[0] == "GOBLIN")
                     {
-                        Monster monster = new Goblin(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[6]);
+                        Monster monster = new Goblin(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[7]);
                         Monsters.Add(int.Parse(values[1]), monster);
                     }
                     else if (values[0] == "DEMON")
                     {
-                        Monster monster = new Demon(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[6]);
+                        Monster monster = new Demon(values[2], double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]), values[7]);
                         Monsters.Add(int.Parse(values[1]), monster);
                     }
                 }

@@ -25,12 +25,12 @@
         public void PrintInfo()
         {
             Console.WriteLine("======================== BOOTS ============================");
-            Console.WriteLine($"| NAME        :  {Name}                                  |");
-            Console.WriteLine($"| TYPE        :  {GetType().Name}                        |");
-            Console.WriteLine($"| RARITY      :  {Rarity}                                |");
-            Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
-            Console.WriteLine($"| CORE BONUS  :  {AdditionalBonus}                       |");
-            Console.WriteLine($"| DODGE BONUS :  {DodgeRateBonus}                        |");
+            Console.WriteLine($" NAME        :  {Name}                                    ");
+            Console.WriteLine($" TYPE        :  {GetType().Name}                          ");
+            Console.WriteLine($" RARITY      :  {Rarity}                                  ");
+            Console.WriteLine($" DESCRIPTION :  {Description}                             ");
+            Console.WriteLine($" CORE BONUS  :  {AdditionalBonus}                         ");
+            Console.WriteLine($" DODGE BONUS :  {DodgeRateBonus}                          ");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }

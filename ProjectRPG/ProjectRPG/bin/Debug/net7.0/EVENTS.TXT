@@ -1,0 +1,9 @@
+﻿1;Forbidden Forest
+2;Assault on the Village
+3;Unearthing the Mysterious Cave
+4;Betrayal in Trickery
+5;Mother of Spiders
+6;Infiltration of the Goblin Fortress
+7;Battle with the Ancient Golem
+8;Encounter with Gorgoth
+2;Final Battle with the Demon King

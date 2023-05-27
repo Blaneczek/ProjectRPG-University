@@ -8,17 +8,15 @@ namespace ProjectRPG.Equipment.Armors
 {
     public class MediumArmor : Armor
     {
-        public double AgilityBonus { get; set; }
-
-        public MediumArmor(string name, string rarity, string description, double defence, double dodgeRate, double agilityBonus) : base(name, rarity, description, defence, dodgeRate)
+        public MediumArmor(string name, string rarity, string description, double defence, double dodgeRate, double additionalBonus) : base(name, rarity, description, defence, dodgeRate, additionalBonus)
         {
-            AgilityBonus = agilityBonus;
+            AdditionalBonus = additionalBonus;
         }
 
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($" AG BONUS  :  {AgilityBonus}                              ");
+            Console.WriteLine($" AG BONUS  :  {AdditionalBonus}                              ");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }

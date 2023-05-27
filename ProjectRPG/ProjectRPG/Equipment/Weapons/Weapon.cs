@@ -13,15 +13,17 @@ namespace ProjectRPG.Equipment.Weapons
         public string Rarity { get; set; }
         public string Description { get; set; }
         public double Damage { get; set; }
+        public double AdditionalBonus { get; set; }
         #endregion
 
         #region Constructors
-        public Weapon(string name, string rarity, string description, double damage)
+        public Weapon(string name, string rarity, string description, double damage, double additionalBonus)
         {
             Name = name;
             Rarity = rarity;
             Description = description;
             Damage = damage;
+            AdditionalBonus = additionalBonus;
         }
         #endregion
 
