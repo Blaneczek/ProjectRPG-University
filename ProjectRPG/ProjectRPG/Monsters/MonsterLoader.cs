@@ -15,7 +15,7 @@ namespace ProjectRPG.Monsters
         {
             Monsters = new Dictionary<int, Monster>();
         }
-        public void LoadMonsters(string filePathMonsters)
+        public async Task LoadMonsters(string filePathMonsters)
         {
             if (File.Exists(filePathMonsters))
             {

@@ -17,8 +17,8 @@ namespace ProjectRPG.Game
         public string PlayerClassName { get; set; }
         public Hero<Weapon, Armor> PlayerHero { get; set; }
         public Player() { }
-
-        public void ChooseHero()
+        
+        public async Task ChooseHero()
         {   
             Console.WriteLine("Enter your Hero's name: ");
             string userName = Console.ReadLine();
@@ -70,7 +70,7 @@ namespace ProjectRPG.Game
             {           
                 Console.Clear();
                 Console.WriteLine("Wrong button, try again...");
-                ChooseHero();
+                await ChooseHero();
             }
             Console.Clear();
         }

@@ -65,7 +65,7 @@ namespace ProjectRPG.Game
             }
             else if (choice.Key.ToString() == "D2" || choice.Key.ToString() == "NumPad2")
             {
-                if (Player.PlayerHero.CurrentMP >= 60)
+                if (Player.PlayerHero.CurrentMP >= 40)
                 {
                     DamageDealt = Player.PlayerHero.SpecialAttack(Monster);
                     Console.Clear();

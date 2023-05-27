@@ -23,11 +23,11 @@ namespace ProjectRPG.Heroes
             Strength = BaseStrength + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Agility = BaseAgility;
             Intelligence = BaseIntelligence;
-            MaxHP = 100 + Strength * 10 + Helmet.HPBonus;
+            MaxHP = Math.Round(100 + Strength * 10 + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = 100 + Intelligence * 8 + Necklace.MPBonus;
+            MaxMP = Math.Round(100 + Intelligence * 8 + Necklace.MPBonus);
             CurrentMP = MaxMP;
-            BaseAttack = 10 * (Strength * 0.2);
+            BaseAttack = Math.Round(10 * (Strength * 0.2));
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
             DodgeRate = 10 + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
@@ -47,7 +47,7 @@ namespace ProjectRPG.Heroes
         public override double SpecialHitMonster(Monster monster)
         {
             double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Strength * 0.01) * 2);
-            CurrentMP -= 60;
+            CurrentMP -= 40;
 
             monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
@@ -60,11 +60,11 @@ namespace ProjectRPG.Heroes
             Strength = BaseStrength + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Agility = BaseAgility;
             Intelligence = BaseIntelligence;
-            MaxHP = 100 + Strength * 10 + Helmet.HPBonus;
+            MaxHP = Math.Round(100 + Strength * 10 + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = 100 + Intelligence * 8 + Necklace.MPBonus;
+            MaxMP = Math.Round(100 + Intelligence * 8 + Necklace.MPBonus);
             CurrentMP = MaxMP;
-            BaseAttack = 10 * (Strength * 0.2);
+            BaseAttack = Math.Round(10 * (Strength * 0.2));
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
             DodgeRate = 10 + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;

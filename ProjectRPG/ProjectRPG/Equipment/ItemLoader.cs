@@ -23,16 +23,16 @@ namespace ProjectRPG
             Boots = new List<Boot>();
         }
 
-        public void LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
+        public async Task LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
         {
-            LoadWeapons(filePathWeaons);
-            LoadArmors(filePathArmors);
-            LoadHelmets(filePathHelmets);
-            LoadNecklaces(filePathNecklaces);
-            LoadBoots(filePathBoots);
+            await LoadWeapons(filePathWeaons);
+            await LoadArmors(filePathArmors);
+            await LoadHelmets(filePathHelmets);
+            await LoadNecklaces(filePathNecklaces);
+            await LoadBoots(filePathBoots);
         }
 
-        public void LoadWeapons(string filePath)
+        public async Task LoadWeapons(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -61,7 +61,7 @@ namespace ProjectRPG
             }           
         }
 
-        public void LoadArmors(string filePathArmor)
+        public async Task LoadArmors(string filePathArmor)
         {
             if (File.Exists(filePathArmor))
             {
@@ -90,7 +90,7 @@ namespace ProjectRPG
             }
         }
 
-        public void LoadHelmets(string filePath)
+        public async Task LoadHelmets(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -106,7 +106,7 @@ namespace ProjectRPG
              
         }
 
-        public void LoadNecklaces(string filePath)
+        public async Task LoadNecklaces(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -122,7 +122,7 @@ namespace ProjectRPG
                
         }
 
-        public void LoadBoots(string filePath)
+        public async Task LoadBoots(string filePath)
         {
             if (File.Exists(filePath))
             {

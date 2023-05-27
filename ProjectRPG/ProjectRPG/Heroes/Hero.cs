@@ -82,11 +82,11 @@ namespace ProjectRPG.Heroes
             Name = name;
             Level = 1;
             BaseDefence = 20;
-            Helmet = new Helmet("Helmet", "Common", "Taki se helm", 20, 2);
-            Necklace = new Necklace("Necklace", "Common", "Taki se naszyjnik", 20, 2);
-            Boots = new Boot("Boots", "Common", "Takie se buty", 2, 5);
-            PotionHP = new("HP potion", 20, 5);
-            PotionMP = new("MP potion", 20, 5);
+            Helmet = new Helmet("Novice Cap", "Common", "A basic headgear that provides minimal protection and a modest boost to the wearer's attributes", 20, 1);
+            Necklace = new Necklace("Beginner's Luck Pendant", "Common", "A simple pendant imbued with novice-level enchantments, offering a slight enhancement to the wearer's abilities as they embark on their journey.", 20, 1);
+            Boots = new Boot("Adventurer's Boots", "Common", "Sturdy yet unremarkable boots that provide basic foot protection.", 2, 2);
+            PotionHP = new("HP potion", 30, 5);
+            PotionMP = new("MP potion", 30, 5);
             AmountOfHPPotions = PotionHP.Amount;
             AmountOfMPPotions = PotionMP.Amount;
             AbsoluteDefence = false;
@@ -128,12 +128,16 @@ namespace ProjectRPG.Heroes
 
         public virtual void UpdateHero()
         {
+            Level++;
+            AmountOfHPPotions = 5;
+            AmountOfMPPotions = 5;
+        
             Console.WriteLine("         LEVEL UP!              ");
             Console.WriteLine("Increase one of the statistics: ");
             Console.WriteLine($"1. Strength     {Strength}     ");
             Console.WriteLine($"2. Agility      {Agility}      ");
             Console.WriteLine($"3. Intelligence {Intelligence} ");
-            ConsoleKeyInfo choice = Console.ReadKey();
+            ConsoleKeyInfo choice = Console.ReadKey(true);
             if (choice.Key.ToString() == "D1" || choice.Key.ToString() == "NumPad1")
             {
                 BaseStrength++;

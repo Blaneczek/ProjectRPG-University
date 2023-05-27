@@ -13,21 +13,22 @@ namespace ProjectRPG.Heroes
     {
         public Rogue(string name) : base(name)
         {
-            Weapon = new Dagger("Dagger", "Common", "Taki se miecz", 20, 1);
-            Armor = new MediumArmor("Medium", "Common", "Taki se armor", 40, 0, 1);
-            AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
+            Weapon = new Dagger("Swift Stiletto", "Common", "A small and unassuming dagger, ideal for swift and precise strikes, albeit with limited damage potential at the beginning of their journey.", 20, 1);
+            Armor = new MediumArmor("Shadowcloth Tunic", "Common", "A mediumweight and stealthy yuniv that provides basic protection while allowing rogues to move swiftly and quietly in the shadows.", 40, 0, 1);
+            AbsoluteDefenceDesc = "Using your nimble agility, you effortlessly sidestep the attack, avoiding any harm.";
             BaseStrength = 6; 
             BaseAgility = 10; 
             BaseIntelligence = 4;
             Strength = BaseStrength;
             Agility = BaseAgility + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Intelligence = BaseIntelligence;
-            MaxHP = 90 + Strength * 9 + Helmet.HPBonus;
+            MaxHP = Math.Round(90 + Strength * 9 + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = 80 + Intelligence * 8 + Necklace.MPBonus;
+            MaxMP = Math.Round(80 + Intelligence * 8 + Necklace.MPBonus);
             CurrentMP = MaxMP;
-            BaseAttack = 9 * (Agility * 0.2); 
+            BaseAttack = Math.Round(9 * (Agility * 0.2)); 
             Attack = BaseAttack + Weapon.Damage;
+            Defence = BaseDefence + Armor.Defence;
             BaseDodgeRate = 15;
             DodgeRate = BaseDodgeRate + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
             OnNormalHit += NormalHitMonster; 
@@ -59,12 +60,13 @@ namespace ProjectRPG.Heroes
             Strength = BaseStrength;
             Agility = BaseAgility + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Intelligence = BaseIntelligence;
-            MaxHP = 90 + Strength * 9 + Helmet.HPBonus;
+            MaxHP = Math.Round(90 + Strength * 9 + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = 80 + Intelligence * 8 + Necklace.MPBonus;
+            MaxMP = Math.Round(80 + Intelligence * 8 + Necklace.MPBonus);
             CurrentMP = MaxMP;
-            BaseAttack = 9 * (Agility * 0.2);
+            BaseAttack = Math.Round(9 * (Agility * 0.2));
             Attack = BaseAttack + Weapon.Damage;
+            Defence = BaseDefence + Armor.Defence;
             BaseDodgeRate = 15;
             DodgeRate = BaseDodgeRate + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
         }

@@ -109,7 +109,13 @@ namespace ProjectRPG.Events
             {
                 new List<string>(),
                 new List<string>(),
-                new List<string>()
+                new List<string>(),
+                new List<string>(),
+                new List<string>(),
+                new List<string>(),
+                new List<string>(),
+                new List<string>(),
+                new List<string>()             
             };
 
             WarriorEvents = new WarriorEventsData();
@@ -132,7 +138,7 @@ namespace ProjectRPG.Events
             }
         }
 
-        public void LoadWarriorGameEventData(string filePath, string filePathScript, List<Weapon> weapon, List<Armor> armor, List<Helmet> helmets, List<Boot> boots, List<Necklace> necklaces, Dictionary<int, Monster> monsters, Player player)
+        public async Task LoadWarriorGameEventData(string filePath, string filePathScript, List<Weapon> weapon, List<Armor> armor, List<Helmet> helmets, List<Boot> boots, List<Necklace> necklaces, Dictionary<int, Monster> monsters, Player player)
         {
             LoadGameEventsScript(filePathScript);
             if (File.Exists(filePath))
@@ -152,40 +158,40 @@ namespace ProjectRPG.Events
                 WarriorEvents = new WarriorEventsData
                 {
                     Event01 = new GameEvent<Sword>(int.Parse(values1[0]), values1[1], GameEventsScript[0], (Sword)weapon[0], new Fight(player, monsters[1])),
-                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[0], helmets[0], new Fight(player, monsters[2])),
-                    Event03 = new GameEvent<HeavyArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[0], (HeavyArmor)armor[0], new Fight(player, monsters[3])),
-                    Event04 = new GameEvent<Sword>(int.Parse(values4[0]), values4[1], GameEventsScript[0], (Sword)weapon[1], new Fight(player, monsters[4])),
-                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[0], boots[0], new Fight(player, monsters[5])),
-                    Event06 = new GameEvent<HeavyArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[0], (HeavyArmor)armor[1], new Fight(player, monsters[6])),
-                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[0], necklaces[0], new Fight(player, monsters[7])),
-                    Event08 = new GameEvent<Sword>(int.Parse(values8[0]), values8[1], GameEventsScript[0], (Sword)weapon[2], new Fight(player, monsters[8])),
-                    Event09 = new GameEvent<HeavyArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[0], (HeavyArmor)armor[2], new Fight(player, monsters[9]))                  
+                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[1], helmets[0], new Fight(player, monsters[2])),
+                    Event03 = new GameEvent<HeavyArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[2], (HeavyArmor)armor[0], new Fight(player, monsters[3])),
+                    Event04 = new GameEvent<Sword>(int.Parse(values4[0]), values4[1], GameEventsScript[3], (Sword)weapon[1], new Fight(player, monsters[4])),
+                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[4], boots[0], new Fight(player, monsters[5])),
+                    Event06 = new GameEvent<HeavyArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[5], (HeavyArmor)armor[1], new Fight(player, monsters[6])),
+                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[6], necklaces[0], new Fight(player, monsters[7])),
+                    Event08 = new GameEvent<Sword>(int.Parse(values8[0]), values8[1], GameEventsScript[7], (Sword)weapon[2], new Fight(player, monsters[8])),
+                    Event09 = new GameEvent<HeavyArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[8], (HeavyArmor)armor[2], new Fight(player, monsters[9]))                  
                 };
 
                 SorcererEvents = new SorcererEventsData
                 {
                     Event01 = new GameEvent<Staff>(int.Parse(values1[0]), values1[1], GameEventsScript[0], (Staff)weapon[3], new Fight(player, monsters[1])),
-                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[0], helmets[0], new Fight(player, monsters[2])),
-                    Event03 = new GameEvent<LightArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[0], (LightArmor)armor[3], new Fight(player, monsters[3])),
-                    Event04 = new GameEvent<Staff>(int.Parse(values4[0]), values4[1], GameEventsScript[0], (Staff)weapon[4], new Fight(player, monsters[4])),
-                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[0], boots[0], new Fight(player, monsters[5])),
-                    Event06 = new GameEvent<LightArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[0], (LightArmor)armor[4], new Fight(player, monsters[6])),
-                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[0], necklaces[0], new Fight(player, monsters[7])),
-                    Event08 = new GameEvent<Staff>(int.Parse(values8[0]), values8[1], GameEventsScript[0], (Staff)weapon[5], new Fight(player, monsters[8])),
-                    Event09 = new GameEvent<LightArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[0], (LightArmor)armor[5], new Fight(player, monsters[9]))
+                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[1], helmets[0], new Fight(player, monsters[2])),
+                    Event03 = new GameEvent<LightArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[2], (LightArmor)armor[6], new Fight(player, monsters[3])),
+                    Event04 = new GameEvent<Staff>(int.Parse(values4[0]), values4[1], GameEventsScript[3], (Staff)weapon[4], new Fight(player, monsters[4])),
+                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[4], boots[0], new Fight(player, monsters[5])),
+                    Event06 = new GameEvent<LightArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[5], (LightArmor)armor[7], new Fight(player, monsters[6])),
+                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[6], necklaces[0], new Fight(player, monsters[7])),
+                    Event08 = new GameEvent<Staff>(int.Parse(values8[0]), values8[1], GameEventsScript[7], (Staff)weapon[5], new Fight(player, monsters[8])),
+                    Event09 = new GameEvent<LightArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[8], (LightArmor)armor[8], new Fight(player, monsters[9]))
                 };
 
                 RogueEvents = new RogueEventsData
                 {
                     Event01 = new GameEvent<Dagger>(int.Parse(values1[0]), values1[1], GameEventsScript[0], (Dagger)weapon[6], new Fight(player, monsters[1])),
-                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[0], helmets[0], new Fight(player, monsters[2])),
-                    Event03 = new GameEvent<MediumArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[0], (MediumArmor)armor[6], new Fight(player, monsters[3])),
-                    Event04 = new GameEvent<Dagger>(int.Parse(values4[0]), values4[1], GameEventsScript[0], (Dagger)weapon[7], new Fight(player, monsters[4])),
-                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[0], boots[0], new Fight(player, monsters[5])),
-                    Event06 = new GameEvent<MediumArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[0], (MediumArmor)armor[7], new Fight(player, monsters[6])),
-                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[0], necklaces[0], new Fight(player, monsters[7])),
-                    Event08 = new GameEvent<Dagger>(int.Parse(values8[0]), values8[1], GameEventsScript[0], (Dagger)weapon[8], new Fight(player, monsters[8])),
-                    Event09 = new GameEvent<MediumArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[0], (MediumArmor)armor[8], new Fight(player, monsters[9]))
+                    Event02 = new GameEvent<Helmet>(int.Parse(values2[0]), values2[1], GameEventsScript[1], helmets[0], new Fight(player, monsters[2])),
+                    Event03 = new GameEvent<MediumArmor>(int.Parse(values3[0]), values3[1], GameEventsScript[2], (MediumArmor)armor[3], new Fight(player, monsters[3])),
+                    Event04 = new GameEvent<Dagger>(int.Parse(values4[0]), values4[1], GameEventsScript[3], (Dagger)weapon[7], new Fight(player, monsters[4])),
+                    Event05 = new GameEvent<Boot>(int.Parse(values5[0]), values5[1], GameEventsScript[4], boots[0], new Fight(player, monsters[5])),
+                    Event06 = new GameEvent<MediumArmor>(int.Parse(values6[0]), values6[1], GameEventsScript[5], (MediumArmor)armor[4], new Fight(player, monsters[6])),
+                    Event07 = new GameEvent<Necklace>(int.Parse(values7[0]), values7[1], GameEventsScript[6], necklaces[0], new Fight(player, monsters[7])),
+                    Event08 = new GameEvent<Dagger>(int.Parse(values8[0]), values8[1], GameEventsScript[7], (Dagger)weapon[8], new Fight(player, monsters[8])),
+                    Event09 = new GameEvent<MediumArmor>(int.Parse(values9[0]), values9[1], GameEventsScript[8], (MediumArmor)armor[5], new Fight(player, monsters[9]))
                 };
             }
         }

@@ -1,6 +1,51 @@
-0;As Roderick ventures deeper into the foreboding forest, he senses an eerie presence lurking among the shadows. The air grows heavy with anticipation as he approaches the heart of darkness.
-0;#HERONAME#: Step by step, I enter the dark forest. Something tells me this won't be an easy task.
+0;As {Name} ventures deeper into the foreboding forest, he senses an eerie presence lurking among the shadows. The air grows heavy with anticipation as he approaches the heart of darkness.
+0;{Name}: Step by step, I enter the dark forest. Something tells me this won't be an easy task.
 0;Spider (Guardian): Who dares intrude upon the tranquility of this forest?
-0;#HERONAME#: I'm heading to the Demon King's castle to reclaim my Kingdom!
+0;{Name}: I'm heading to the Demon King's castle to reclaim my Kingdom!
 0;Spider (Guardian): The only way for you to leave this forest is to die - You are not getting out of here alive! Prepare yourself for battle!
 0;After defeating the Spider, the hero leaves the forbidden forest and reaches the village that was currently under attack by goblins.
+1;{Name} arrives at a beleaguered village, its inhabitants gripped by fear and desperation. The clash of steel and the guttural growls of Goblins fill the air, signaling a desperate struggle for survival.
+1;{Name}: I have come to aid this village under siege. Stand strong, for we shall defend it!
+1;Goblin (Attacker): Ha! Who dares to interfere with our plans? This village is ours!
+1;{Name}: I won't allow you to destroy this village. Prepare to face my blade!
+1;Goblin (Attacker): Let's see if you're as skilled as you claim to be!
+1;After the victory against the Goblins, the hero receives support from the village inhabitants, who offer valuable information about the mysterious Hobgoblin.
+2;A hidden cave veiled in mystery beckons {Name}'s curiosity. Its entrance emanates an otherworldly aura, drawing him deeper into its enigmatic depths where he encounters the Giant Creature.
+2;Hobgoblin (Ruler): So, an audacious intruder seeks an audience with me. What brings you to my domain?
+2;{Name}: I am {Name}, the seeker of justice. I demand the truth about Morgorath's artifact.
+2;Hobgoblin (Ruler): Answers you seek? Defeat me in combat, and I shall reveal what you desire.
+2;Upon defeating the Hobgoblin, the hero acquires vital information about an ancient artifact said to grant superhuman powers.
+3;Unexpectedly, {Name} is ambushed by a mischievous Trickster Demon named Snickerfang. Its devilish grin hints at treachery and cunning.
+3;{Name}: What trickery is this? Who are you, demon?
+3;lSnickerfang (Trickster Demon): Hehe, I am Snickerfang, the master of mischief. You seek Margorath's secrets? I may know a thing or two about them.
+3;{Name}: Speak, vile creature! What do you know of Morgorath's plans?
+3;Snickerfang (Trickster Demon): I'll tell you right after I absorb your soul!:
+3;After defeating the Tricky Imp, the hero receives an note about the Mother Spider and the demon Gorgoth, both important figures in Morgorath's plans. The location of the Spiders Den was written on the note.
+4;{Name} arrives at the lair of the Mother of Spiders, a formidable beast ruling over a kingdom of arachnids. The scent of venom hangs heavy in the air.
+4;{Name}: So, this is the realm of the Mother of Spiders. I must face her and weaken Morgorath's influence.
+4;Mother of Spiders: Mortal, dare you challenge me? Prepare to become one with my brood!
+4;{Name}: Your reign ends here, foul creature! I will put an end to your terror!
+4;Upon defeating the Mother Spider, the hero encounters a hidden merchant in the cave who offers rare items to strengthen them on their further journey.
+5;{Name} learns about the Goblin General's plans to launch an assault on the kingdom. He must infiltrate their fortified stronghold, confront the General, and thwart their nefarious intentions.
+5;Goblin General: Intruder! How did you breach our defenses? No matter. I shall crush you like the insect you are!
+5;{Name}: Your reign of terror ends now, General! Prepare for your defeat!
+5;After thwarting the plans of the Goblin General, the hero gains crucial information about Morgorath and hidden passage under ruins of old kingdom.
+6;{Name} rushed as fast as possible to the ruins of the old kingdom, where in its catacombs he came across an underground entrance to the Demon Realm. However, the portal was guarded by an Ancient Golem.
+6;{Name}: The Ancient Golem stands before me, an imposing guardian of Demon Realm.
+6;Ancient Golem: Intruder, state your purpose! You shall not pass!
+6;{Name}: I seek justice and the downfall of Morgorath!
+6;Ancient Golem: I am an Ancient Guardian of the kingdom of the Demon Realm.
+6;Ancient Golem: Turn around and I may spare your life!
+6;{Name}: Ahh shit, here we go again...
+6;After defeating the Ancient Golem, the hero discovers a hidden chamber in its room core. Inside they find magnificent armor, forged with ancient magic and unparalleled craftsmanship. With this legendary armor, the hero becomes the embodiment of strength and resilience.
+7;{Name} after crossing the barrier of the demonic world, he finds himself right in front of the Demonic Citadel, where he encounters Gorgoth, a powerful demon serving Morgorath.
+7;{Name}: Gorgoth, your allegiance to Morgorath ends here. Prepare to face the consequences of your actions!
+7;Gorgoth (Demon): You dare challenge me, mortal? I am Gorgoth, Morgorath's loyal servant! Prepare to be crushed!
+7;{Name}: Your loyalty will be your downfall, Gorgoth! I will prevail!
+7;After defeating Gorgoth, a powerful demon serving Morgorath, the hero obtains the key to door of Demon Castle and opens his way to the throne room.
+8;{Name} steps onto the demonic chamber, facing Morgorath, the Demon King. This is the ultimate showdown where he must unleash all his skills and strength to defeat Morgorath and save the kingdom.
+8;Morgorath (Demon King): Ah, {Name}, you have arrived. Prepare for your ultimate demise, for I am the King of Demons!
+8;{Name}: Your reign of darkness ends here, Morgorath! I will stop you and restore peace to the realm!
+8;Morgorath (Demon King): You are a mere insect challenging a god! Prepare to be crushed beneath my heel!
+8;{Name}: I am the champion of justice, and I will prevail! The realm will be free from your tyranny!
+8;With a final strike, {Name} delivers a decisive blow to Morgorath, the Demon King. The dark aura surrounding him dissipates, and a wave of relief washes over the realm. The forces of evil have been defeated, and the kingdom is free once again.
