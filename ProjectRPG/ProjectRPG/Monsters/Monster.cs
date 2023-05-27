@@ -70,7 +70,7 @@ namespace ProjectRPG.Monsters
             }
             else if (losuj > hero.DodgeRate)
             {
-                hero.CurrentHP -= DamageDealt;
+                hero.CurrentHP -= Math.Round(DamageDealt);
                 if (hero.CurrentHP < 0)
                 {
                     hero.CurrentHP = 0; 

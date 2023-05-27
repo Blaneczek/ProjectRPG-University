@@ -1,3 +1,3 @@
 ﻿Titan's Embrace;Legendary;Legendary necklace forged from the heart of a fallen titan, radiates an aura of immense strength and resilience.;20;2
 Arcane Nexus;Legendary;Mystical necklace pulsating with raw magical energy, acts as a conduit for the sorcerer's arcane prowess.;20;2
-Whisperwind Pendant;Legendary;A unique necklace designed for rogues, embodies the essence of agility and cunning.;20;2
+Whisperwind Pendant;Legendary;A unique necklace designed for rogues, embodies the essence of agility and cunning.;202

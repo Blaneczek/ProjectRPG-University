@@ -66,151 +66,189 @@ namespace ProjectRPG.Game
                 PlayerClassName = "ROGUE";
                 PlayerHero = new Rogue(userName);
             }
+            else
+            {           
+                Console.Clear();
+                Console.WriteLine("Wrong button, try again...");
+                ChooseHero();
+            }
             Console.Clear();
         }
         public void ShowHero()
         {
             Console.WriteLine("==========================================================");
-            Console.WriteLine($"| {PlayerHero.Name}  Lvl: {PlayerHero.Level}                      {PlayerClassName}      |");
-            Console.WriteLine("|--------------------------------------------------------|");
-            Console.WriteLine("|                      STATISTICS                        |");
-            Console.WriteLine($"| HEALTH    :  {PlayerHero.MaxHP}                   Strength:     {PlayerHero.Strength} |");
-            Console.WriteLine($"| MANA      :  {PlayerHero.MaxMP}                     Agility:     {PlayerHero.Agility}  |");
-            Console.WriteLine($"| ATTACK    :  {PlayerHero.Attack}                   Intelligence: {PlayerHero.Intelligence}  |");
-            Console.WriteLine($"| DEFENCE   :  {PlayerHero.Defence}                                   |");
-            Console.WriteLine($"| DODGE RATE:  {PlayerHero.DodgeRate}                                  |");
-            Console.WriteLine("|--------------------------------------------------------|");
-            Console.WriteLine("|                         EQ                             |");
-            Console.WriteLine("| Choose an item to inspect:                             |");
-            Console.WriteLine($"| 1.WEAPON   : {PlayerHero.Weapon.Name}                                     |");
-            Console.WriteLine($"| 2.HELMET   : {PlayerHero.Helmet.Name}                                     |");
-            Console.WriteLine($"| 3.NECKLACE : {PlayerHero.Necklace.Name}                                     |");
-            Console.WriteLine($"| 4.ARMOR    : {PlayerHero.Armor.Name}                                     |");           
-            Console.WriteLine($"| 5.BOOTS    : {PlayerHero.Boots.Name}                                     |");
+            Console.WriteLine($" {PlayerHero.Name}  Lvl: {PlayerHero.Level}                 {PlayerClassName}       ");
+            Console.WriteLine("----------------------------------------------------------");
+            Console.WriteLine("                      STATISTICS                          ");
+            Console.WriteLine($" HEALTH    :  {PlayerHero.MaxHP}                  Strength    : {PlayerHero.Strength}    ");
+            Console.WriteLine($" MANA      :  {PlayerHero.MaxMP}                  Agility     : {PlayerHero.Agility}     ");
+            Console.WriteLine($" ATTACK    :  {PlayerHero.Attack}                  Intelligence: {PlayerHero.Intelligence}");
+            Console.WriteLine($" DEFENCE   :  {PlayerHero.Defence}                       ");
+            Console.WriteLine($" DODGE RATE:  {PlayerHero.DodgeRate}                     ");
+            Console.WriteLine("----------------------------------------------------------");
+            Console.WriteLine("                         EQ                               ");
+            Console.WriteLine(" Choose an item to inspect:                               ");
+            Console.WriteLine($" 1.WEAPON   : {PlayerHero.Weapon?.Name}                  ");
+            Console.WriteLine($" 2.HELMET   : {PlayerHero.Helmet.Name}                   ");
+            Console.WriteLine($" 3.NECKLACE : {PlayerHero.Necklace.Name}                 ");
+            Console.WriteLine($" 4.ARMOR    : {PlayerHero.Armor?.Name}                   ");           
+            Console.WriteLine($" 5.BOOTS    : {PlayerHero.Boots.Name}                    ");
             Console.WriteLine("==========================================================");
-            Console.WriteLine("Open inventory: \"I\"                                    |");
-            Console.WriteLine("PRESS \"X\" TO EXIT");
-            string chosen = Console.ReadLine();
-            if (chosen == "x")
+            Console.WriteLine("Inspect items: 1-5                                        ");
+            Console.WriteLine("Open inventory: \"I\"                                     ");
+            Console.WriteLine("PRESS \"X\" TO CONTINUE");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
             }
-            else if (chosen == "i")
+            else if (chosen.Key.ToString() == "I")
             {
                 Console.Clear();
                 PlayerHero.Inventory.OpenInventory();
+                ShowHero();
             }
-            else if (chosen == "1") 
+            else if (chosen.Key.ToString() == "D1" || chosen.Key.ToString() == "NumPad1") 
             {
                 Console.Clear();
                 ShowWeapon();
             }
-            else if (chosen == "2")
+            else if (chosen.Key.ToString() == "D2" || chosen.Key.ToString() == "NumPad2")
             {
                 Console.Clear();
                 ShowHelmet();
             }
-            else if (chosen == "3")
+            else if (chosen.Key.ToString() == "D3" || chosen.Key.ToString() == "NumPad3")
             {
                 Console.Clear();
                 ShowNecklace();
             }
-            else if (chosen == "4")
+            else if (chosen.Key.ToString() == "D4" || chosen.Key.ToString() == "NumPad4")
             {
                 Console.Clear();
                 ShowArmor();
             }
-            else if (chosen == "5")
+            else if (chosen.Key.ToString() == "D5" || chosen.Key.ToString() == "NumPad5")
             {
                 Console.Clear();
                 ShowBoots();
+            }
+            else
+            {
+                Console.Clear();
+                ShowHero();
             }
 
         }
 
         public void ShowWeapon()
         {
-            PlayerHero.Weapon.PrintInfo();
-            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
-            string a = Console.ReadLine();
-            if (a == "c")
+            PlayerHero.Weapon?.PrintInfo();
+            Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "C")
             {
                 Console.Clear();
                 ShowHero();
             }
-            else if (a == "x")
+            else if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
+            }
+            else
+            {
+                Console.Clear();
+                ShowWeapon();
             }
         }
 
         public void ShowArmor()
         {
-            PlayerHero.Armor.PrintInfo();
-            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
-            string a = Console.ReadLine();
-            if (a == "c")
+            PlayerHero.Armor?.PrintInfo();
+            Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "C")
             {
                 Console.Clear();
                 ShowHero();
             }
-            else if (a == "x")
+            else if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
+            }
+            else
+            {
+                Console.Clear();
+                ShowArmor();
             }
         }
 
         public void ShowHelmet()
         {
             PlayerHero.Helmet.PrintInfo();
-            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
-            string a = Console.ReadLine();
-            if (a == "c")
+            Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "C")
             {
                 Console.Clear();
                 ShowHero();
             }
-            else if (a == "x")
+            else if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
+            }
+            else
+            {
+                Console.Clear();
+                ShowHelmet();
             }
         }
 
         public void ShowNecklace()
         {
             PlayerHero.Necklace.PrintInfo();
-            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
-            string a = Console.ReadLine();
-            if (a == "c")
+            Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "C")
             {
                 Console.Clear();
                 ShowHero();
             }
-            else if (a == "x")
+            else if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
+            }
+            else
+            {
+                Console.Clear();
+                ShowNecklace();
             }
         }
 
         public void ShowBoots()
         {
             PlayerHero.Boots.PrintInfo();
-            Console.WriteLine("PRESS \"C\" TO GO BACK OR \"X\" TO EXIT");
-            string a = Console.ReadLine();
-            if (a == "c")
+            Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
+            if (chosen.Key.ToString() == "C")
             {
                 Console.Clear();
                 ShowHero();
             }
-            else if (a == "x")
+            else if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
                 return;
+            }
+            else
+            {
+                Console.Clear();
+                ShowBoots();
             }
         }
     }

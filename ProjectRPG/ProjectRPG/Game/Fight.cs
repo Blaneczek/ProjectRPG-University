@@ -32,8 +32,8 @@ namespace ProjectRPG.Game
             Console.WriteLine("                                ROUND X                                    ");
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                                  VS                                       ");
-            Console.WriteLine($"  {Player.PlayerHero.Name} {Player.PlayerHero.Level}                                                  {Monster.Name} {Monster.Level}");
-            Console.WriteLine($"  HP: {Player.PlayerHero.CurrentHP}/{Player.PlayerHero.MaxHP}                                            HP: {Monster.CurrentHP}/{Monster.MaxHP}");
+            Console.WriteLine($"  {Player.PlayerHero.Name} {Player.PlayerHero.Level}                              {Monster.Name} {Monster.Level}");
+            Console.WriteLine($"  HP: {Player.PlayerHero.CurrentHP}/{Player.PlayerHero.MaxHP}                        HP: {Monster.CurrentHP}/{Monster.MaxHP}");
             Console.WriteLine($"  MP: {Player.PlayerHero.CurrentMP}/{Player.PlayerHero.MaxMP}");
             Console.WriteLine("---------------------------------------------------------------------------");
         }
@@ -55,15 +55,15 @@ namespace ProjectRPG.Game
                 Player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;
             }
 
-            string choice = Console.ReadLine();
-            if (choice == "1")
+            ConsoleKeyInfo choice = Console.ReadKey();
+            if (choice.Key.ToString() == "D1" || choice.Key.ToString() == "NumPad1")
             {
                 DamageDealt = Player.PlayerHero.NormalAttack(Monster);
                 Console.Clear();
                 PrintBattleMenu();
                 Console.WriteLine($"Normal attack dealt: {DamageDealt} damage");
             }
-            else if (choice == "2")
+            else if (choice.Key.ToString() == "D2" || choice.Key.ToString() == "NumPad2")
             {
                 if (Player.PlayerHero.CurrentMP >= 60)
                 {
@@ -75,21 +75,21 @@ namespace ProjectRPG.Game
                 else
                 {
                     RepeatFunction = true;
-                    Console.WriteLine("Not enough MP! Press ENTER");
-                    Console.ReadLine();
+                    Console.WriteLine("Not enough MP! Press any key...");
+                    Console.ReadKey();
                     Console.Clear();
                     PrintHeroTurn();
 
                 }
             }
-            else if (choice == "3")
+            else if (choice.Key.ToString() == "D3" || choice.Key.ToString() == "NumPad3")
             {
                 Player.PlayerHero.AvoidAttack();
                 Console.Clear();
                 PrintBattleMenu();
                 Console.WriteLine("You decided to protect yourself");
             }
-            else if (choice == "4")
+            else if (choice.Key.ToString() == "D4" || choice.Key.ToString() == "NumPad4")
             {
                 if (Player.PlayerHero.AmountOfHPPotions > 0)
                 {
@@ -102,13 +102,13 @@ namespace ProjectRPG.Game
                 else
                 {
                     RepeatFunction = true;
-                    Console.WriteLine("You have run out of HP potions! Press ENTER");
-                    Console.ReadLine();
+                    Console.WriteLine("You have run out of HP potions! Press any key...");
+                    Console.ReadKey();
                     Console.Clear();
                     PrintHeroTurn();
                 }
             }
-            else if (choice == "5")
+            else if (choice.Key.ToString() == "D5" || choice.Key.ToString() == "NumPad5")
             {
                 if (Player.PlayerHero.AmountOfMPPotions > 0)
                 {
@@ -121,8 +121,8 @@ namespace ProjectRPG.Game
                 else
                 {
                     RepeatFunction = true;
-                    Console.WriteLine("You have run out of MP potions! Press ENTER");
-                    Console.ReadLine();
+                    Console.WriteLine("You have run out of MP potions! Press any key...");
+                    Console.ReadKey();
                     Console.Clear();
                     PrintHeroTurn();
                 }
@@ -130,15 +130,13 @@ namespace ProjectRPG.Game
             else
             {
                 RepeatFunction = true;
-                Console.WriteLine("WRONG BUTTON! Press ENTER");
-                Console.ReadLine();
                 Console.Clear();
                 PrintHeroTurn();
             }
 
             if (!RepeatFunction && AdditionalDamageTurns > 0)
             {
-                Console.WriteLine($"{Monster.SpecialAttackDesc} dealt: {AmountOfAdditionalDamage} damage");
+                Console.WriteLine($"Poison dealt: {AmountOfAdditionalDamage} damage");
                 AdditionalDamageTurns--;
             }
             RepeatFunction = false;
@@ -149,8 +147,10 @@ namespace ProjectRPG.Game
             PrintBattleMenu();
             Console.WriteLine("            ENEMY TURN            ");
             double DamageDealt = 0;
-            Random rnd = new Random();
+
+            Random rnd = new();
             int losuj = rnd.Next(1, 11);
+
             if (losuj >= 1 && losuj <= 7) //Normal attack
             {
                 DamageDealt = Monster.NormalAttack(Player.PlayerHero);

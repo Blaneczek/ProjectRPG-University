@@ -29,11 +29,11 @@ namespace ProjectRPG.Equipment.Weapons
         public virtual void PrintInfo()
         {
             Console.WriteLine("======================== WEAPON ============================");
-            Console.WriteLine($"| NAME        :  {Name}                                   |");
-            Console.WriteLine($"| TYPE        :  {GetType().Name}                         |");
-            Console.WriteLine($"| RARITY      :  {Rarity}                                 |");
-            Console.WriteLine($"| DESCRIPTION :  {Description}                            |");
-            Console.WriteLine($"| DAMAGE      :  {Damage}                                 |");
+            Console.WriteLine($" NAME        :  {Name}                                     ");
+            Console.WriteLine($" TYPE        :  {GetType().Name}                           ");
+            Console.WriteLine($" RARITY      :  {Rarity}                                   ");
+            Console.WriteLine($" DESCRIPTION :  {Description}                              ");
+            Console.WriteLine($" DAMAGE      :  {Damage}                                   ");
         }
         #endregion
     }

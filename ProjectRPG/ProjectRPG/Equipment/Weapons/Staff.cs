@@ -17,7 +17,7 @@ namespace ProjectRPG.Equipment.Weapons
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($"| INT BONUS    :  {IntelligenceBonus}                      |");
+            Console.WriteLine($" INT BONUS    :  {IntelligenceBonus}                       ");
             Console.WriteLine("============================================================");
             Console.WriteLine();
         }

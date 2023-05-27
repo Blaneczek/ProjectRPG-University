@@ -18,7 +18,7 @@ namespace ProjectRPG.Equipment.Armors
         public override void PrintInfo()
         {
             base.PrintInfo();
-            Console.WriteLine($"| AG BONUS  :  {AgilityBonus}                            |");
+            Console.WriteLine($" AG BONUS  :  {AgilityBonus}                              ");
             Console.WriteLine("===========================================================");
             Console.WriteLine();
         }

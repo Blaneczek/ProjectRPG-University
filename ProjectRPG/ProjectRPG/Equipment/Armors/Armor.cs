@@ -32,12 +32,12 @@ namespace ProjectRPG.Equipment.Armors
         public virtual void PrintInfo()
         {
             Console.WriteLine("======================== ARMOR ============================");
-            Console.WriteLine($"| NAME        :  {Name}                                  |");
-            Console.WriteLine($"| TYPE        :  {GetType().Name}                        |");
-            Console.WriteLine($"| RARITY      :  {Rarity}                                |");
-            Console.WriteLine($"| DESCRIPTION :  {Description}                           |");
-            Console.WriteLine($"| DEFENCE     :  {Defence}                               |");
-            Console.WriteLine($"| DODGE RATE  :  {DodgeRate}                             |");
+            Console.WriteLine($" NAME        :  {Name}                                   ");
+            Console.WriteLine($" TYPE        :  {GetType().Name}                         ");
+            Console.WriteLine($" RARITY      :  {Rarity}                                 ");
+            Console.WriteLine($" DESCRIPTION :  {Description}                            ");
+            Console.WriteLine($" DEFENCE     :  {Defence}                                ");
+            Console.WriteLine($" DODGE RATE  :  {DodgeRate}                              ");
         }
         #endregion
     }

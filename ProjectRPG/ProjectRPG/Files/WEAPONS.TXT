@@ -1,0 +1,9 @@
+﻿SWORD;Sword1;Common;A basic sword;20;1
+SWORD;Sword2;Rare;A rare sword;40;2
+SWORD;Sword3;Legendary;A legendary sword;80;3
+STAFF;Staff1;Common;A basic staff;20;1
+STAFF;Staff2;Rare;A rare staff;40;2
+STAFF;Staff3;Legendary;A legendary staff;80;3
+DAGGER;Bow1;Common;A basic bow;20;1
+DAGGER;Bow2;Rare;A rare bow;40;2
+DAGGER;Bow3;Legendary;A legendary bow;80;3

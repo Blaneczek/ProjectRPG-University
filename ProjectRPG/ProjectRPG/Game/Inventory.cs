@@ -34,14 +34,16 @@ namespace ProjectRPG.Game
             if (Weapons.Count > 0) 
             {
                 Weapons.ForEach(item => item.PrintInfo());
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                OpenInventory();
             }
             else
             {
                 Console.WriteLine("You don't have any weapons in inventory");
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
                 Console.Clear();
                 OpenInventory();
             }
@@ -54,14 +56,16 @@ namespace ProjectRPG.Game
             if (Armors.Count > 0)
             {
                 Armors.ForEach(item => item.PrintInfo());
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                OpenInventory();
             }
             else
             {
                 Console.WriteLine("You don't have any armors in inventory");
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
                 Console.Clear();
                 OpenInventory();
             }
@@ -74,14 +78,16 @@ namespace ProjectRPG.Game
             if (Helmets.Count > 0)
             {
                 Helmets.ForEach(item => item.PrintInfo());
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                OpenInventory();
             }
             else
             {
                 Console.WriteLine("You don't have any helmets in inventory");
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
                 Console.Clear();
                 OpenInventory();
             }
@@ -94,14 +100,16 @@ namespace ProjectRPG.Game
             if (Necklaces.Count > 0)
             {
                 Necklaces.ForEach(item => item.PrintInfo());
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                OpenInventory();
             }
             else
             {
                 Console.WriteLine("You don't have any necklaces in inventory");
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
                 Console.Clear();
                 OpenInventory();
             }
@@ -114,14 +122,16 @@ namespace ProjectRPG.Game
             if (Boots.Count > 0)
             {
                 Boots.ForEach(item => item.PrintInfo());
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                OpenInventory(); ;
             }
             else
             {
                 Console.WriteLine("You don't have any boots in inventory");
-                Console.WriteLine("Press ENTER to exit");
-                Console.ReadLine();
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
                 Console.Clear();
                 OpenInventory();
             }
@@ -136,14 +146,43 @@ namespace ProjectRPG.Game
             Console.WriteLine("| 5.Boots                       |");
             Console.WriteLine("=================================");
             Console.WriteLine("Choose category: ");
-            string chosen = Console.ReadLine();
+            Console.WriteLine("Press \"X\" to exit");
+            ConsoleKeyInfo chosen = Console.ReadKey();
 
-            if (chosen == "1")
+            if (chosen.Key.ToString() == "X")
+            {
+                Console.Clear();
+                return;
+            }
+            else if (chosen.Key.ToString() == "D1" || chosen.Key.ToString() == "NumPad1") 
             {
                 Console.Clear();
                 PrintAllWeapons();
-                Console.ReadLine();
-                Console.WriteLine("Press ENTER to exit");
+            }
+            else if (chosen.Key.ToString() == "D2" || chosen.Key.ToString() == "NumPad2") 
+            {
+                Console.Clear();
+                PrintAllHelmets();
+            }
+            else if (chosen.Key.ToString() == "D3" || chosen.Key.ToString() == "NumPad3")
+            {
+                Console.Clear();
+                PrintAllNecklaces();
+            }
+            else if (chosen.Key.ToString() == "D4" || chosen.Key.ToString() == "NumPad4")
+            {
+                Console.Clear();
+                PrintAllArmors();
+            }
+            else if (chosen.Key.ToString() == "D5" || chosen.Key.ToString() == "NumPad5")
+            {
+                Console.Clear();
+                PrintAllBoots();
+            }
+            else
+            {
+                Console.Clear();
+                OpenInventory();
             }
         }
     }

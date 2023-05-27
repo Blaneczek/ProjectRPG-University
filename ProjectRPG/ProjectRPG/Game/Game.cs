@@ -1,12 +1,11 @@
 ﻿using ProjectRPG.Monsters;
 using ProjectRPG.Events;
+using ProjectRPG.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjectRPG.Events;
-using ProjectRPG.Equipment.Weapons;
 using System.Threading.Channels;
 using ProjectRPG.Heroes;
 
@@ -39,24 +38,21 @@ namespace ProjectRPG.Game
             Events.GameEventLoader gameEventLoader = new();
             gameEventLoader.LoadWarriorGameEventData(filePathWarriorEvents, filePathScript, itemLoader.Weapons, itemLoader.Armors, itemLoader.Helmets, itemLoader.Boots, itemLoader.Necklaces, monsterLoader.Monsters, player);
 
-            //test
-            //gameEventLoader.GameEventsScript[0].ForEach(item => Console.WriteLine(item));
 
-            //test
-            //Console.WriteLine(eventHandler.WarriorEvents.Event01.Reward.Name);
-
-
-            Spider spider = new Spider("Spider", 1, 500, 50, 30, "Poison bite");
-            Goblin goblin = new Goblin("Goblin", 1, 100, 20, 10, "Cut");
-            Fight fight = new(player, spider);
             player.ChooseHero();           
             Console.Clear();
-            //fight.StartFight();
-
-            PlayEvent(player, player.PlayerClassName, gameEventLoader);
+            if (player != null && player.PlayerClassName != null && gameEventLoader != null)
+            {
+                PlayEvents(player, player.PlayerClassName, gameEventLoader);
+            }
+            else
+            {
+                Console.WriteLine("Something is not right.... Reset game");
+            }
+            
         }
 
-        public void PlayEvent(Player player, string heroType, GameEventLoader gameEventLoader)
+        public void PlayEvents(Player player, string heroType, GameEventLoader gameEventLoader)
         {
             if (heroType == "WARRIOR")
             { 
