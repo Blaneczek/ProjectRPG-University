@@ -129,10 +129,10 @@ namespace ProjectRPG.Heroes
 
         public virtual void UpdateHero()
         {
-            Level++;
+            
             AmountOfHPPotions = 5;
             AmountOfMPPotions = 5;
-        
+            
             Console.WriteLine("         LEVEL UP!              ");
             Console.WriteLine("Increase one of the statistics: ");
             Console.WriteLine($"1. Strength     {Strength}     ");
@@ -141,16 +141,19 @@ namespace ProjectRPG.Heroes
             ConsoleKeyInfo choice = Console.ReadKey(true);
             if (choice.Key.ToString() == "D1" || choice.Key.ToString() == "NumPad1")
             {
+                Level++;
                 BaseStrength++;
                 Console.Clear();
             }
             else if (choice.Key.ToString() == "D2" || choice.Key.ToString() == "NumPad2")
             {
+                Level++;
                 BaseAgility++;
                 Console.Clear();
             }
             else if (choice.Key.ToString() == "D3" || choice.Key.ToString() == "NumPad3")
             {
+                Level++;
                 BaseIntelligence++;
                 Console.Clear();
             }
