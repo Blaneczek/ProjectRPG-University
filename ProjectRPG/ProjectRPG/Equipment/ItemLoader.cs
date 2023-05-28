@@ -8,12 +8,15 @@ namespace ProjectRPG
 {
     public class ItemLoader
     {
-        public List<Armor> Armors { get; private set; }
-        public List<Weapon> Weapons { get; private set; }
-        public List<Helmet> Helmets { get; private set; }
-        public List<Necklace> Necklaces { get; private set; }
-        public List<Boots> Boots { get; private set; }
+        #region Fields and properties
+        public List<Armor> Armors { get; set; }
+        public List<Weapon> Weapons { get; set; }
+        public List<Helmet> Helmets { get; set; }
+        public List<Necklace> Necklaces { get; set; }
+        public List<Boots> Boots { get; set; }
+        #endregion
 
+        #region Constructors
         public ItemLoader()
         {
             Armors = new List<Armor>();
@@ -22,7 +25,9 @@ namespace ProjectRPG
             Necklaces = new List<Necklace>();
             Boots = new List<Boots>();
         }
+        #endregion
 
+        #region Methods
         public async Task LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
         {
             LoadWeapons(filePathWeaons);
@@ -37,7 +42,7 @@ namespace ProjectRPG
             if (File.Exists(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
-            
+
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(';');
@@ -58,7 +63,7 @@ namespace ProjectRPG
                     }
 
                 }
-            }           
+            }
         }
 
         public async Task LoadArmors(string filePathArmor)
@@ -72,7 +77,7 @@ namespace ProjectRPG
                     string[] values = line.Split(';');
                     if (values[0] == "HEAVY")
                     {
-                        Armor armor= new HeavyArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
+                        Armor armor = new HeavyArmor(values[1], values[2], values[3], double.Parse(values[4]), double.Parse(values[5]), double.Parse(values[6]));
                         Armors.Add(armor);
                     }
                     else if (values[0] == "MEDIUM")
@@ -103,7 +108,7 @@ namespace ProjectRPG
                     Helmets.Add(helmet);
                 }
             }
-             
+
         }
 
         public async Task LoadNecklaces(string filePath)
@@ -119,7 +124,7 @@ namespace ProjectRPG
                     Necklaces.Add(necklace);
                 }
             }
-               
+
         }
 
         public async Task LoadBoots(string filePath)
@@ -135,7 +140,8 @@ namespace ProjectRPG
                     Boots.Add(boot);
                 }
             }
-                
-        }
+
+        } 
+        #endregion
     }
 }

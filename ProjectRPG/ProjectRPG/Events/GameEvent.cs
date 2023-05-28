@@ -128,7 +128,7 @@ namespace ProjectRPG.Events
                {
                     await PrintScriptEnding(player);
                     return true;
-                }
+               }
                else
                {
                     Console.Clear();

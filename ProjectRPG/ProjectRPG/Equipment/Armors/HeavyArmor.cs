@@ -10,7 +10,6 @@ namespace ProjectRPG.Equipment.Armors
     {
         public HeavyArmor(string name, string rarity, string description, double defence, double dodgeRate, double additionalBonus) : base(name, rarity, description, defence, dodgeRate, additionalBonus)
         {
-            AdditionalBonus = additionalBonus;  
         }
 
         public override void PrintInfo()

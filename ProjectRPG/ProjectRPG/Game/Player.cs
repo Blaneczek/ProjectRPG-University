@@ -14,13 +14,18 @@ namespace ProjectRPG.Game
 {
     public class Player
     {
+        #region Fields and properties
         public string PlayerClassName { get; set; }
-        public Hero<Weapon, Armor> PlayerHero { get; set; }
-        public bool Death { get; set; }
+        public Hero<Weapon, Armor> PlayerHero { get; set; } 
+        #endregion
+
+        #region Constructors
         public Player() { }
-        
+        #endregion
+
+        #region Methods
         public async Task ChooseHero()
-        {   
+        {
             Console.WriteLine("Enter your Hero's name: ");
             string userName = Console.ReadLine();
 
@@ -68,7 +73,7 @@ namespace ProjectRPG.Game
                 PlayerHero = new Rogue(userName);
             }
             else
-            {           
+            {
                 Console.Clear();
                 Console.WriteLine("Wrong button, try again...");
                 await ChooseHero();
@@ -92,13 +97,13 @@ namespace ProjectRPG.Game
             Console.WriteLine($" 1.WEAPON   : {PlayerHero.Weapon?.Name}                  ");
             Console.WriteLine($" 2.HELMET   : {PlayerHero.Helmet.Name}                   ");
             Console.WriteLine($" 3.NECKLACE : {PlayerHero.Necklace.Name}                 ");
-            Console.WriteLine($" 4.ARMOR    : {PlayerHero.Armor?.Name}                   ");           
+            Console.WriteLine($" 4.ARMOR    : {PlayerHero.Armor?.Name}                   ");
             Console.WriteLine($" 5.BOOTS    : {PlayerHero.Boots.Name}                    ");
             Console.WriteLine("==========================================================");
             Console.WriteLine("Inspect items: 1-5                                        ");
             Console.WriteLine("Open inventory: \"I\"                                     ");
             Console.WriteLine("PRESS \"X\" TO CONTINUE");
-            ConsoleKeyInfo chosen = Console.ReadKey();
+            ConsoleKeyInfo chosen = Console.ReadKey(true);
             if (chosen.Key.ToString() == "X")
             {
                 Console.Clear();
@@ -110,7 +115,7 @@ namespace ProjectRPG.Game
                 PlayerHero.Inventory.OpenInventory();
                 ShowHero();
             }
-            else if (chosen.Key.ToString() == "D1" || chosen.Key.ToString() == "NumPad1") 
+            else if (chosen.Key.ToString() == "D1" || chosen.Key.ToString() == "NumPad1")
             {
                 Console.Clear();
                 ShowWeapon();
@@ -145,7 +150,7 @@ namespace ProjectRPG.Game
 
         public void ShowWeapon()
         {
-            PlayerHero.Weapon?.PrintInfo();
+            PlayerHero.Weapon.PrintInfo();
             Console.WriteLine("Press \"C\" to go back or \"X\" to exit");
             ConsoleKeyInfo chosen = Console.ReadKey();
             if (chosen.Key.ToString() == "C")
@@ -251,6 +256,7 @@ namespace ProjectRPG.Game
                 Console.Clear();
                 ShowBoots();
             }
-        }
+        } 
+        #endregion
     }
 }

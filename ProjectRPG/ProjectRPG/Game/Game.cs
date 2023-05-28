@@ -18,7 +18,6 @@ namespace ProjectRPG.Game
     {
         public async Task StartGame()
         {
-            DateTime startTime = DateTime.Now;
             Player player = new();
             ItemLoader itemLoader = new();
             MonsterLoader monsterLoader = new();
@@ -52,7 +51,7 @@ namespace ProjectRPG.Game
             }
             else
             {
-                Console.WriteLine("Something is not right.... Reset game");
+                Console.WriteLine("Something is not yes.. Reset game");
             }
         }
 

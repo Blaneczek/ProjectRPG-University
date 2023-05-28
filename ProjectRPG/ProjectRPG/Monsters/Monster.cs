@@ -13,7 +13,6 @@ namespace ProjectRPG.Monsters
 {
     public abstract class Monster
     {
-
         #region FieldsAndProperties
         public delegate double AttackDelegate(Hero<Weapon, Armor> hero);
         public event AttackDelegate OnNormalHit;

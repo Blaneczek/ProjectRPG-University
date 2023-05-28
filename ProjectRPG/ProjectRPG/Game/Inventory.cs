@@ -147,7 +147,7 @@ namespace ProjectRPG.Game
             Console.WriteLine("=================================");
             Console.WriteLine("Choose category: ");
             Console.WriteLine("Press \"X\" to exit");
-            ConsoleKeyInfo chosen = Console.ReadKey();
+            ConsoleKeyInfo chosen = Console.ReadKey(true);
 
             if (chosen.Key.ToString() == "X")
             {
