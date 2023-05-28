@@ -70,6 +70,7 @@ namespace ProjectRPG.Game
                     DamageDealt = Player.PlayerHero.SpecialAttack(Monster);
                     Console.Clear();
                     PrintBattleMenu();
+                    Console.WriteLine(Player.PlayerHero.SpecialAttackDesc);
                     Console.WriteLine($"Special attack dealt: {DamageDealt} damage");
                 }
                 else
@@ -190,7 +191,7 @@ namespace ProjectRPG.Game
                     Console.WriteLine(Monster.SpecialAttackDesc);
                     if (Monster.GetType() == typeof(Spider))
                     {
-                        AmountOfAdditionalDamage = DamageDealt / 10;
+                        AmountOfAdditionalDamage = Math.Round(DamageDealt / 10);
                         if (Player.PlayerHero.AbsoluteDefence == false)
                         {
                             AdditionalDamageTurns = 2;

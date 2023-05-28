@@ -33,7 +33,7 @@ namespace ProjectRPG.Equipment.Armors
         #region Methods
         public virtual void PrintInfo()
         {
-            Console.WriteLine("======================== ARMOR ============================");
+            Console.WriteLine("======================== ARMOR =======================================================");
             Console.WriteLine($" NAME        :  {Name}                                   ");
             Console.WriteLine($" TYPE        :  {GetType().Name}                         ");
             Console.WriteLine($" RARITY      :  {Rarity}                                 ");

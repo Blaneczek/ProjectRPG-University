@@ -16,7 +16,7 @@ namespace ProjectRPG.Game
         public List<ArmorType> Armors { get; set; }
         public List<Helmet> Helmets { get; set; }
         public List<Necklace> Necklaces { get; set; }
-        public List<Boot> Boots { get; set; }
+        public List<Boots> Boots { get; set; }
 
         public Inventory() 
         {       
@@ -24,7 +24,7 @@ namespace ProjectRPG.Game
             Armors = new List<ArmorType>();
             Helmets = new List<Helmet>();
             Necklaces = new List<Necklace>();
-            Boots = new List<Boot>();
+            Boots = new List<Boots>();
         }
 
         public void AddWeapon(WeaponType weapon) => Weapons.Add(weapon);
@@ -115,8 +115,8 @@ namespace ProjectRPG.Game
             }
         }
 
-        public void AddBoots(Boot boots) => Boots.Add(boots);
-        public void RemoveBoots(Boot boots) => Boots.Remove(boots);
+        public void AddBoots(Boots boots) => Boots.Add(boots);
+        public void RemoveBoots(Boots boots) => Boots.Remove(boots);
         public void PrintAllBoots()
         {
             if (Boots.Count > 0)

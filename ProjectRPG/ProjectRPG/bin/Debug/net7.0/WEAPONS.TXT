@@ -1,9 +1,9 @@
-﻿SWORD;Ironthorn;Common;A sturdy iron sword, reliable and effective in combat;30;1
-SWORD;Dawnbreaker;Rare;A sleek and finely crafted blade, emanating an air of mystery and carrying the promise of swift and precise strikes;50;2
-SWORD;Greg;Legendary;A legendary blade of mythical origin, said to have the power to vanquish even the most formidable foes, its mere presence radiating an aura of unparalleled strength;80;3
+﻿SWORD;Ironthorn;Common;A sturdy iron sword, reliable and effective in combat;40;1
+SWORD;Dawnbreaker;Rare;A sleek and finely crafted blade, emanating an air of mystery and carrying the promise of swift and precise strikes;70;2
+SWORD;Greg;Legendary;A legendary blade of mythical origin, said to have the power to vanquish even the most formidable foes, its mere presence radiating an aura of unparalleled strength;100;3
 STAFF;Wispwood;Common;A simple wooden staff imbued with a faint magical essence;50;1
-STAFF;Sorcerer's Embrace;Rare;A finely crafted staff adorned with intricate runes, channeling potent magical energies;30;2
-STAFF;Ethereal Scepter;Legendary; of ethereal beauty, resonating with immense arcane power and capable of shaping reality itself;80;3
-DAGGER;Steadfast Blade;Common;A modest yet reliable dagger crafted from steel;30;1
-DAGGER;Shadowbite;Rare;A finely crafted dagger that glimmers with an eerie aura;50;2
-DAGGER;Oblivion's Edge;Legendary;A wickedly sharp and beautifully crafted dagger, said to possess the power to slice through the fabric of reality itself, leaving behind a trail of oblivion in its wake;80;3
+STAFF;Sorcerer's Embrace;Rare;A finely crafted staff adorned with intricate runes, channeling potent magical energies;80;2
+STAFF;Ethereal Scepter;Legendary; of ethereal beauty, resonating with immense arcane power and capable of shaping reality itself;110;3
+DAGGER;Steadfast Blade;Common;A modest yet reliable dagger crafted from steel;50;1
+DAGGER;Shadowbite;Rare;A finely crafted dagger that glimmers with an eerie aura;80;2
+DAGGER;Oblivion's Edge;Legendary;A wickedly sharp and beautifully crafted dagger, said to possess the power to slice through the fabric of reality itself, leaving behind a trail of oblivion in its wake;110;3

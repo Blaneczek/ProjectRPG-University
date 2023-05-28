@@ -16,6 +16,7 @@ namespace ProjectRPG.Game
     {
         public string PlayerClassName { get; set; }
         public Hero<Weapon, Armor> PlayerHero { get; set; }
+        public bool Death { get; set; }
         public Player() { }
         
         public async Task ChooseHero()

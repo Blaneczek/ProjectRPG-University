@@ -13,23 +13,24 @@ namespace ProjectRPG.Heroes
     {
         public Rogue(string name) : base(name)
         {
-            Weapon = new Dagger("Swift Stiletto", "Common", "A small and unassuming dagger, ideal for swift and precise strikes, albeit with limited damage potential at the beginning of their journey.", 20, 1);
-            Armor = new MediumArmor("Shadowcloth Tunic", "Common", "A mediumweight and stealthy yuniv that provides basic protection while allowing rogues to move swiftly and quietly in the shadows.", 40, 0, 1);
+            Weapon = new Dagger("Swift Stiletto", "Common", "A small and unassuming dagger, ideal for swift and precise strikes.", 20, 1);
+            Armor = new MediumArmor("Shadowcloth Tunic", "Common", "A mediumweight and stealthy tunic that provides basic protection.", 10, 0, 1);
             AbsoluteDefenceDesc = "Using your nimble agility, you effortlessly sidestep the attack, avoiding any harm.";
+            SpecialAttackDesc = $"{Name} dissolves into the shadows and strikes swiftly with deadly precision,";
             BaseStrength = 6; 
             BaseAgility = 10; 
             BaseIntelligence = 4;
             Strength = BaseStrength;
             Agility = BaseAgility + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Intelligence = BaseIntelligence;
-            MaxHP = Math.Round(90 + Strength * 9 + Helmet.HPBonus);
+            MaxHP = Math.Round((100 + Strength * 9) * Level + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = Math.Round(80 + Intelligence * 8 + Necklace.MPBonus);
+            MaxMP = Math.Round((80 + Intelligence * 8) * Level + Necklace.MPBonus);
             CurrentMP = MaxMP;
             BaseAttack = Math.Round(9 * (Agility * 0.2)); 
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
-            BaseDodgeRate = 15;
+            BaseDodgeRate = 10;
             DodgeRate = BaseDodgeRate + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
             OnNormalHit += NormalHitMonster; 
             OnSpecialHit += SpecialHitMonster;  
@@ -46,7 +47,7 @@ namespace ProjectRPG.Heroes
 
         public override double SpecialHitMonster(Monster monster)
         {
-            double DamageDealt = Math.Round((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Agility * 0.01) * 1.5);
+            double DamageDealt = Math.Round(((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Agility * 0.01)) * 2);
             CurrentMP -= 40;
 
             monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
@@ -60,14 +61,14 @@ namespace ProjectRPG.Heroes
             Strength = BaseStrength;
             Agility = BaseAgility + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Intelligence = BaseIntelligence;
-            MaxHP = Math.Round(90 + Strength * 9 + Helmet.HPBonus);
+            MaxHP = Math.Round((100 + Strength * 9) * Level + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = Math.Round(80 + Intelligence * 8 + Necklace.MPBonus);
+            MaxMP = Math.Round((80 + Intelligence * 8) * Level + Necklace.MPBonus);
             CurrentMP = MaxMP;
             BaseAttack = Math.Round(9 * (Agility * 0.2));
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
-            BaseDodgeRate = 15;
+            BaseDodgeRate = 10;
             DodgeRate = BaseDodgeRate + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
         }
     }

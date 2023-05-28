@@ -30,19 +30,19 @@ namespace ProjectRPG.Events
             Reward = reward;
             Fight = fight;
         }
-        
+
         public GameEvent() { }
         #endregion
 
         #region Methods
-        public void EquipItem(Player player) 
+        public void EquipItem(Player player)
         {
             if (Reward is Weapon)
             {
                 player.PlayerHero.Inventory.AddWeapon(player.PlayerHero.Weapon);
                 player.PlayerHero.Weapon = Reward as Weapon;
             }
-            else if (Reward is Armor) 
+            else if (Reward is Armor)
             {
                 player.PlayerHero.Inventory.AddArmor(player.PlayerHero.Armor);
                 player.PlayerHero.Armor = Reward as Armor;
@@ -57,10 +57,10 @@ namespace ProjectRPG.Events
                 player.PlayerHero.Inventory.AddNecklace(player.PlayerHero.Necklace);
                 player.PlayerHero.Necklace = Reward as Necklace;
             }
-            else if (Reward is Boot)
+            else if (Reward is Boots)
             {
                 player.PlayerHero.Inventory.AddBoots(player.PlayerHero.Boots);
-                player.PlayerHero.Boots = Reward as Boot;
+                player.PlayerHero.Boots = Reward as Boots;
             }
         }
 
@@ -73,7 +73,7 @@ namespace ProjectRPG.Events
                 foreach (char c in Script[i])
                 {
                     Console.Write(c);
-                    await Task.Delay(20);
+                    await Task.Delay(10);
                 }
                 Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey(true);
@@ -88,35 +88,49 @@ namespace ProjectRPG.Events
             foreach (char c in Script.LastOrDefault())
             {
                 Console.Write(c);
-                await Task.Delay(20);
+                await Task.Delay(10);
             }
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey(true);
             Console.Clear();
         }
-        public async Task PlayEvent(Player player)
+        public async Task<bool> PlayEvent(Player player)
         {
             await PrintScriptProlog(player);
             bool fightResult = Fight.StartFight();
 
-            if (fightResult) 
+            if (IdEvent != 9)
             {
-                EquipItem(player);
-                player.PlayerHero.UpdateHero();
-                Console.WriteLine($"You have captured {Reward.GetType().Name}, you can check it in the hero panel");
-                Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey(true);
-                Console.Clear();
-                await PrintScriptEnding(player);
-                player.ShowHero();
+                if (fightResult)
+                {
+                    EquipItem(player);
+                    player.PlayerHero.UpdateHero();
+                    Console.WriteLine($"You have obtained: {Reward.GetType().Name}. You can check it in the hero panel");
+                    Console.WriteLine("\nPress any key to continue...");
+                    Console.ReadKey(true);
+                    Console.Clear();
+                    await PrintScriptEnding(player);
+                    player.ShowHero();
+                    return true;
+                }
+                else
+                {
+                    Console.Clear();
+                    return false;
+                }
             }
             else
             {
-                player.PlayerHero.UpdateHeroDeath();
-                Console.WriteLine("SMIERC");
-                Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey(true);
-                Console.Clear();
+               if (fightResult) 
+               {
+                    await PrintScriptEnding(player);
+                    return true;
+                }
+               else
+               {
+                    Console.Clear();
+                    return false;
+               }
             }
         }
         #endregion

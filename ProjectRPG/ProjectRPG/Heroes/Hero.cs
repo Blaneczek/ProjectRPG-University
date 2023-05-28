@@ -39,6 +39,7 @@ namespace ProjectRPG.Heroes
         public double Intelligence { get; set; }
         public bool AbsoluteDefence { get; set; }
         public string AbsoluteDefenceDesc { get; set; }
+        public string SpecialAttackDesc { get; set; }
         public int AmountOfHPPotions { get; set; }
         public int AmountOfMPPotions { get; set; }
         public bool Dodged { get; set; }
@@ -47,7 +48,7 @@ namespace ProjectRPG.Heroes
         public Inventory<WeaponType, ArmorType> Inventory { get; set; }
         public HPPotion PotionHP { get; set; }
         public MPPotion PotionMP { get; set; }
-        public Boot Boots { get; set; }
+        public Boots Boots { get; set; }
         public Helmet Helmet { get; set; }
         public Necklace Necklace { get; set; }
         public struct HPPotion
@@ -82,9 +83,9 @@ namespace ProjectRPG.Heroes
             Name = name;
             Level = 1;
             BaseDefence = 20;
-            Helmet = new Helmet("Novice Cap", "Common", "A basic headgear that provides minimal protection and a modest boost to the wearer's attributes", 20, 1);
-            Necklace = new Necklace("Beginner's Luck Pendant", "Common", "A simple pendant imbued with novice-level enchantments, offering a slight enhancement to the wearer's abilities.", 20, 1);
-            Boots = new Boot("Adventurer's Boots", "Common", "Sturdy yet unremarkable boots that provide basic foot protection.", 2, 2);
+            Helmet = new Helmet("Novice Cap", "Common", "A basic headgear that provides minimal protection", 50, 1);
+            Necklace = new Necklace("Beginner's Luck Pendant", "Common", "A simple pendant imbued with novice-level enchantments.", 20, 1);
+            Boots = new Boots("Adventurer's Boots", "Common", "Sturdy yet unremarkable boots that provide basic foot protection.", 1, 2);
             PotionHP = new("HP potion", 30, 5);
             PotionMP = new("MP potion", 30, 5);
             AmountOfHPPotions = PotionHP.Amount;
@@ -119,9 +120,9 @@ namespace ProjectRPG.Heroes
 
         public void UseMPPotion()
         {
-            double addedMP = MaxMP * (PotionMP.ManaPower * 0.01);
+            double addedMP = Math.Round(MaxMP * (PotionMP.ManaPower * 0.01));
 
-            CurrentMP = (CurrentMP + addedMP) > MaxHP ? CurrentMP = MaxMP : Math.Round(CurrentMP + addedMP);
+            CurrentMP = (CurrentMP + addedMP) > MaxMP ? CurrentMP = MaxMP : Math.Round(CurrentMP + addedMP);
 
             AmountOfMPPotions--;
         }
@@ -158,14 +159,6 @@ namespace ProjectRPG.Heroes
                 Console.Clear();
                 UpdateHero();
             }
-        }
-
-        public void UpdateHeroDeath()
-        {
-            AmountOfHPPotions = 5;
-            AmountOfMPPotions = 5;
-            CurrentHP = MaxHP;
-            CurrentMP = MaxMP;
         }
 
         public abstract double NormalHitMonster(Monster monster);

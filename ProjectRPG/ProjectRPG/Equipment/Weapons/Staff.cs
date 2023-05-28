@@ -16,7 +16,7 @@ namespace ProjectRPG.Equipment.Weapons
         {
             base.PrintInfo();
             Console.WriteLine($" INT BONUS    :  {AdditionalBonus}                         ");
-            Console.WriteLine("============================================================");
+            Console.WriteLine("======================================================================================");
             Console.WriteLine();
         }
     }

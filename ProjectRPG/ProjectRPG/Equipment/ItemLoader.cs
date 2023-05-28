@@ -12,7 +12,7 @@ namespace ProjectRPG
         public List<Weapon> Weapons { get; private set; }
         public List<Helmet> Helmets { get; private set; }
         public List<Necklace> Necklaces { get; private set; }
-        public List<Boot> Boots { get; private set; }
+        public List<Boots> Boots { get; private set; }
 
         public ItemLoader()
         {
@@ -20,7 +20,7 @@ namespace ProjectRPG
             Weapons = new List<Weapon>();
             Helmets = new List<Helmet>();
             Necklaces = new List<Necklace>();
-            Boots = new List<Boot>();
+            Boots = new List<Boots>();
         }
 
         public async Task LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
@@ -131,7 +131,7 @@ namespace ProjectRPG
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(';');
-                    Boot boot = new Boot(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
+                    Boots boot = new Boots(values[0], values[1], values[2], double.Parse(values[3]), double.Parse(values[4]));
                     Boots.Add(boot);
                 }
             }

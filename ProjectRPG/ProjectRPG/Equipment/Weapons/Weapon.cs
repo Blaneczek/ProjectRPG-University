@@ -30,7 +30,7 @@ namespace ProjectRPG.Equipment.Weapons
         #region Methods
         public virtual void PrintInfo()
         {
-            Console.WriteLine("======================== WEAPON ============================");
+            Console.WriteLine("======================== WEAPON ======================================================");
             Console.WriteLine($" NAME        :  {Name}                                     ");
             Console.WriteLine($" TYPE        :  {GetType().Name}                           ");
             Console.WriteLine($" RARITY      :  {Rarity}                                   ");

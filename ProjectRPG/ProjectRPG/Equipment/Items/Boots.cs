@@ -1,6 +1,6 @@
 ﻿namespace ProjectRPG.Equipment.Armors
 {
-    public class Boot
+    public class Boots
     {
         #region FieldsAndProperties
         public string Name { get; set; }
@@ -11,7 +11,7 @@
         #endregion
 
         #region Constructors
-        public Boot(string name, string rarity, string description, double additionalBonus, double dodgeRateBonus)
+        public Boots(string name, string rarity, string description, double additionalBonus, double dodgeRateBonus)
         {
             Name = name;
             Rarity = rarity;
@@ -24,14 +24,14 @@
         #region Methods
         public void PrintInfo()
         {
-            Console.WriteLine("======================== BOOTS ============================");
+            Console.WriteLine("======================== BOOTS =======================================================");
             Console.WriteLine($" NAME        :  {Name}                                    ");
             Console.WriteLine($" TYPE        :  {GetType().Name}                          ");
             Console.WriteLine($" RARITY      :  {Rarity}                                  ");
             Console.WriteLine($" DESCRIPTION :  {Description}                             ");
             Console.WriteLine($" CORE BONUS  :  {AdditionalBonus}                         ");
             Console.WriteLine($" DODGE BONUS :  {DodgeRateBonus}                          ");
-            Console.WriteLine("===========================================================");
+            Console.WriteLine("======================================================================================");
             Console.WriteLine();
         }
         #endregion

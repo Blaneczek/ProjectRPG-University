@@ -17,7 +17,7 @@ namespace ProjectRPG.Equipment.Armors
         {
             base.PrintInfo();
             Console.WriteLine($" ST BONUS  :  {AdditionalBonus}                             ");
-            Console.WriteLine("===========================================================");
+            Console.WriteLine("======================================================================================");
             Console.WriteLine();
         }
     }
