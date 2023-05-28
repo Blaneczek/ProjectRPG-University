@@ -25,7 +25,7 @@ namespace ProjectRPG.Heroes
             Intelligence = BaseIntelligence;
             MaxHP = Math.Round((100 + Strength * 10) + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = Math.Round((80 + Intelligence * 8) + Necklace.MPBonus);
+            MaxMP = Math.Round((100 + Intelligence * 8) + Necklace.MPBonus);
             CurrentMP = MaxMP;
             BaseAttack = Math.Round(9 * (Agility * 0.2)); 
             Attack = BaseAttack + Weapon.Damage;
@@ -63,7 +63,7 @@ namespace ProjectRPG.Heroes
             Intelligence = BaseIntelligence;
             MaxHP = Math.Round((100 + Strength * 10) * (Level * 0.5) + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = Math.Round((80 + Intelligence * 8) * (Level * 0.5) + Necklace.MPBonus);
+            MaxMP = Math.Round((100 + Intelligence * 8) * (Level * 0.5) + Necklace.MPBonus);
             CurrentMP = MaxMP;
             BaseAttack = Math.Round(9 * (Agility * 0.2));
             Attack = BaseAttack + Weapon.Damage;
