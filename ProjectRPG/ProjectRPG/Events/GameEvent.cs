@@ -112,6 +112,7 @@ namespace ProjectRPG.Events
             }
             else
             {
+                player.PlayerHero.UpdateHeroDeath();
                 Console.WriteLine("SMIERC");
                 Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey(true);
