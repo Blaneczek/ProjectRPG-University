@@ -1,9 +1,9 @@
-SPIDER;1;Guardian Spider;1;500;50;30;The Guardian Spider sinks its venomous fangs into you, inflicting poison injuries.
-GOBLIN;2;Plunderer Goblin;2;800;80;45;The Plunderer Goblin delivers a powerful blow that leaves heavier damage on your body.
-GOBLIN;3;Hobgoblin Ruler;3;1200;120;60;The Hobgoblin Ruler strikes with commanding force, causing immense pain and shaking your resolve.
-DEMON;4;Snickerfang;4;1600;160;75;Snickerfang hurls a raging fireball, engulfing the area in searing heat.
-SPIDER;5;Mother of Spiders;5;2000;200;90;The Mother of Spiders injects her potent venom that courses through your veins.
-GOBLIN;6;Goblin General;6;2400;240;105;The Goblin General delivers a bone-shaking blow, taking a toll on your vitality.
-GOLEM;7;Ancient Golem;7;2800;280;120;The Ancient Golem smashes into you with thunderous impact, leaving you staggered.
-DEMON;8;Gorgoth;8;3200;320;135;Gorgoth summons a torrent of searing fire, scorching you and the ground beneath you.
-DEMON;9;Morgorath, the Demon King;13;6500;650;210;Morgorath conjures an inferno of unholy flames, obliterating everything in its wake.
+SPIDER;1;Guardian Spider;1;500;40;10;The Guardian Spider sinks its venomous fangs into you, inflicting poison injuries.
+GOBLIN;2;Plunderer Goblin;2;700;50;15;The Plunderer Goblin delivers a powerful blow that leaves heavier damage on your body.
+GOBLIN;3;Hobgoblin Ruler;3;1200;75;25;The Hobgoblin Ruler strikes with commanding force, causing immense pain and shaking your resolve.
+DEMON;4;Snickerfang;4;1200;100;25;Snickerfang hurls a raging fireball, engulfing the area in searing heat.
+SPIDER;5;Mother of Spiders;5;2000;120;30;The Mother of Spiders injects her potent venom that courses through your veins.
+GOBLIN;6;Goblin General;6;1600;160;35;The Goblin General delivers a bone-shaking blow, taking a toll on your vitality.
+GOLEM;7;Ancient Golem;7;3000;100;60;The Ancient Golem smashes into you with thunderous impact, leaving you staggered.
+DEMON;8;Gorgoth;8;2600;220;40;Gorgoth summons a torrent of searing fire, scorching you and the ground beneath you.
+DEMON;9;Morgorath, the Demon King;13;3400;250;50;Morgorath conjures an inferno of unholy flames, obliterating everything in its wake.
