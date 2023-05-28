@@ -17,7 +17,7 @@
 2;Upon defeating the Hobgoblin, the hero acquires vital information about an ancient artifact said to grant superhuman powers.
 3;Unexpectedly, {Name} is ambushed by a mischievous Trickster Demon named Snickerfang. Its devilish grin hints at treachery and cunning.
 3;{Name}: What trickery is this? Who are you, demon?
-3;lSnickerfang (Trickster Demon): Hehe, I am Snickerfang, the master of mischief. You seek Margorath's secrets? I may know a thing or two about them.
+3;Snickerfang (Trickster Demon): Hehe, I am Snickerfang, the master of mischief. You seek Margorath's secrets? I may know a thing or two about them.
 3;{Name}: Speak, vile creature! What do you know of Morgorath's plans?
 3;Snickerfang (Trickster Demon): I'll tell you right after I absorb your soul!:
 3;After defeating the Tricky Imp, the hero receives an note about the Mother Spider and the demon Gorgoth, both important figures in Morgorath's plans. The location of the Spiders Den was written on the note.

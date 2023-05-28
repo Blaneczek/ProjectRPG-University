@@ -47,8 +47,8 @@ namespace ProjectRPG.Heroes
 
         public override double SpecialHitMonster(Monster monster)
         {
-            double DamageDealt = Math.Round(((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Agility * 0.01)) * 2);
-            CurrentMP -= 40;
+            double DamageDealt = Math.Round(((Attack - (Attack * (monster.Defence * 0.01))) * (1 + Agility * 0.01)) * 2.5);
+            CurrentMP -= 100;
 
             monster.CurrentHP = (monster.CurrentHP - DamageDealt) < 0 ? monster.CurrentHP = 0 : monster.CurrentHP - DamageDealt;
 
