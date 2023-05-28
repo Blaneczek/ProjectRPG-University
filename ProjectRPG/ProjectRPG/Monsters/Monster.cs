@@ -33,10 +33,10 @@ namespace ProjectRPG.Monsters
         {
             Name = name;
             Level = level;
-            MaxHP = maxHP * level;
-            CurrentHP = maxHP;
-            Attack = attack * level;
-            Defence = (defence * level) * 0.5;
+            MaxHP = maxHP;
+            CurrentHP = MaxHP;
+            Attack = attack;
+            Defence = defence;
             SpecialAttackDesc = specialAttackDesc;
             OnNormalHit += NormalHitHero;
         }
