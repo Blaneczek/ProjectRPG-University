@@ -6,4 +6,4 @@
 6;Infiltration of the Goblin Fortress
 7;Battle with the Ancient Golem
 8;Encounter with Gorgoth
-2;Final Battle with the Demon King
+9;Final Battle with the Demon King

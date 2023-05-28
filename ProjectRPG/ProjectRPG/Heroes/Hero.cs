@@ -109,22 +109,38 @@ namespace ProjectRPG.Heroes
         {
             AbsoluteDefence = true;
         }
-        public void UseHPPotion()
+        public double UseHPPotion()
         {
-            double addedHP = MaxHP * (PotionHP.HealPower * 0.01);
+            double addedHP = Math.Round(MaxHP * (PotionHP.HealPower * 0.01));
 
-            CurrentHP = (CurrentHP + addedHP) > MaxHP ? CurrentHP = MaxHP : Math.Round(CurrentHP + addedHP);
+            if ((CurrentHP + addedHP) > MaxHP) 
+            { 
+                addedHP = MaxHP - CurrentHP;
+                CurrentHP = MaxHP; 
+                return addedHP;
+            }
 
-            AmountOfHPPotions--;        
+            CurrentHP += addedHP;
+            AmountOfHPPotions--;
+            return addedHP;
         }
 
-        public void UseMPPotion()
+        public double UseMPPotion()
         {
             double addedMP = Math.Round(MaxMP * (PotionMP.ManaPower * 0.01));
 
-            CurrentMP = (CurrentMP + addedMP) > MaxMP ? CurrentMP = MaxMP : Math.Round(CurrentMP + addedMP);
+            CurrentMP += addedMP;
 
+            if ((CurrentMP + addedMP) > MaxMP)
+            {
+                addedMP = MaxMP - CurrentMP;
+                CurrentMP = MaxMP;
+                return addedMP;
+            }
+
+            CurrentMP += addedMP;
             AmountOfMPPotions--;
+            return addedMP;
         }
 
         public virtual void UpdateHero()

@@ -1,3 +1,3 @@
-﻿Warbringer Greaves;Legendary;Crafted from durable materials, they provide sturdy protection and a firm grip on any surface.;3;5
-Arcaneweave Footwraps;Legendary;Adorned with ancient runes that pulsate with power, granting the sorcerer unparalleled mobility and stability.;3;5
-Shadowstep Striders;Legendary;Crafted from supple yet durable materials, these boots are designed to make the rogue's movements near-silent.;4;5
+﻿Warbringer Greaves;Legendary;Crafted from durable materials, they provide sturdy protection.;3;5
+Arcaneweave Footwraps;Legendary;Adorned with ancient runes that pulsate with power.;3;5
+Shadowstep Striders;Legendary;Crafted from supple yet durable materials.;4;5

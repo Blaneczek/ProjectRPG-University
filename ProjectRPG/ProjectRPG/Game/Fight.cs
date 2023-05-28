@@ -43,13 +43,13 @@ namespace ProjectRPG.Game
         {
             PrintBattleMenu();
             Console.WriteLine("            YOUR TURN            ");
-            Console.WriteLine("========== Battle Menu ==========");
-            Console.WriteLine("| 1. Normal Attack              |");
-            Console.WriteLine("| 2. Special Attack [Costs 40MP]|");
-            Console.WriteLine("| 3. Defensive Ability          |");
-            Console.WriteLine($"| 4. Use Health Potion [{Player.PlayerHero.AmountOfHPPotions}/5]    |");
-            Console.WriteLine($"| 5. Use Mana Potion   [{Player.PlayerHero.AmountOfMPPotions}/5]    |");
-            Console.WriteLine("=================================");
+            Console.WriteLine("========== Battle Menu ===========");
+            Console.WriteLine("| 1. Normal Attack               |");
+            Console.WriteLine("| 2. Special Attack [Costs 100MP]|");
+            Console.WriteLine("| 3. Defensive Ability           |");
+            Console.WriteLine($"| 4. Use Health Potion [{Player.PlayerHero.AmountOfHPPotions}/5]     |");
+            Console.WriteLine($"| 5. Use Mana Potion   [{Player.PlayerHero.AmountOfMPPotions}/5]     |");
+            Console.WriteLine("==================================");
 
             if (!RepeatFunction && AdditionalDamageTurns > 0)
             {
@@ -95,11 +95,11 @@ namespace ProjectRPG.Game
             {
                 if (Player.PlayerHero.AmountOfHPPotions > 0)
                 {
-                    Player.PlayerHero.UseHPPotion();
+                    double addedHP = Player.PlayerHero.UseHPPotion();
                     Console.Clear();
                     PrintBattleMenu();
                     Console.WriteLine("You have used a HP potion");
-                    Console.WriteLine(Player.PlayerHero.CurrentHP);
+                    Console.WriteLine($"Added {addedHP} HP");
                 }
                 else
                 {
@@ -114,11 +114,11 @@ namespace ProjectRPG.Game
             {
                 if (Player.PlayerHero.AmountOfMPPotions > 0)
                 {
-                    Player.PlayerHero.UseMPPotion();
+                    double addedMP = Player.PlayerHero.UseMPPotion();
                     Console.Clear();
                     PrintBattleMenu();
                     Console.WriteLine("You have used a MP potion");
-                    Console.WriteLine(Player.PlayerHero.CurrentMP);
+                    Console.WriteLine($"Added {addedMP} MP");
                 }
                 else
                 {

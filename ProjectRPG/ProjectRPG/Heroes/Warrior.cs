@@ -69,6 +69,7 @@ namespace ProjectRPG.Heroes
             Attack = BaseAttack + Weapon.Damage;
             Defence = BaseDefence + Armor.Defence;
             DodgeRate = 2 + Agility + Armor.DodgeRate + Boots.DodgeRateBonus;
+
         }
 
     }

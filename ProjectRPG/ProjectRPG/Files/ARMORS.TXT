@@ -1,9 +1,9 @@
-﻿HEAVY;Ironclad Plate;Common;A sturdy suit of armor forged from iron, offering reliable protection.;30;0;1
-HEAVY;Titanforged Warplate;Legendary;An awe-inspiring suit of armor forged by legendary blacksmiths, granting unmatched protection.;50;0;3
+﻿HEAVY;Ironclad Plate;Rare;A sturdy suit of armor forged from iron, offering reliable protection.;30;0;1
+HEAVY;Titanforged Warplate;Legendary;An awe-inspiring suit of armor forged by legendary blacksmiths.;50;0;3
 HEAVY;Dreadsteel Battlegear;Rare;A rare set of intricately crafted steel armor, renowned for its resilience and durability.;40;0;2
-MEDIUM;Shadowweave Tunic;Common;A medium-weight and agile tunic woven with shadow-infused fabric, providing modest protection.;15;5;1
+MEDIUM;Shadowweave Tunic;Rare;A medium-weight and agile tunic woven with shadow-infused fabric.;15;5;1
 MEDIUM;Whisperwind Shroud;Legendary;A legendary garment whispered to be woven from the essence of the night itself.;40;5;3
 MEDIUM;Slythorn Vestments;Rare;A rare set of intricately crafted vestments, enhances rogue's ability to move swiftly.;30;5;2
-LIGHT;Arcaneweave Robes;Common;A lightweight robe adorned with intricate arcane symbols, allowing the wearer to focus on harnessing their mystical powers.;15;10;1
-LIGHT;Ethereal Enigma;Legendary;A legendary robe crafted from otherworldly materials, radiating an aura of immense magical power.;30;20;3
+LIGHT;Arcaneweave Robes;Rare;A lightweight robe adorned with intricate arcane symbols.;15;10;1
+LIGHT;Ethereal Enigma;Legendary;A legendary robe crafted from otherworldly materials, radiating an aura of arcane power.;30;20;3
 LIGHT;Celestial Raiment;Rare;A rare set of ethereal robes woven from celestial threads, empowering the sorcerer's spells.;20;15;2
