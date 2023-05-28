@@ -44,7 +44,7 @@ namespace ProjectRPG.Game
             Console.WriteLine("            YOUR TURN            ");
             Console.WriteLine("========== Battle Menu ==========");
             Console.WriteLine("| 1. Normal Attack              |");
-            Console.WriteLine("| 2. Special Attack [Costs 60MP]|");
+            Console.WriteLine("| 2. Special Attack [Costs 40MP]|");
             Console.WriteLine("| 3. Defensive Ability          |");
             Console.WriteLine($"| 4. Use Health Potion [{Player.PlayerHero.AmountOfHPPotions}/5]    |");
             Console.WriteLine($"| 5. Use Mana Potion   [{Player.PlayerHero.AmountOfMPPotions}/5]    |");

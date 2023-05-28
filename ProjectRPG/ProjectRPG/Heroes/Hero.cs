@@ -160,6 +160,14 @@ namespace ProjectRPG.Heroes
             }
         }
 
+        public void UpdateHeroDeath()
+        {
+            AmountOfHPPotions = 5;
+            AmountOfMPPotions = 5;
+            CurrentHP = MaxHP;
+            CurrentMP = MaxMP;
+        }
+
         public abstract double NormalHitMonster(Monster monster);
         public abstract double SpecialHitMonster(Monster monster);
         #endregion
