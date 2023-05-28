@@ -73,7 +73,7 @@ namespace ProjectRPG.Events
                 foreach (char c in Script[i])
                 {
                     Console.Write(c);
-                    await Task.Delay(1);
+                    await Task.Delay(10);
                 }
                 Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey(true);
@@ -90,7 +90,7 @@ namespace ProjectRPG.Events
             foreach (char c in ending)
             {
                 Console.Write(c);
-                await Task.Delay(1);
+                await Task.Delay(10);
             }
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey(true);
