@@ -18,6 +18,7 @@ namespace ProjectRPG.Game
     {
         public async Task StartGame()
         {
+            DateTime startTime = DateTime.Now;
             Player player = new();
             ItemLoader itemLoader = new();
             MonsterLoader monsterLoader = new();
@@ -29,26 +30,22 @@ namespace ProjectRPG.Game
             string filePathHelmets = "HELMETS.TXT"; 
             string filePathNecklaces = "NECKLACES.TXT"; 
             string filePathBoots = "BOOTS.TXT";           
-            await itemLoader.LoadItemsFromFile(filePathWeapons, filePathArmors, filePathHelmets, filePathNecklaces, filePathBoots);
+            Task itemLoaderTask = itemLoader.LoadItemsFromFile(filePathWeapons, filePathArmors, filePathHelmets, filePathNecklaces, filePathBoots);
 
             //MONSTERS
             string filePathMonsters = "MONSTERS.TXT";          
-            await monsterLoader.LoadMonsters(filePathMonsters);
+            Task monsterLoaderTask = monsterLoader.LoadMonsters(filePathMonsters);
 
-
+            await Task.WhenAll(itemLoaderTask, monsterLoaderTask);
             //EVENTS
             string filePathEvents = "EVENTS.TXT";
-            string filePathScript = "SCRIPT.TXT";            
-            await gameEventLoader.LoadWarriorGameEventData(filePathEvents, filePathScript, itemLoader.Weapons, itemLoader.Armors, itemLoader.Helmets, itemLoader.Boots, itemLoader.Necklaces, monsterLoader.Monsters, player);
+            string filePathScript = "SCRIPT.TXT";
+            Task gameEventLoaderTask = gameEventLoader.LoadGameEventData(filePathEvents, filePathScript, itemLoader.Weapons, itemLoader.Armors, itemLoader.Helmets, itemLoader.Boots, itemLoader.Necklaces, monsterLoader.Monsters, player);
 
-            Console.WriteLine("            GAME NAME        ");
-            Console.WriteLine();
-            Console.WriteLine("    Press any key to continue...       ");
-            Console.ReadKey(true);
-            Console.Clear();
+            Task playStartTask = PlayStart(player);
            
-            await player.ChooseHero();           
-            Console.Clear();
+            await Task.WhenAll(gameEventLoaderTask, playStartTask);
+
             if (player != null && player.PlayerClassName != null && gameEventLoader != null)
             {
                 await PlayEvents(player, player.PlayerClassName, gameEventLoader);              
@@ -56,8 +53,18 @@ namespace ProjectRPG.Game
             else
             {
                 Console.WriteLine("Something is not right.... Reset game");
-            }
-            
+            }            
+        }
+
+        public async Task PlayStart(Player player)
+        {
+            Console.WriteLine("            GAME NAME        ");
+            Console.WriteLine();
+            Console.WriteLine("    Press any key to continue...       ");
+            Console.ReadKey(true);
+            Console.Clear();
+            await player.ChooseHero();
+            Console.Clear();
         }
 
         public async Task PlayEvents(Player player, string heroType, GameEventLoader gameEventLoader)

@@ -83,7 +83,7 @@ namespace ProjectRPG.Heroes
             Level = 1;
             BaseDefence = 20;
             Helmet = new Helmet("Novice Cap", "Common", "A basic headgear that provides minimal protection and a modest boost to the wearer's attributes", 20, 1);
-            Necklace = new Necklace("Beginner's Luck Pendant", "Common", "A simple pendant imbued with novice-level enchantments, offering a slight enhancement to the wearer's abilities as they embark on their journey.", 20, 1);
+            Necklace = new Necklace("Beginner's Luck Pendant", "Common", "A simple pendant imbued with novice-level enchantments, offering a slight enhancement to the wearer's abilities.", 20, 1);
             Boots = new Boot("Adventurer's Boots", "Common", "Sturdy yet unremarkable boots that provide basic foot protection.", 2, 2);
             PotionHP = new("HP potion", 30, 5);
             PotionMP = new("MP potion", 30, 5);

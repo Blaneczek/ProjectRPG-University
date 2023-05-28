@@ -25,11 +25,11 @@ namespace ProjectRPG
 
         public async Task LoadItemsFromFile(string filePathWeaons, string filePathArmors, string filePathHelmets, string filePathNecklaces, string filePathBoots)
         {
-            await LoadWeapons(filePathWeaons);
-            await LoadArmors(filePathArmors);
-            await LoadHelmets(filePathHelmets);
-            await LoadNecklaces(filePathNecklaces);
-            await LoadBoots(filePathBoots);
+            LoadWeapons(filePathWeaons);
+            LoadArmors(filePathArmors);
+            LoadHelmets(filePathHelmets);
+            LoadNecklaces(filePathNecklaces);
+            LoadBoots(filePathBoots);
         }
 
         public async Task LoadWeapons(string filePath)

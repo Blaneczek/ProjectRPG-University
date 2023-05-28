@@ -80,8 +80,8 @@ namespace ProjectRPG.Game
             Console.WriteLine($" {PlayerHero.Name}  Lvl: {PlayerHero.Level}                 {PlayerClassName}       ");
             Console.WriteLine("----------------------------------------------------------");
             Console.WriteLine("                      STATISTICS                          ");
-            Console.WriteLine($" HEALTH    :  {PlayerHero.MaxHP}                  Strength    : {PlayerHero.Strength}    ");
-            Console.WriteLine($" MANA      :  {PlayerHero.MaxMP}                  Agility     : {PlayerHero.Agility}     ");
+            Console.WriteLine($" HEALTH    :  {PlayerHero.MaxHP}                  Strength   : {PlayerHero.Strength}    ");
+            Console.WriteLine($" MANA      :  {PlayerHero.MaxMP}                  Agility    : {PlayerHero.Agility}     ");
             Console.WriteLine($" ATTACK    :  {PlayerHero.Attack}                  Intelligence: {PlayerHero.Intelligence}");
             Console.WriteLine($" DEFENCE   :  {PlayerHero.Defence}                       ");
             Console.WriteLine($" DODGE RATE:  {PlayerHero.DodgeRate}                     ");

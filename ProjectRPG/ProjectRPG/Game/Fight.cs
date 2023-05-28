@@ -55,7 +55,7 @@ namespace ProjectRPG.Game
                 Player.PlayerHero.CurrentHP -= AmountOfAdditionalDamage;
             }
 
-            ConsoleKeyInfo choice = Console.ReadKey();
+            ConsoleKeyInfo choice = Console.ReadKey(true);
             if (choice.Key.ToString() == "D1" || choice.Key.ToString() == "NumPad1")
             {
                 DamageDealt = Player.PlayerHero.NormalAttack(Monster);

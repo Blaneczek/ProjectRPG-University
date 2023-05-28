@@ -138,7 +138,7 @@ namespace ProjectRPG.Events
             }
         }
 
-        public async Task LoadWarriorGameEventData(string filePath, string filePathScript, List<Weapon> weapon, List<Armor> armor, List<Helmet> helmets, List<Boot> boots, List<Necklace> necklaces, Dictionary<int, Monster> monsters, Player player)
+        public async Task LoadGameEventData(string filePath, string filePathScript, List<Weapon> weapon, List<Armor> armor, List<Helmet> helmets, List<Boot> boots, List<Necklace> necklaces, Dictionary<int, Monster> monsters, Player player)
         {
             LoadGameEventsScript(filePathScript);
             if (File.Exists(filePath))

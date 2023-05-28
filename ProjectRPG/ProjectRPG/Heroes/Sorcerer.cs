@@ -13,9 +13,9 @@ namespace ProjectRPG.Heroes
     {
         public Sorcerer(string name) : base(name)
         {
-            Weapon = new Staff("Staff", "Common", "Taki se miecz", 20, 1);
-            Armor = new LightArmor("Light", "Common", "Taki se armor", 40, 0, 1);
-            AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
+            Weapon = new Staff("Apprentice's Wand", "Common", "A basic wooden wand, the quintessential tool for novice sorcerers to channel their magical abilities", 20, 1);
+            Armor = new LightArmor("Light Vestments", "Common", "A lightweight and simple robe worn by aspiring sorcerers, offering minimal protection", 40, 0, 1);
+            AbsoluteDefenceDesc = "You conjure a magical barrier, nullifying the incoming attack.";
             BaseStrength = 4;
             BaseAgility = 6;
             BaseIntelligence = 10;

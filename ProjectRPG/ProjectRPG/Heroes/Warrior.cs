@@ -14,8 +14,8 @@ namespace ProjectRPG.Heroes
     {
         public Warrior(string name) : base(name)
         {
-            Weapon = new Sword("Sword", "Common", "Taki se miecz", 100, 1);
-            Armor = new HeavyArmor("Heavy", "Common", "Taki se armor", 40, 0, 1);
+            Weapon = new Sword("Wooden Shortsword", "Common", "A humble training weapon made of sturdy wood, perfect for beginners to practice their swordsmanship skills.", 20, 1);
+            Armor = new HeavyArmor("Heavy", "Common", "A basic chestpiece crafted from sturdy materials, providing minimal protection for novice warriors", 40, 0, 1);
             AbsoluteDefenceDesc = "You assume a defensive stance, effectively blocking the incoming attack.";
             BaseStrength = 10;
             BaseAgility = 6;
