@@ -12,6 +12,7 @@ namespace ProjectRPG.Game
 {
     public class Fight
     {
+        public int Round { get; set; }
         public Player Player { get; set; }
         public Monster Monster { get; set; }
         public double AmountOfAdditionalDamage { get; set; }
@@ -29,7 +30,7 @@ namespace ProjectRPG.Game
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                            COMBAT ENCOUNTER                               ");
             Console.WriteLine("---------------------------------------------------------------------------");
-            Console.WriteLine("                                ROUND X                                    ");
+            Console.WriteLine($"                                ROUND {Round}                                    ");
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("                                  VS                                       ");
             Console.WriteLine($"  {Player.PlayerHero.Name} lvl {Player.PlayerHero.Level}                           {Monster.Name} lvl {Monster.Level}");
@@ -211,6 +212,7 @@ namespace ProjectRPG.Game
 
         public bool StartFight()
         {
+            Round = 1;
             DamageDealt = 0;
             AmountOfAdditionalDamage = 0;
             AdditionalDamageTurns = 0;
@@ -247,6 +249,7 @@ namespace ProjectRPG.Game
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();
                 Console.Clear();
+                Round++;
             }
         }
     }

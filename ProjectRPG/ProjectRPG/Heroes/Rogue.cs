@@ -23,9 +23,9 @@ namespace ProjectRPG.Heroes
             Strength = BaseStrength;
             Agility = BaseAgility + Weapon.AdditionalBonus + Armor.AdditionalBonus + Helmet.AdditionalBonus + Necklace.AdditionalBonus + Boots.AdditionalBonus;
             Intelligence = BaseIntelligence;
-            MaxHP = Math.Round((100 + Strength * 9) * Level + Helmet.HPBonus);
+            MaxHP = Math.Round((100 + Strength * 8) * Level + Helmet.HPBonus);
             CurrentHP = MaxHP;
-            MaxMP = Math.Round((80 + Intelligence * 8) * Level + Necklace.MPBonus);
+            MaxMP = Math.Round((80 + Intelligence * 8) * (Level * 0.5) + Necklace.MPBonus);
             CurrentMP = MaxMP;
             BaseAttack = Math.Round(9 * (Agility * 0.2)); 
             Attack = BaseAttack + Weapon.Damage;

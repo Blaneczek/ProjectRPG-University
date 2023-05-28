@@ -73,7 +73,7 @@ namespace ProjectRPG.Events
                 foreach (char c in Script[i])
                 {
                     Console.Write(c);
-                    await Task.Delay(10);
+                    await Task.Delay(1);
                 }
                 Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey(true);
@@ -85,15 +85,18 @@ namespace ProjectRPG.Events
         public async Task PrintScriptEnding(Player player)
         {
             Console.WriteLine($"||||  {Name}  ||||");
-            foreach (char c in Script.LastOrDefault())
+            string ending = Script.LastOrDefault();
+            ending = ending.Replace("{Name}", player.PlayerHero.Name);
+            foreach (char c in ending)
             {
                 Console.Write(c);
-                await Task.Delay(10);
+                await Task.Delay(1);
             }
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey(true);
             Console.Clear();
         }
+
         public async Task<bool> PlayEvent(Player player)
         {
             await PrintScriptProlog(player);
