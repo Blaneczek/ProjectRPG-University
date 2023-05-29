@@ -129,8 +129,6 @@ namespace ProjectRPG.Heroes
         {
             double addedMP = Math.Round(MaxMP * (PotionMP.ManaPower * 0.01));
 
-            CurrentMP += addedMP;
-
             if ((CurrentMP + addedMP) > MaxMP)
             {
                 addedMP = MaxMP - CurrentMP;
